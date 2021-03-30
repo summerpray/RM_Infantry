@@ -171,11 +171,12 @@ void shoot_task(void *pvParameters)
 				REVOLVER_Key_Ctrl();
 				revol_remot_change = TRUE;
 //			}
-		if (IF_RC_SW2_UP)
-			{				
+		if (IF_RC_SW2_MID)
+			{
 				REVOLVER_Rc_Ctrl();
-        Fric_Key_Ctrl();  
+        
 			}
+			Fric_Key_Ctrl();
 //测试平台    启用正常程序需要去掉正常程序的注释
 //			if(IF_RC_SW1_DOWN)
 //			{
@@ -360,7 +361,7 @@ void REVOLVER_Rc_Ctrl(void)
 		if(Key_ShootNum != 0)
 		{
 			Key_ShootNum--;
-			Revolver_Buff_Target_Sum -= AN_BULLET;  //改过
+			Revolver_Buff_Target_Sum += AN_BULLET;  //改过
 		}
 		
 		if(Revolver_Angle_Target_Sum != Revolver_Buff_Target_Sum)//缓慢转过去
@@ -612,7 +613,7 @@ void SHOOT_TRIPLE_Ctrl(void)
 	}
 	
 	//速度环转速设置
-	Revolver_Speed_Target = REVOL_SPEED_RATIO/REVOL_SPEED_GRID*Revolver_Freq;
+	Revolver_Speed_Target = -REVOL_SPEED_RATIO/REVOL_SPEED_GRID*Revolver_Freq;
 }
 
 /**
@@ -823,7 +824,7 @@ void REVOLVER_KeyPosiCtrl(void)
 	{
 		Revol_Posit_RespondTime = CurrentTime + Shoot_Interval;
 		Key_ShootNum--;//发弹计数减
-		Revolver_Buff_Target_Sum += AN_BULLET;//拨盘位置加
+		Revolver_Buff_Target_Sum -= AN_BULLET;//拨盘位置加
 		
 		posishoot_time = xTaskGetTickCount();//单发指令下达时的系统时间,用于发射延时测试
 	}		

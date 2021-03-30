@@ -97,6 +97,7 @@ void chassis_task(void *pvParameters)
 					{
 						 chassis_feedback_update();
 						 Chassis_Key_Ctrl();		
+						 
 						 Chassis_Set_Contorl();
 					}
 					else   //Ò£¿ØÆ÷Ä£Ê½
@@ -1224,7 +1225,7 @@ void Chassis_Motor_Speed_PID_KEY(void)
         vector_rate = MAX_WHEEL_SPEED / (max_vector);
         for (i = 0; i < 4; i++)
         {
-            Chassis_Speed_Target[i] *= vector_rate/5;
+            Chassis_Speed_Target[i] *= vector_rate/3;
         }
     }
 
