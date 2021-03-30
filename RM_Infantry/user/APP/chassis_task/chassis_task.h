@@ -44,9 +44,9 @@ extern void chassis_task(void *pvParameters);
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_IOUT 1000.0f
 
 //底盘旋转跟随PID
-#define CHASSIS_FOLLOW_GIMBAL_PID_KP 2.0f  //0.15
+#define CHASSIS_FOLLOW_GIMBAL_PID_KP 0.50f  //0.15
 #define CHASSIS_FOLLOW_GIMBAL_PID_KI 0.0f
-#define CHASSIS_FOLLOW_GIMBAL_PID_KD 0.1f
+#define CHASSIS_FOLLOW_GIMBAL_PID_KD 0.0f
 #define CHASSIS_FOLLOW_GIMBAL_PID_MAX_OUT 3.0f //3.0
 #define CHASSIS_FOLLOW_GIMBAL_PID_MAX_IOUT 0.1f
 
@@ -64,7 +64,7 @@ extern void chassis_task(void *pvParameters);
 //底盘运动过程最大平移速度
 #define NORMAL_MAX_CHASSIS_SPEED_Y 2.0f
 //底盘运动过程最大旋转速度
-#define NORMAL_MAX_CHASSIS_SPEED_Z 2.0f
+#define NORMAL_MAX_CHASSIS_SPEED_Z 0.05f
 
 
 //遥控器前进摇杆（max 660）转化成车体前进速度（m/s）的比例
