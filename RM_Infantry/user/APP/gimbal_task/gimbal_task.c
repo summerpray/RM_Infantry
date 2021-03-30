@@ -218,10 +218,21 @@ void GIMBAL_task(void *pvParameters)
 		}
 		else
 		{
-			RC_Set_Mode();
+			if (IF_RC_SW2_UP)
+			{
+				RC_Set_Mode();
+				KEY_Set_Mode();
+			}
+			else
+			{
+				RC_Set_Mode();
+				GIMBAL_Set_Control();
+			  actGimbal = GIMBAL_NORMAL;
+			}
+			
 //			if(IF_RC_SW2_MID)
 //			{
-			KEY_Set_Mode();
+			
 //			GIMBAL_AUTO_Mode_Ctrl();
 //		  	GIMBAL_PositionLoop_AUTO();
 //			}
@@ -350,7 +361,7 @@ void GIMBAL_Set_Control(void)
     rc_deadline_limit(RC_CH1_RUD_OFFSET, pitch_channel, RC_deadband);	
 	
     rc_add_yaw = yaw_channel * Yaw_RC_SEN ;
-    rc_add_pit = pitch_channel * Pitch_RC_SEN ;
+    rc_add_pit = - pitch_channel * Pitch_RC_SEN ;
 	
 	if(modeGimbal == CLOUD_MECH_MODE)
 	{

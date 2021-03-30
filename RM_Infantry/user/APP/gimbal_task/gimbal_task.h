@@ -86,10 +86,10 @@
 
 #define max_yaw_relative_angle     (PI/6)
 #define min_yaw_relative_angle       -(PI/6)
-#define max_pitch_relative_angle   (PI/5)
+#define max_pitch_relative_angle   (PI/8)
 #define min_pitch_relative_angle  -(1.2 * PI)
 #define mid_yaw_angle                0       //安装时歪了 所以这里纠正
-#define mid_pitch_angle          (PI/16)
+#define mid_pitch_angle          -(PI/1.2)
 
 //云台跟随pid
 #define  GIMBAL_FOLLOW_CHASSIS_PID_KP 0.10f  //0.15
