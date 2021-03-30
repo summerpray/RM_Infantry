@@ -26,7 +26,7 @@ extern VisionRecvData_t VisionRecvData;
 
 /*******************摩檫轮电机参数**********************/
 
-float Friction_PWM_Output[6]     = {0, 460, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
+float Friction_PWM_Output[6]     = {0, 300, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
 
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0,  20,  26,  34,  36};//测试时随便定的速度,后面测试更改
@@ -81,7 +81,7 @@ float Revolver_Final_Output;
 /****************射频控制******************/
 
 uint16_t  Fric_enable = 0;  //键盘模式控制摩擦轮是否开启
-uint16_t  Chass_Switch_Z = 0; //摩擦轮状态改变量
+uint16_t  Chass_Switch_G = 0; //摩擦轮状态改变量
 
 #define SHOOT_LEFT_TIME_MAX  200	//左键连按切换间隔
 
@@ -174,7 +174,7 @@ void shoot_task(void *pvParameters)
 		if (IF_RC_SW2_UP)
 			{				
 				REVOLVER_Rc_Ctrl();
-        
+        Fric_Key_Ctrl();  
 			}
 //测试平台    启用正常程序需要去掉正常程序的注释
 //			if(IF_RC_SW1_DOWN)
@@ -182,7 +182,7 @@ void shoot_task(void *pvParameters)
 //				REVOLVER_SHAKE();
 //				Revolver_mode = REVOL_POSI_MODE;
 //			}
-			 Fric_Key_Ctrl();
+			 
 		}
 //----------------------------------------------		
 		if(Revolver_mode == REVOL_SPEED_MODE)
@@ -225,14 +225,14 @@ void shoot_task(void *pvParameters)
   */
 void Fric_Key_Ctrl(void)
 {
-    if(!IF_KEY_PRESSED_Z)
+    if(!IF_KEY_PRESSED_G)
     {
-        Chass_Switch_Z = 1;
+        Chass_Switch_G = 1;
     }
 
-    if(IF_KEY_PRESSED_Z && Chass_Switch_Z == 1)
+    if(IF_KEY_PRESSED_G && Chass_Switch_G == 1)
     {
-        Chass_Switch_Z = 0;
+        Chass_Switch_G = 0;
         Fric_enable ++;
         Fric_enable %= 2;   //按基数次有效，偶数次无效，按一次开再按一次关
     }
@@ -360,7 +360,7 @@ void REVOLVER_Rc_Ctrl(void)
 		if(Key_ShootNum != 0)
 		{
 			Key_ShootNum--;
-			Revolver_Buff_Target_Sum += AN_BULLET;
+			Revolver_Buff_Target_Sum -= AN_BULLET;  //改过
 		}
 		
 		if(Revolver_Angle_Target_Sum != Revolver_Buff_Target_Sum)//缓慢转过去

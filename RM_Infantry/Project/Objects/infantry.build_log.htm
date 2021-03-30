@@ -27,47 +27,11 @@ Project File Date:  01/17/2021
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\MDK5\mdk5\ARM\ARMCC\Bin'
 Build target 'XYS-NL-Infantry'
-compiling gimbal_task.c...
-..\user\APP\gimbal_task\gimbal_task.c(324): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	  Cloud_Angle_Target[
-ITCH][
-ECH] = RAMP_float( 
-id_pitch_angle, Cloud_Angle_Target[PITCH][MECH], Slope_Begin_Pitch);
-..\user\APP\gimbal_task\gimbal_task.c(408): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      else if (Cloud_Angle_Target[
-ITCH][
-ECH] < 
-in_pitch_relative_angle)
-..\user\APP\gimbal_task\gimbal_task.c(410): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          Cloud_Angle_Target[
-ITCH][
-ECH] = 
-in_pitch_relative_angle;
-..\user\APP\gimbal_task\gimbal_task.c(451): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      Cloud_Angle_Target[
-ITCH][
-ECH] += rc_add_pit * 1.5;
-..\user\APP\gimbal_task\gimbal_task.c(462): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      else if (Cloud_Angle_Target[
-ITCH][
-ECH] < 
-in_pitch_relative_angle)
-..\user\APP\gimbal_task\gimbal_task.c(464): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          Cloud_Angle_Target[
-ITCH][
-ECH] = 
-in_pitch_relative_angle;
-..\user\APP\gimbal_task\gimbal_task.c(635): warning:  #550-D: variable "pitch_angle_ref"  was set but never used
-  	static float pitch_angle_ref;
-..\user\APP\gimbal_task\gimbal_task.c(637): warning:  #550-D: variable "yaw_angle_ref"  was set but never used
-  	static float yaw_angle_ref;
-..\user\APP\gimbal_task\gimbal_task.c(1314): warning:  #177-D: function "motor_ecd_to_angle_change1"  was declared but never referenced
-  static fp32 motor_ecd_to_angle_change1(uint16_t ecd)
-..\user\APP\gimbal_task\gimbal_task.c: 9 warnings, 0 errors
+compiling shoot_task.c...
 linking...
-Program Size: Code=65248 RO-data=7136 RW-data=1328 ZI-data=136528  
+Program Size: Code=65376 RO-data=7136 RW-data=1328 ZI-data=136528  
 FromELF: creating hex file...
-".\Objects\infantry.axf" - 0 Error(s), 9 Warning(s).
+".\Objects\infantry.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_XYS-NL-Infantry
