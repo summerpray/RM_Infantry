@@ -231,6 +231,7 @@ void GIMBAL_task(void *pvParameters)
 			
 			if(IF_RC_SW2_UP)
 			{
+				actGimbal = GIMBAL_AUTO;
 				KEY_Set_Mode();
 				RC_Set_Mode();
 				if (IF_MOUSE_PRESSED_RIGH)
