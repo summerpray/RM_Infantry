@@ -18,6 +18,7 @@
 #include "start_task.h"
 #include "gimbal_task.h"
 #include "vision.h"
+#include "magazine.h"
 extern RC_ctrl_t rc_ctrl;
 eRevolverCtrlMode Revolver_mode;   //速度环 位置环
 eShootAction actShoot;       //射击模式   单发 三连发 高射频低射速  低射频高射速 打符模式 自瞄自动射击
@@ -26,7 +27,7 @@ extern VisionRecvData_t VisionRecvData;
 
 /*******************摩檫轮电机参数**********************/
 
-float Friction_PWM_Output[6]     = {0, 300, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
+float Friction_PWM_Output[6]     = {0, 200, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
 
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0,  20,  26,  34,  36};//测试时随便定的速度,后面测试更改
@@ -177,6 +178,7 @@ void shoot_task(void *pvParameters)
         
 			}
 			Fric_Key_Ctrl();
+			
 //测试平台    启用正常程序需要去掉正常程序的注释
 //			if(IF_RC_SW1_DOWN)
 //			{

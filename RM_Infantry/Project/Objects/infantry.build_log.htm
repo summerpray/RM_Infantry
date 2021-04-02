@@ -27,78 +27,34 @@ Project File Date:  01/17/2021
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\MDK5\mdk5\ARM\ARMCC\Bin'
 Build target 'XYS-NL-Infantry'
-compiling chassis_behaviour.c...
-compiling vision.c...
-compiling start_task.c...
-..\user\APP\start_task\start_task.c(222): warning:  #550-D: variable "currentTime"  was set but never used
-  	portTickType currentTime;
-..\user\APP\start_task\start_task.c: 1 warning, 0 errors
-compiling CAN_receive.c...
-compiling gimbal_key_control.c...
-..\user\APP\gimbal_key_control\gimbal_key_control.c(160): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  		Cloud_Angle_Target_GD[
-ITCH][
-ECH] = 
-id_pitch_angle;
-..\user\APP\gimbal_key_control\gimbal_key_control.c: 1 warning, 0 errors
 compiling gimbal_task.c...
-..\user\APP\gimbal_task\gimbal_task.c(324): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\user\APP\gimbal_task\gimbal_task.c(330): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	  Cloud_Angle_Target[
 ITCH][
 ECH] = RAMP_float( 
 id_pitch_angle, Cloud_Angle_Target[PITCH][MECH], Slope_Begin_Pitch);
-..\user\APP\gimbal_task\gimbal_task.c(408): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      else if (Cloud_Angle_Target[
-ITCH][
-ECH] < 
-in_pitch_relative_angle)
-..\user\APP\gimbal_task\gimbal_task.c(410): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          Cloud_Angle_Target[
-ITCH][
-ECH] = 
-in_pitch_relative_angle;
-..\user\APP\gimbal_task\gimbal_task.c(451): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\user\APP\gimbal_task\gimbal_task.c(457): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       Cloud_Angle_Target[
 ITCH][
 ECH] += rc_add_pit * 1.5;
-..\user\APP\gimbal_task\gimbal_task.c(462): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      else if (Cloud_Angle_Target[
-ITCH][
-ECH] < 
-in_pitch_relative_angle)
-..\user\APP\gimbal_task\gimbal_task.c(464): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          Cloud_Angle_Target[
-ITCH][
-ECH] = 
-in_pitch_relative_angle;
-..\user\APP\gimbal_task\gimbal_task.c(635): warning:  #550-D: variable "pitch_angle_ref"  was set but never used
+..\user\APP\gimbal_task\gimbal_task.c(641): warning:  #550-D: variable "pitch_angle_ref"  was set but never used
   	static float pitch_angle_ref;
-..\user\APP\gimbal_task\gimbal_task.c(637): warning:  #550-D: variable "yaw_angle_ref"  was set but never used
+..\user\APP\gimbal_task\gimbal_task.c(642): warning:  #550-D: variable "yaw_angle_ref"  was set but never used
   	static float yaw_angle_ref;
-..\user\APP\gimbal_task\gimbal_task.c(1314): warning:  #177-D: function "motor_ecd_to_angle_change1"  was declared but never referenced
+..\user\APP\gimbal_task\gimbal_task.c(1327): warning:  #177-D: function "motor_ecd_to_angle_change1"  was declared but never referenced
   static fp32 motor_ecd_to_angle_change1(uint16_t ecd)
-..\user\APP\gimbal_task\gimbal_task.c: 9 warnings, 0 errors
-compiling chassis_task.c...
-..\user\APP\chassis_task\chassis_task.c(443): warning:  #175-D: subscript out of range
-  					C_A_M_Y_M = Cloud_Angle_Measure[
-AW][
-HANGE];
-..\user\APP\chassis_task\chassis_task.c(979): warning:  #175-D: subscript out of range
-  		      C_A_M_Y_M = Cloud_Angle_Measure[
-AW][
-HANGE];
-..\user\APP\chassis_task\chassis_task.c: 2 warnings, 0 errors
+..\user\APP\gimbal_task\gimbal_task.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=65384 RO-data=7136 RW-data=1328 ZI-data=136528  
+Program Size: Code=67224 RO-data=7152 RW-data=1328 ZI-data=136696  
 FromELF: creating hex file...
-".\Objects\infantry.axf" - 0 Error(s), 13 Warning(s).
+".\Objects\infantry.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_XYS-NL-Infantry
   D:\MDK5\mdk5_pack\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

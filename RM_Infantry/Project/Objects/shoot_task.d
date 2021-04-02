@@ -71,3 +71,4 @@
 .\objects\shoot_task.o: ..\User\APP\Gimbal_Task\gimbal_task.h
 .\objects\shoot_task.o: ..\User\APP\pid\pid.h
 .\objects\shoot_task.o: ..\user\vision.h
+.\objects\shoot_task.o: ..\user\hardware\magazine\magazine.h

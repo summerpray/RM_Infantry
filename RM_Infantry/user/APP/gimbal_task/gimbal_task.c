@@ -88,6 +88,8 @@ Gimbal_PID_t Gimbal_Yaw_Mech_PID;      //PID一系列结构体
 Gimbal_PID_t Gimbal_Yaw_Gyro_PID;
 Gimbal_PID_t Gimbal_Pitch_Mech_PID;
 Gimbal_PID_t Gimbal_Pitch_Gyro_PID;
+Gimbal_PID_t Gimbal_Pitch_key_PID;
+Gimbal_PID_t Gimbal_yaw_key_PID;
 PidTypeDef gimbal_yaw_motor_gyro_pid;
 PidTypeDef gimbal_pitch_motor_gyro_pid;
 PidTypeDef gimbal_yaw_motor_mech_pid;
@@ -218,24 +220,25 @@ void GIMBAL_task(void *pvParameters)
 		}
 		else
 		{
-			if (IF_RC_SW2_UP)
-			{
-				RC_Set_Mode();
-				KEY_Set_Mode();
-			}
-			else
+			if (IF_RC_SW2_MID)
 			{
 				RC_Set_Mode();
 				GIMBAL_Set_Control();
 			  actGimbal = GIMBAL_NORMAL;
+				GIMBAL_PositionLoop();
+				//RC_Set_Mode();
 			}
 			
-//			if(IF_RC_SW2_MID)
-//			{
-			
-//			GIMBAL_AUTO_Mode_Ctrl();
-//		  	GIMBAL_PositionLoop_AUTO();
-//			}
+			if(IF_RC_SW2_UP)
+			{
+				KEY_Set_Mode();
+				RC_Set_Mode();
+				if (IF_MOUSE_PRESSED_RIGH)
+				{
+					GIMBAL_AUTO_Mode_Ctrl();
+					GIMBAL_PositionLoop_AUTO();
+				}
+			}
 //			else
 //			{
 //				GIMBAL_Set_Control();
@@ -245,7 +248,7 @@ void GIMBAL_task(void *pvParameters)
 
 		}
 		//根据操作模式变换PID,每次都要变,很重要                       现在还没写！！！！！！！！！！！！
-		GIMBAL_PositionLoop();
+		//GIMBAL_PositionLoop();
 		GIMBAL_CanSend();
 		
 		//如果不是自瞄模式,对角度和速度进行二阶卡尔曼滤波融合,0位置,1速度      ????????????????????????????????
@@ -291,11 +294,14 @@ void GIMBAL_InitCtrl(void)
     //初始化yaw电机pid		
 		GIMBAL_PID_Init(&Gimbal_Yaw_Gyro_PID,YAW_GYRO_ABSOLUTE_PID_MAX_OUT, YAW_GYRO_ABSOLUTE_PID_MAX_IOUT, YAW_GYRO_ABSOLUTE_PID_KP, YAW_GYRO_ABSOLUTE_PID_KI, YAW_GYRO_ABSOLUTE_PID_KD);
 		GIMBAL_PID_Init(&Gimbal_Yaw_Mech_PID,YAW_ENCODE_RELATIVE_PID_MAX_OUT, YAW_ENCODE_RELATIVE_PID_MAX_IOUT, YAW_ENCODE_RELATIVE_PID_KP, YAW_ENCODE_RELATIVE_PID_KI, YAW_ENCODE_RELATIVE_PID_KD);
+		GIMBAL_PID_Init(&Gimbal_yaw_key_PID,YAW_KEY_PID_MAX_OUT, YAW_KEY_PID_MAX_IOUT, YAW_KEY_PID_KP, YAW_KEY_PID_KI, YAW_KEY_PID_KD);
 		PID_Init(&gimbal_yaw_motor_gyro_pid, PID_POSITION, Yaw_speed_pid, YAW_SPEED_PID_MAX_OUT, YAW_SPEED_PID_MAX_IOUT);
 		PID_Init(&gimbal_yaw_motor_mech_pid, PID_POSITION, Yaw_speed_pid, YAW_SPEED_PID_MAX_OUT, YAW_SPEED_PID_MAX_IOUT);		
-    //初始化pitch电机pid		
+		
+    //初始化pitch电机pid	
 		GIMBAL_PID_Init(&Gimbal_Pitch_Gyro_PID,PITCH_GYRO_ABSOLUTE_PID_MAX_OUT, PITCH_GYRO_ABSOLUTE_PID_MAX_IOUT, PITCH_GYRO_ABSOLUTE_PID_KP, PITCH_GYRO_ABSOLUTE_PID_KI, PITCH_GYRO_ABSOLUTE_PID_KD);
 		GIMBAL_PID_Init(&Gimbal_Pitch_Mech_PID,PITCH_ENCODE_RELATIVE_PID_MAX_OUT, PITCH_ENCODE_RELATIVE_PID_MAX_IOUT, PITCH_ENCODE_RELATIVE_PID_KP, PITCH_ENCODE_RELATIVE_PID_KI, PITCH_ENCODE_RELATIVE_PID_KD);
+		GIMBAL_PID_Init(&Gimbal_Pitch_key_PID,PITCH_KEY_PID_MAX_OUT, PITCH_KEY_PID_MAX_IOUT, PITCH_KEY_PID_KP, PITCH_KEY_PID_KI, PITCH_KEY_PID_KD);
 		PID_Init(&gimbal_pitch_motor_gyro_pid, PID_POSITION, Pitch_speed_pid, PITCH_SPEED_PID_MAX_OUT, PITCH_SPEED_PID_MAX_IOUT);
 		PID_Init(&gimbal_pitch_motor_mech_pid, PID_POSITION, Pitch_speed_pid, PITCH_SPEED_PID_MAX_OUT, PITCH_SPEED_PID_MAX_IOUT);		
 		
@@ -339,7 +345,7 @@ void RC_Set_Mode(void)
 	}
 	else  if(IF_RC_SW2_UP)
 	{
-		modeGimbal = CLOUD_MECH_MODE;
+		modeGimbal = CLOUD_GYRO_MODE;
 	}
 	else if(IF_RC_SW2_DOWN)
 	{
@@ -633,18 +639,18 @@ void GIMBAL_Set_Key_Control(void)
 void GIMBAL_AUTO_Mode_Ctrl(void)//上左+   下右-
 {
 	static float pitch_angle_ref;
-
 	static float yaw_angle_ref;
+	
 	Vision_Error_Angle_Pitch(&Auto_Error_Pitch[NOW]);
 	Vision_Error_Angle_Yaw(&Auto_Error_Yaw[NOW]);
 	Vision_Get_Distance(&Auto_Distance);
-//	if(Vision_If_Update() == TRUE)                    //数据更新
-//	{
-		pitch_angle_ref = (Cloud_Angle_Measure[PITCH][MECH]+Auto_Error_Pitch[NOW]);
+	if(Vision_If_Update() == TRUE)                    //数据更新
+	{
+		pitch_angle_ref = (Cloud_Angle_Measure[PITCH][MECH]-Auto_Error_Pitch[NOW]);
 		yaw_angle_ref = (Cloud_Angle_Measure[YAW][GYRO]+Auto_Error_Yaw[NOW]);
 		Vision_Clean_Update_Flag();//清零,否则会一直执行
 		Gimbal_Vision_Time[NOW]=xTaskGetTickCount();//获取新数据到来的时间
-//	}
+	}
 //	if(Gimbal_Vision_Time[NOW] != Gimbal_Vision_Time[LAST])                  //更新卡尔曼滤波测量值
 //	{
 //		pitch_angle_raw = pitch_angle_ref;
@@ -654,9 +660,10 @@ void GIMBAL_AUTO_Mode_Ctrl(void)//上左+   下右-
 	
 //	if(VisionRecvData.identify_target == TRUE)                     //识别到了目标
 //	{
-		Cloud_Angle_Target[YAW][GYRO] = (Cloud_Angle_Measure[YAW][GYRO]-Auto_Error_Yaw[NOW]);
-		Cloud_Angle_Target[PITCH][MECH] = (Cloud_Angle_Measure[PITCH][MECH]-Auto_Error_Pitch[NOW]);
+		Cloud_Angle_Target[YAW][GYRO] = (Cloud_Angle_Measure[YAW][MECH] + Auto_Error_Yaw[NOW]);
+		//Cloud_Angle_Target[PITCH][MECH] = (Cloud_Angle_Measure[PITCH][MECH]-Auto_Error_Pitch[NOW]);
 //	}
+	modeGimbal = CLOUD_GYRO_MODE;
 }
 
 
@@ -940,8 +947,8 @@ void GIMBAL_PositionLoop_AUTO(void)
 	{
 		Cloud_Palstance_Measure[YAW][MECH] = Cloud_Palstance_Measure[YAW][MECH]/100;
 		Cloud_Palstance_Measure[PITCH][MECH] = Cloud_Palstance_Measure[PITCH][MECH]/100;
-		motor_gyro_set[YAW][MECH] = GIMBAL_PID_Calc(&Gimbal_Yaw_Mech_PID,Cloud_Angle_Measure[YAW][MECH], Cloud_Angle_Target[YAW][MECH],Cloud_Palstance_Measure[YAW][MECH]);
-		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_Mech_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
+		motor_gyro_set[YAW][MECH] = GIMBAL_PID_Calc(&Gimbal_yaw_key_PID,Cloud_Angle_Measure[YAW][MECH], Cloud_Angle_Target[YAW][MECH],Cloud_Palstance_Measure[YAW][MECH]);
+		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_key_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
 		current_set[YAW][MECH] = PID_Calc(&gimbal_yaw_motor_mech_pid,Cloud_Palstance_Measure[YAW][MECH],motor_gyro_set[YAW][MECH]);
 		current_set[PITCH][MECH] = PID_Calc(&gimbal_pitch_motor_mech_pid,Cloud_Palstance_Measure[PITCH][MECH],motor_gyro_set[PITCH][MECH]);	
     
@@ -952,10 +959,16 @@ void GIMBAL_PositionLoop_AUTO(void)
 	{
 //		Cloud_Palstance_Measure[YAW][MECH] = Cloud_Palstance_Measure[YAW][MECH]/10;
 //		Cloud_Palstance_Measure[PITCH][MECH] = Cloud_Palstance_Measure[PITCH][MECH]/10;
-		
-		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_Yaw_Gyro_PID,Cloud_Angle_Measure[YAW][GYRO], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
-		out = Gimbal_Yaw_Gyro_PID.out;
-		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_Mech_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
+		if (Cloud_Angle_Target[PITCH][MECH] > max_pitch_relative_angle)
+    {
+        Cloud_Angle_Target[PITCH][MECH] = max_pitch_relative_angle;
+    }
+    else if (Cloud_Angle_Target[PITCH][MECH] < min_pitch_relative_angle)
+    {
+        Cloud_Angle_Target[PITCH][MECH] = min_pitch_relative_angle;
+    }
+		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_yaw_key_PID,Cloud_Angle_Measure[YAW][GYRO], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
+		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_key_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
 //		motor_gyro_set[PITCH][GYRO] = GIMBAL_PID_Calc(&Gimbal_Pitch_Gyro_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][GYRO],Cloud_Palstance_Measure[PITCH][GYRO]); 
 		
 		current_set[YAW][GYRO] = PID_Calc(&gimbal_yaw_motor_gyro_pid,Cloud_Palstance_Measure[YAW][GYRO],motor_gyro_set[YAW][GYRO]);

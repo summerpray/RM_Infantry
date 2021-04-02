@@ -60,6 +60,7 @@ extKalman_t Chassis_Error_Kalman; //定义一个kalman指针
 PidTypeDef motor_pid[4];
 PidTypeDef motor_key_pid[4];
 PidTypeDef chassis_angle_pid;
+PidTypeDef chassis_angle_key_pid;
 
 first_order_filter_type_t chassis_cmd_slow_set_vx;
 first_order_filter_type_t chassis_cmd_slow_set_vy;
@@ -88,7 +89,7 @@ void chassis_task(void *pvParameters)
 			{
 				if(SYSTEM_GetSystemState() == SYSTEM_STARTING)          //系统状态为开始
 				{
-                    Chassis_Init();
+           Chassis_Init();
 					 Cap_Init();
 				}
 				else
@@ -98,7 +99,7 @@ void chassis_task(void *pvParameters)
 						 chassis_feedback_update();
 						 Chassis_Key_Ctrl();		
 						 
-						 Chassis_Set_Contorl();
+						 Chassis_Set_key_Contorl();
 					}
 					else   //遥控器模式
 					{
@@ -262,7 +263,9 @@ void Chassis_Init(void)
 		const static fp32 motor_speed_key_pid[3] = {M3505_MOTOR_SPEED_KEY_PID_KP, M3505_MOTOR_SPEED_KEY_PID_KI, M3505_MOTOR_SPEED_KEY_PID_KD};        //初始化键盘模式KP、KI、KD
     //底盘旋转环pid值
     const static fp32 chassis_yaw_pid[3] = {CHASSIS_FOLLOW_GIMBAL_PID_KP, CHASSIS_FOLLOW_GIMBAL_PID_KI, CHASSIS_FOLLOW_GIMBAL_PID_KD};          //初始化地盘旋转跟随KP、KI、KD 
-    const static fp32 chassis_x_order_filter[1] = {CHASSIS_ACCEL_X_NUM};             //设置x方向一阶低通滤波参数
+		const static fp32 chassis_yaw_key_pid[3] = {CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP, CHASSIS_FOLLOW_GIMBAL_PID_KEY_KI, CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD};          //初始化地盘旋转跟随KP、KI、KD 的键盘模式PID
+    
+		const static fp32 chassis_x_order_filter[1] = {CHASSIS_ACCEL_X_NUM};             //设置x方向一阶低通滤波参数
     const static fp32 chassis_y_order_filter[1] = {CHASSIS_ACCEL_Y_NUM};             //设置y方向一阶低通滤波参数
     uint8_t i;          //循环变量,只在后面循环用
 		
@@ -279,7 +282,7 @@ void Chassis_Init(void)
 		
 		//初始化旋转PID
     PID_Init(&chassis_angle_pid, PID_POSITION, chassis_yaw_pid, CHASSIS_FOLLOW_GIMBAL_PID_MAX_OUT, CHASSIS_FOLLOW_GIMBAL_PID_MAX_IOUT);
-		
+		PID_Init(&chassis_angle_key_pid, PID_POSITION, chassis_yaw_key_pid, CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_OUT, CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_IOUT);
 	 //用一阶滤波代替斜波函数生成
     first_order_filter_init(&chassis_cmd_slow_set_vx, CHASSIS_CONTROL_TIME, chassis_x_order_filter);
     first_order_filter_init(&chassis_cmd_slow_set_vy, CHASSIS_CONTROL_TIME, chassis_y_order_filter);
@@ -491,6 +494,82 @@ void Chassis_Set_Contorl(void)
 		}
 	}
 }
+
+/**
+  * @brief  不同模式不同处理方式
+  * @param  void
+  * @retval void
+  * @attention  
+  *              
+  */
+void Chassis_Set_key_Contorl(void)
+{
+	float Chassis_Move_X1;
+	float Chassis_Move_Y1;
+	if(Chassis_Mode == CHASSIS_SHAKE_MODE)			//扭腰模式
+	{    
+		    fp32 sin_yaw = 0.0f, cos_yaw = 0.0f;
+		    
+		    float C_A_M_Y_M  = 0;
+		
+		    chassis_follow_gimbal_yaw_control();    //是否需要摇摆      在这里得到angle_swing_set
+		
+        //旋转控制底盘速度方向，保证前进方向是云台方向，有利于运动平稳
+        sin_yaw = arm_sin_f32(Cloud_Angle_Measure[YAW][MECH]);
+        cos_yaw = arm_cos_f32(Cloud_Angle_Measure[YAW][MECH]);
+	      #if YAW_POSITION ==	YAW_DOWN	                                //轴上轴下读取的电机角度值是反的
+					C_A_M_Y_M = Cloud_Angle_Measure[YAW][CHANGE];
+				#else
+					C_A_M_Y_M = Cloud_Angle_Measure[YAW][MECH];
+				#endif
+		    
+        Chassis_Move_X = cos_yaw * Chassis_Move_X + sin_yaw * Chassis_Move_Y;      //当我们控制移动时需要用到
+        Chassis_Move_Y = -sin_yaw * Chassis_Move_X + cos_yaw * Chassis_Move_Y;
+		
+        //计算旋转PID角速度
+        Chassis_Move_Z = PID_Calc(&chassis_angle_pid, C_A_M_Y_M, rad_format(angle_swing_set));
+        //速度限幅
+        Chassis_Move_X = fp32_constrain(Chassis_Move_X, vx_min_speed, vx_max_speed);
+        Chassis_Move_Y = fp32_constrain(Chassis_Move_Y, vy_min_speed, vy_max_speed);		
+	}
+	
+	else if(Chassis_Mode == CHASSIS_GYRO_MODE)
+	{		
+		    Angle_error();
+        //计算旋转的角速度
+        Chassis_Move_Z = -PID_Calc(&chassis_angle_key_pid, 0.0f, Chassis_Gyro_Error);  //假设当前实际值为0，设定误差值为目标值；如果设定当前目标值为0，实际值为误差值，此时误差值应取反（或运动方向取反）
+        //设置底盘运动的速度
+        Chassis_Move_X = fp32_constrain(Chassis_Move_X, vx_min_speed, vx_max_speed);
+        Chassis_Move_Y = fp32_constrain(Chassis_Move_Y, vy_min_speed, vy_max_speed);		
+	}
+	else if(Chassis_Mode == CHASSIS_MECH_MODE )
+	{
+		    Angle_error();
+		    Chassis_Move_Z = CHASSIS_WZ_RC_SEN *rc_ctrl.rc.ch[0];
+		    Chassis_Move_Z = fp32_constrain(Chassis_Move_Z, vz_min_speed, vz_max_speed);
+        Chassis_Move_X = fp32_constrain(Chassis_Move_X, vx_min_speed, vx_max_speed);
+        Chassis_Move_Y = fp32_constrain(Chassis_Move_Y, vy_min_speed, vy_max_speed);		    
+	}
+	else if(Chassis_Mode == CHASSIS_TOP_MODE )
+	{
+		if((fabs(Chassis_Move_X)<0.001)&&(fabs(Chassis_Move_Y)<0.001))
+		{
+		   Chassis_Move_Z = 1.5f;
+		}
+		else
+		{
+			Chassis_Move_Z =1.0f;
+		  Angle_error();
+			
+      Chassis_Move_X1 =  (cos(theta) * Chassis_Move_X) + (-sin(theta) * Chassis_Move_Y);
+      Chassis_Move_Y1 =  (sin(theta) * Chassis_Move_X) + (cos(theta) * Chassis_Move_Y);		
+		  Chassis_Move_X = fp32_constrain(Chassis_Move_X1, vx_min_speed, vx_max_speed);
+	  	Chassis_Move_Y = fp32_constrain(Chassis_Move_Y1, vy_min_speed, vy_max_speed);
+			Chassis_Move_Z = fp32_constrain(Chassis_Move_Z, vz_min_speed, vz_max_speed);
+		}
+	}
+}
+
 
 /**
   * @brief  键盘控制，得出底盘全向运动速度

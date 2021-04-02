@@ -33,7 +33,7 @@ extern void chassis_task(void *pvParameters);
 //底盘电机速度环PID
 #define M3505_MOTOR_SPEED_PID_KP 10000.0f
 #define M3505_MOTOR_SPEED_PID_KI 0.01f
-#define M3505_MOTOR_SPEED_PID_KD 5.0f
+#define M3505_MOTOR_SPEED_PID_KD 3.0f
 #define M3505_MOTOR_SPEED_PID_MAX_OUT 16000.0f
 #define M3505_MOTOR_SPEED_PID_MAX_IOUT 2000.0f
 
@@ -43,10 +43,17 @@ extern void chassis_task(void *pvParameters);
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_OUT 10000.0f
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_IOUT 1000.0f
 
+//底盘旋转跟随PID 键盘模式
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 0.50f  //0.15
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KI 0.0f
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD 0.0f
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_OUT 3.0f //3.0
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_IOUT 0.1f
+
 //底盘旋转跟随PID
-#define CHASSIS_FOLLOW_GIMBAL_PID_KP 0.50f  //0.15
+#define CHASSIS_FOLLOW_GIMBAL_PID_KP 0.15f  //0.15
 #define CHASSIS_FOLLOW_GIMBAL_PID_KI 0.0f
-#define CHASSIS_FOLLOW_GIMBAL_PID_KD 0.0f
+#define CHASSIS_FOLLOW_GIMBAL_PID_KD 0.01f
 #define CHASSIS_FOLLOW_GIMBAL_PID_MAX_OUT 3.0f //3.0
 #define CHASSIS_FOLLOW_GIMBAL_PID_MAX_IOUT 0.1f
 
@@ -194,6 +201,7 @@ void CHASSIS_REST(void);
 void Chassis_Set_Mode(void); //遥控器设置模式
 void Chassis_Rc_Control(void);//遥控器数据引入为 Chassis_Move_X  Chassis_Move_Y
 void Chassis_Set_Contorl(void);//不同模式不同处理方式
+void Chassis_Set_key_Contorl(void); //键盘模式不同模式不同处理
 void Chassis_Omni_Move_Calculate(void);
 void Chassis_RC_Ctrl(void);
 void Chassis_Key_Ctrl(void);
