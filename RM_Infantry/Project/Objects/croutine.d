@@ -1,12 +1,12 @@
 .\objects\croutine.o: ..\user\FreeRTOS\croutine.c
 .\objects\croutine.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\croutine.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\croutine.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\croutine.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\croutine.o: ..\user\main.h
-.\objects\croutine.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\croutine.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\croutine.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\croutine.o: ..\User\hardware\SYS\sys.h
 .\objects\croutine.o: ..\user\main.h
 .\objects\croutine.o: ..\CMSIS\stm32f4xx.h

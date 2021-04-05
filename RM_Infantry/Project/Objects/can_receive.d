@@ -1,10 +1,10 @@
 .\objects\can_receive.o: ..\user\APP\CAN_receive\CAN_receive.c
 .\objects\can_receive.o: ..\user\APP\CAN_receive\CAN_Receive.h
 .\objects\can_receive.o: ..\user\main.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\can_receive.o: ..\User\hardware\SYS\sys.h
 .\objects\can_receive.o: ..\user\main.h
 .\objects\can_receive.o: ..\CMSIS\stm32f4xx.h
@@ -56,7 +56,7 @@
 .\objects\can_receive.o: ..\user\hardware\surper_cap\super_cap.h
 .\objects\can_receive.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\can_receive.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\can_receive.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\can_receive.o: ..\User\FreeRTOS\include\portable.h
 .\objects\can_receive.o: ..\User\FreeRTOS\include\deprecated_definitions.h
@@ -66,5 +66,5 @@
 .\objects\can_receive.o: ..\User\FreeRTOS\include\list.h
 .\objects\can_receive.o: ..\User\APP\Detect_Task\Detect_Task.h
 .\objects\can_receive.o: ..\user\APP\shoot_task\shoot_task.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\can_receive.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\can_receive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

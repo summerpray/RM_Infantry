@@ -1,9 +1,9 @@
 .\objects\main.o: ..\user\main.c
 .\objects\main.o: ..\user\main.h
-.\objects\main.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\main.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\main.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\main.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: ..\User\hardware\SYS\sys.h
 .\objects\main.o: ..\user\main.h
 .\objects\main.o: ..\CMSIS\stm32f4xx.h
@@ -57,7 +57,7 @@
 .\objects\main.o: ..\user\hardware\timer\timer.h
 .\objects\main.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\main.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\main.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\main.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\main.o: ..\User\FreeRTOS\include\portable.h
 .\objects\main.o: ..\User\FreeRTOS\include\deprecated_definitions.h

@@ -1,10 +1,10 @@
 .\objects\judge.o: ..\user\judge.c
 .\objects\judge.o: ..\user\judge.h
 .\objects\judge.o: ..\user\main.h
-.\objects\judge.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\judge.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\judge.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\judge.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\judge.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\judge.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\judge.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\judge.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\judge.o: ..\User\hardware\SYS\sys.h
 .\objects\judge.o: ..\user\main.h
 .\objects\judge.o: ..\CMSIS\stm32f4xx.h
@@ -48,7 +48,7 @@
 .\objects\judge.o: ..\user\crc.h
 .\objects\judge.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\judge.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\judge.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\judge.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\judge.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\judge.o: ..\User\FreeRTOS\include\portable.h
 .\objects\judge.o: ..\User\FreeRTOS\include\deprecated_definitions.h

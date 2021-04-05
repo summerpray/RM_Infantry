@@ -1,10 +1,10 @@
 .\objects\start_task.o: ..\user\APP\start_task\start_task.c
 .\objects\start_task.o: ..\user\APP\start_task\Start_Task.h
 .\objects\start_task.o: ..\user\main.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\start_task.o: ..\User\hardware\SYS\sys.h
 .\objects\start_task.o: ..\user\main.h
 .\objects\start_task.o: ..\CMSIS\stm32f4xx.h
@@ -49,7 +49,7 @@
 .\objects\start_task.o: ..\User\hardware\RC\rc.h
 .\objects\start_task.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\start_task.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\start_task.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\start_task.o: ..\User\FreeRTOS\include\portable.h
 .\objects\start_task.o: ..\User\FreeRTOS\include\deprecated_definitions.h
@@ -65,7 +65,7 @@
 .\objects\start_task.o: ..\user\user_lib\user_lib.h
 .\objects\start_task.o: ..\User\hardware\LED\led.h
 .\objects\start_task.o: ..\user\APP\shoot_task\shoot_task.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\start_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\start_task.o: ..\user\hardware\magazine\magazine.h
 .\objects\start_task.o: ..\user\hardware\timer\timer.h

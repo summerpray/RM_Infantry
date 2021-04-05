@@ -1,7 +1,7 @@
 .\objects\super_cap.o: ..\user\hardware\surper_cap\super_cap.c
 .\objects\super_cap.o: ..\CMSIS\stm32f4xx.h
 .\objects\super_cap.o: ..\CMSIS\core_cm4.h
-.\objects\super_cap.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\super_cap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\super_cap.o: ..\CMSIS\core_cmInstr.h
 .\objects\super_cap.o: ..\CMSIS\core_cmFunc.h
 .\objects\super_cap.o: ..\CMSIS\core_cmSimd.h
@@ -38,9 +38,9 @@
 .\objects\super_cap.o: ..\FWLIB\inc\stm32f4xx_sai.h
 .\objects\super_cap.o: ..\user\hardware\surper_cap\super_cap.h
 .\objects\super_cap.o: ..\user\main.h
-.\objects\super_cap.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\super_cap.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\super_cap.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\super_cap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\super_cap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\super_cap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\super_cap.o: ..\User\hardware\SYS\sys.h
 .\objects\super_cap.o: ..\user\main.h
 .\objects\super_cap.o: ..\user\hardware\usart6\usart6.h
@@ -53,7 +53,7 @@
 .\objects\super_cap.o: ..\User\hardware\LED\led.h
 .\objects\super_cap.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\super_cap.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\super_cap.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\super_cap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\super_cap.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\super_cap.o: ..\User\FreeRTOS\include\portable.h
 .\objects\super_cap.o: ..\User\FreeRTOS\include\deprecated_definitions.h

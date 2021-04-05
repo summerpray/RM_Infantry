@@ -1,10 +1,10 @@
 .\objects\chassis_task.o: ..\user\APP\chassis_task\chassis_task.c
 .\objects\chassis_task.o: ..\user\APP\chassis_task\chassis_task.h
 .\objects\chassis_task.o: ..\user\main.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\chassis_task.o: ..\User\hardware\SYS\sys.h
 .\objects\chassis_task.o: ..\user\main.h
 .\objects\chassis_task.o: ..\CMSIS\stm32f4xx.h
@@ -55,7 +55,7 @@
 .\objects\chassis_task.o: ..\User\APP\Start_Task\start_task.h
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\portable.h
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\deprecated_definitions.h
@@ -64,8 +64,8 @@
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\task.h
 .\objects\chassis_task.o: ..\User\FreeRTOS\include\list.h
 .\objects\chassis_task.o: ..\user\APP\shoot_task\shoot_task.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\chassis_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\chassis_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\chassis_task.o: ..\User\hardware\LED\led.h
 .\objects\chassis_task.o: ..\user\hardware\surper_cap\super_cap.h
 .\objects\chassis_task.o: ..\User\DSP\Include\arm_math.h

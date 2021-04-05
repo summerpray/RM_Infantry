@@ -1,10 +1,10 @@
 .\objects\fric.o: ..\user\hardware\fric\fric.c
 .\objects\fric.o: ..\user\hardware\fric\fric.h
 .\objects\fric.o: ..\user\main.h
-.\objects\fric.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\fric.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\fric.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\fric.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\fric.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\fric.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\fric.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\fric.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\fric.o: ..\User\hardware\SYS\sys.h
 .\objects\fric.o: ..\user\main.h
 .\objects\fric.o: ..\CMSIS\stm32f4xx.h

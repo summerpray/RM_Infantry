@@ -1,10 +1,10 @@
 .\objects\usart6.o: ..\user\hardware\usart6\usart6.c
 .\objects\usart6.o: ..\User\hardware\SYS\sys.h
 .\objects\usart6.o: ..\user\main.h
-.\objects\usart6.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\usart6.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\usart6.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\usart6.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\usart6.o: ..\User\hardware\SYS\sys.h
 .\objects\usart6.o: ..\CMSIS\stm32f4xx.h
 .\objects\usart6.o: ..\CMSIS\core_cm4.h

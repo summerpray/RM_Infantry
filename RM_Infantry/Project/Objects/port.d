@@ -1,12 +1,12 @@
 .\objects\port.o: ..\user\FreeRTOS\portable\RVDS\ARM_CM4F\port.c
 .\objects\port.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\port.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\port.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\port.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\port.o: ..\user\main.h
-.\objects\port.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\port.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\port.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\port.o: ..\User\hardware\SYS\sys.h
 .\objects\port.o: ..\user\main.h
 .\objects\port.o: ..\CMSIS\stm32f4xx.h

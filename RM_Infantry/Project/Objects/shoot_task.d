@@ -1,10 +1,10 @@
 .\objects\shoot_task.o: ..\user\APP\shoot_task\shoot_task.c
 .\objects\shoot_task.o: ..\user\APP\shoot_task\shoot_task.h
 .\objects\shoot_task.o: ..\user\main.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\shoot_task.o: ..\User\hardware\SYS\sys.h
 .\objects\shoot_task.o: ..\user\main.h
 .\objects\shoot_task.o: ..\CMSIS\stm32f4xx.h
@@ -45,8 +45,8 @@
 .\objects\shoot_task.o: ..\FWLIB\inc\stm32f4xx_sai.h
 .\objects\shoot_task.o: ..\user\hardware\usart6\usart6.h
 .\objects\shoot_task.o: ..\User\hardware\delay\delay.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\shoot_task.o: ..\User\hardware\CAN\can.h
 .\objects\shoot_task.o: ..\User\hardware\FRIC\fric.h
 .\objects\shoot_task.o: ..\User\APP\CAN_Receive\CAN_Receive.h
@@ -56,7 +56,7 @@
 .\objects\shoot_task.o: ..\User\DSP\Include\arm_math.h
 .\objects\shoot_task.o: ..\CMSIS\core_cm4.h
 .\objects\shoot_task.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\shoot_task.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\shoot_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\shoot_task.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\shoot_task.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\shoot_task.o: ..\User\FreeRTOS\include\portable.h

@@ -1,10 +1,10 @@
 .\objects\delay.o: ..\user\hardware\delay\delay.c
 .\objects\delay.o: ..\user\hardware\delay\delay.h
 .\objects\delay.o: ..\user\main.h
-.\objects\delay.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\delay.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\delay.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\delay.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\delay.o: ..\User\hardware\SYS\sys.h
 .\objects\delay.o: ..\user\main.h
 .\objects\delay.o: ..\CMSIS\stm32f4xx.h

@@ -1,10 +1,10 @@
 .\objects\user_lib.o: ..\user\user_lib\user_lib.c
 .\objects\user_lib.o: ..\user\user_lib\user_lib.h
 .\objects\user_lib.o: ..\user\main.h
-.\objects\user_lib.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\user_lib.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\user_lib.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\user_lib.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\user_lib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\user_lib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\user_lib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\user_lib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\user_lib.o: ..\User\hardware\SYS\sys.h
 .\objects\user_lib.o: ..\user\main.h
 .\objects\user_lib.o: ..\CMSIS\stm32f4xx.h
@@ -47,4 +47,4 @@
 .\objects\user_lib.o: ..\User\hardware\delay\delay.h
 .\objects\user_lib.o: ..\User\DSP\Include\arm_math.h
 .\objects\user_lib.o: ..\CMSIS\core_cm4.h
-.\objects\user_lib.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\user_lib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

@@ -1,10 +1,10 @@
 .\objects\laser.o: ..\user\hardware\laser\laser.c
 .\objects\laser.o: ..\user\hardware\laser\laser.h
 .\objects\laser.o: ..\user\main.h
-.\objects\laser.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\laser.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\laser.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\laser.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\laser.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\laser.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\laser.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\laser.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\laser.o: ..\User\hardware\SYS\sys.h
 .\objects\laser.o: ..\user\main.h
 .\objects\laser.o: ..\CMSIS\stm32f4xx.h

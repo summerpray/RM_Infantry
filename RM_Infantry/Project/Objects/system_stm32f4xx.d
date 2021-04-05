@@ -1,9 +1,9 @@
 .\objects\system_stm32f4xx.o: ..\CMSIS\system_stm32f4xx.c
 .\objects\system_stm32f4xx.o: ..\user\main.h
-.\objects\system_stm32f4xx.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\system_stm32f4xx.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\system_stm32f4xx.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\system_stm32f4xx.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\system_stm32f4xx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\system_stm32f4xx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\system_stm32f4xx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\system_stm32f4xx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\system_stm32f4xx.o: ..\User\hardware\SYS\sys.h
 .\objects\system_stm32f4xx.o: ..\user\main.h
 .\objects\system_stm32f4xx.o: ..\CMSIS\stm32f4xx.h

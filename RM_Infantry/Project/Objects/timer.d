@@ -1,10 +1,10 @@
 .\objects\timer.o: ..\user\hardware\timer\timer.c
 .\objects\timer.o: ..\user\hardware\timer\timer.h
 .\objects\timer.o: ..\user\main.h
-.\objects\timer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\timer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\timer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\timer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\timer.o: ..\User\hardware\SYS\sys.h
 .\objects\timer.o: ..\user\main.h
 .\objects\timer.o: ..\CMSIS\stm32f4xx.h

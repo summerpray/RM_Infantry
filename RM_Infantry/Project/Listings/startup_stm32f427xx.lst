@@ -916,8 +916,8 @@ ARM Macro Assembler    Page 15
 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_stm32f427xx.d -o.\objects\startup_stm32f427xx
-.o -I.\RTE\_XYS-NL-Infantry -ID:\MDK5\mdk5_pack\Keil\STM32F4xx_DFP\2.12.0\Drive
-rs\CMSIS\Device\ST\STM32F4xx\Include -ID:\MDK5\mdk5\ARM\CMSIS\Include --predefi
+.o -I.\RTE\_XYS-NL-Infantry -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Dri
+vers\CMSIS\Device\ST\STM32F4xx\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefi
 ne="__UVISION_VERSION SETA 523" --predefine="STM32F427xx SETA 1" --list=.\listi
 ngs\startup_stm32f427xx.lst ..\startup\startup_stm32f427xx.s
 

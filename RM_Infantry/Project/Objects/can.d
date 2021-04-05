@@ -1,10 +1,10 @@
 .\objects\can.o: ..\user\hardware\can\can.c
 .\objects\can.o: ..\user\hardware\can\can.h
 .\objects\can.o: ..\user\main.h
-.\objects\can.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\can.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\can.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\can.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\can.o: ..\User\hardware\SYS\sys.h
 .\objects\can.o: ..\user\main.h
 .\objects\can.o: ..\CMSIS\stm32f4xx.h

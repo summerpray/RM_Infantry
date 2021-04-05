@@ -1,9 +1,9 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\user\mpu6050\eMPL\inv_mpu_dmp_motion_driver.c
-.\objects\inv_mpu_dmp_motion_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\inv_mpu_dmp_motion_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\inv_mpu_dmp_motion_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\inv_mpu_dmp_motion_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\inv_mpu_dmp_motion_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\inv_mpu_dmp_motion_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\inv_mpu_dmp_motion_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\inv_mpu_dmp_motion_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\inv_mpu_dmp_motion_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\inv_mpu_dmp_motion_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\user\mpu6050\eMPL\inv_mpu.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\CMSIS\stm32f4xx.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\CMSIS\core_cm4.h
@@ -42,7 +42,7 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\FWLIB\inc\stm32f4xx_sai.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\user\main.h
-.\objects\inv_mpu_dmp_motion_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\inv_mpu_dmp_motion_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\User\hardware\SYS\sys.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\user\main.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\user\hardware\usart6\usart6.h

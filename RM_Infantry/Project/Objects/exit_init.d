@@ -1,10 +1,10 @@
 .\objects\exit_init.o: ..\user\hardware\exit_init\exit_init.c
 .\objects\exit_init.o: ..\user\hardware\exit_init\exit_init.h
 .\objects\exit_init.o: ..\user\main.h
-.\objects\exit_init.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\exit_init.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\exit_init.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\exit_init.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\exit_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\exit_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\exit_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\exit_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\exit_init.o: ..\User\hardware\SYS\sys.h
 .\objects\exit_init.o: ..\user\main.h
 .\objects\exit_init.o: ..\CMSIS\stm32f4xx.h

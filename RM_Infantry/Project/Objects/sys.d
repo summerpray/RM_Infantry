@@ -1,10 +1,10 @@
 .\objects\sys.o: ..\user\hardware\sys\sys.c
 .\objects\sys.o: ..\user\hardware\sys\sys.h
 .\objects\sys.o: ..\user\main.h
-.\objects\sys.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\sys.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\sys.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\sys.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\sys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\sys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\sys.o: ..\User\hardware\SYS\sys.h
 .\objects\sys.o: ..\CMSIS\stm32f4xx.h
 .\objects\sys.o: ..\CMSIS\core_cm4.h

@@ -1,10 +1,10 @@
 .\objects\spi.o: ..\user\hardware\spi\spi.c
 .\objects\spi.o: ..\user\hardware\spi\spi.h
 .\objects\spi.o: ..\user\main.h
-.\objects\spi.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\spi.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\spi.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\spi.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\spi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\spi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\spi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\spi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\spi.o: ..\User\hardware\SYS\sys.h
 .\objects\spi.o: ..\user\main.h
 .\objects\spi.o: ..\CMSIS\stm32f4xx.h

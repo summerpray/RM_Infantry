@@ -1,10 +1,10 @@
 .\objects\vision.o: ..\user\vision.c
 .\objects\vision.o: ..\user\vision.h
 .\objects\vision.o: ..\user\main.h
-.\objects\vision.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\vision.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\vision.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\vision.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\vision.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\vision.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\vision.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\vision.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\vision.o: ..\User\hardware\SYS\sys.h
 .\objects\vision.o: ..\user\main.h
 .\objects\vision.o: ..\CMSIS\stm32f4xx.h
@@ -45,7 +45,7 @@
 .\objects\vision.o: ..\FWLIB\inc\stm32f4xx_sai.h
 .\objects\vision.o: ..\user\hardware\usart6\usart6.h
 .\objects\vision.o: ..\User\hardware\delay\delay.h
-.\objects\vision.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\vision.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\vision.o: ..\User\APP\Remote_Control\remote_control.h
 .\objects\vision.o: ..\User\hardware\RC\rc.h
 .\objects\vision.o: ..\user\crc.h
@@ -58,7 +58,7 @@
 .\objects\vision.o: ..\user\user_lib\user_lib.h
 .\objects\vision.o: ..\user\judge.h
 .\objects\vision.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\vision.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\vision.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\vision.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\vision.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\vision.o: ..\User\FreeRTOS\include\portable.h

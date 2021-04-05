@@ -1,10 +1,10 @@
 .\objects\motor_driver.o: ..\user\hardware\motor_driver\motor_driver.c
 .\objects\motor_driver.o: ..\user\hardware\motor_driver\motor_driver.h
 .\objects\motor_driver.o: ..\user\main.h
-.\objects\motor_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\motor_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\motor_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\motor_driver.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\motor_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\motor_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\motor_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\motor_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\motor_driver.o: ..\User\hardware\SYS\sys.h
 .\objects\motor_driver.o: ..\user\main.h
 .\objects\motor_driver.o: ..\CMSIS\stm32f4xx.h

@@ -1,10 +1,10 @@
 .\objects\adc.o: ..\user\hardware\adc\adc.c
 .\objects\adc.o: ..\user\hardware\adc\adc.h
 .\objects\adc.o: ..\user\main.h
-.\objects\adc.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\adc.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\adc.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\adc.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\adc.o: ..\User\hardware\SYS\sys.h
 .\objects\adc.o: ..\user\main.h
 .\objects\adc.o: ..\CMSIS\stm32f4xx.h

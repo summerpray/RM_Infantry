@@ -1,10 +1,10 @@
 .\objects\power_ctrl.o: ..\user\hardware\power_ctrl\power_ctrl.c
 .\objects\power_ctrl.o: ..\user\hardware\power_ctrl\power_ctrl.h
 .\objects\power_ctrl.o: ..\user\main.h
-.\objects\power_ctrl.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\power_ctrl.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\power_ctrl.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\power_ctrl.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\power_ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\power_ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\power_ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\power_ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\power_ctrl.o: ..\User\hardware\SYS\sys.h
 .\objects\power_ctrl.o: ..\user\main.h
 .\objects\power_ctrl.o: ..\CMSIS\stm32f4xx.h

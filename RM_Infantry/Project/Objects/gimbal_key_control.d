@@ -1,10 +1,10 @@
 .\objects\gimbal_key_control.o: ..\user\APP\gimbal_key_control\gimbal_key_control.c
 .\objects\gimbal_key_control.o: ..\user\APP\gimbal_key_control\gimbal_key_control.h
 .\objects\gimbal_key_control.o: ..\user\main.h
-.\objects\gimbal_key_control.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\gimbal_key_control.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\gimbal_key_control.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\gimbal_key_control.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gimbal_key_control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\gimbal_key_control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\gimbal_key_control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\gimbal_key_control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\gimbal_key_control.o: ..\User\hardware\SYS\sys.h
 .\objects\gimbal_key_control.o: ..\user\main.h
 .\objects\gimbal_key_control.o: ..\CMSIS\stm32f4xx.h
@@ -49,7 +49,7 @@
 .\objects\gimbal_key_control.o: ..\user\kalman_filter.h
 .\objects\gimbal_key_control.o: ..\User\DSP\Include\arm_math.h
 .\objects\gimbal_key_control.o: ..\CMSIS\core_cm4.h
-.\objects\gimbal_key_control.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\gimbal_key_control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\gimbal_key_control.o: ..\user\mpu6050\mpu6050.h
 .\objects\gimbal_key_control.o: ..\user\mpu6050\myiic.h
 .\objects\gimbal_key_control.o: ..\user\mpu6050\eMPL\inv_mpu_dmp_motion_driver.h
@@ -66,7 +66,7 @@
 .\objects\gimbal_key_control.o: ..\User\APP\Start_Task\start_task.h
 .\objects\gimbal_key_control.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\gimbal_key_control.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\gimbal_key_control.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gimbal_key_control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\gimbal_key_control.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\gimbal_key_control.o: ..\User\FreeRTOS\include\portable.h
 .\objects\gimbal_key_control.o: ..\User\FreeRTOS\include\deprecated_definitions.h

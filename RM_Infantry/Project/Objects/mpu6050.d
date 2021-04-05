@@ -1,10 +1,10 @@
 .\objects\mpu6050.o: ..\user\mpu6050\mpu6050.c
 .\objects\mpu6050.o: ..\user\mpu6050\mpu6050.h
 .\objects\mpu6050.o: ..\user\main.h
-.\objects\mpu6050.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\mpu6050.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\mpu6050.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\mpu6050.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mpu6050.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\mpu6050.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\mpu6050.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mpu6050.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\mpu6050.o: ..\User\hardware\SYS\sys.h
 .\objects\mpu6050.o: ..\user\main.h
 .\objects\mpu6050.o: ..\CMSIS\stm32f4xx.h

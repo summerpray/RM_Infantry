@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_it.o: ..\CMSIS\stm32f4xx_it.h
 .\objects\stm32f4xx_it.o: ..\CMSIS\stm32f4xx.h
 .\objects\stm32f4xx_it.o: ..\CMSIS\core_cm4.h
-.\objects\stm32f4xx_it.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\stm32f4xx_it.o: ..\CMSIS\core_cmInstr.h
 .\objects\stm32f4xx_it.o: ..\CMSIS\core_cmFunc.h
 .\objects\stm32f4xx_it.o: ..\CMSIS\core_cmSimd.h
@@ -38,9 +38,9 @@
 .\objects\stm32f4xx_it.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 .\objects\stm32f4xx_it.o: ..\FWLIB\inc\stm32f4xx_sai.h
 .\objects\stm32f4xx_it.o: ..\user\main.h
-.\objects\stm32f4xx_it.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\stm32f4xx_it.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\stm32f4xx_it.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\stm32f4xx_it.o: ..\User\hardware\SYS\sys.h
 .\objects\stm32f4xx_it.o: ..\user\main.h
 .\objects\stm32f4xx_it.o: ..\user\hardware\usart6\usart6.h

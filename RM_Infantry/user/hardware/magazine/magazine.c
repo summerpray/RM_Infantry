@@ -30,7 +30,7 @@ uint8_t	Magazine_Switch = 0;//弹仓遥控模式开关标志位转换
 
 uint8_t Magazine_Key_Switch = 0;//弹仓键盘模式开关标志位转换
 
-u8 Maga_Switch_R = 1;
+u8 Maga_Switch_X = 1;
 u8 Maga_Key_R_Change = 0;
 u8 Maga_Times = 0;
 
@@ -48,13 +48,13 @@ void Magazine_Ctrl(void)
 		//角度初始化,使目标值与测量值都为关闭值
 		Magazine_Target = Magazine_Close_Angle;
 		Magazine_Actual = Magazine_Close_Angle;
-		Maga_Switch_R = 1;
+		Maga_Switch_X = 1;
 		Maga_Key_R_Change = 0;
 		Maga_Times = 0;
 	}
 	else
 	{
-		if (Magezine_Rc_Switch( ) == TRUE)//判断是否要弹仓改变当前状态
+		if (Magezine_Rc_Switch() == TRUE)//判断是否要弹仓改变当前状态
 		{
 			//改变当前状态的判断
 			if (Magazine_Target == Magazine_Open_Angle)//弹仓开启此处始终进入
@@ -73,7 +73,7 @@ void Magazine_Ctrl(void)
 		else
 		  {
 			 Magazine_Key_Switch = MAGA_KEY_CLOSE;
-			   Maga_Switch_R = 1;
+			   Maga_Switch_X = 1;
 			  Maga_Key_R_Change = 0;
 			  Maga_Times = 0;
 		    maga_remot_change = TRUE;//标记切回了遥控模式
@@ -147,7 +147,7 @@ bool Magezine_Rc_Switch(void)
   */
 void Magazine_Key_Ctrl(void)
 {
-	static uint32_t ulTimePressS   = 0;
+	static uint32_t ulTimePressX   = 0;
 //	static uint32_t ulTimeOpen     = 0;
 	       portTickType ulTimeCurrent  = 0;
 	static uint32_t PressR_Gap = 0;//关弹仓情况下，R按一下之后长时间不再按一次则忽略此次
@@ -164,20 +164,20 @@ void Magazine_Key_Ctrl(void)
 	switch (Magazine_Key_Switch)
 	{
 		case MAGA_KEY_CLOSE:	
-			if(!IF_KEY_PRESSED_R)//R松开
+			if(!IF_KEY_PRESSED_X)//R松开
 			{
-				Maga_Switch_R = 1;
+				Maga_Switch_X = 1;
 				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_500MS)//500ms内没按下R
 				{
 					Maga_Times = 0;//重新记次
 				}
-			}
+			} 
 			
-			if (IF_KEY_PRESSED_R && Maga_Switch_R == 1
+			if (IF_KEY_PRESSED_X && Maga_Switch_X == 1
 					&& GIMBAL_IfBuffHit() != TRUE)//R按下
 			{
 				PressR_Gap = ulTimeCurrent;//记录按下时间
-				Maga_Switch_R = 0;	
+				Maga_Switch_X = 0;	
 				Maga_Times++;	
 			}	
 			
@@ -190,7 +190,7 @@ void Magazine_Key_Ctrl(void)
 					JUDGE_ShootNum_Clear();//发弹量清零
 					Revolver_Angle_Rest();//拨盘角度清零
 				}
-				ulTimePressS = ulTimeCurrent;
+				ulTimePressX = ulTimeCurrent;
 			}
 			else
 			{
@@ -199,17 +199,17 @@ void Magazine_Key_Ctrl(void)
 		break;
 				
 		case MAGA_KEY_OPEN:	
-			if(!IF_KEY_PRESSED_R)//R松开
+			if(!IF_KEY_PRESSED_X)//R松开
 			{
-				Maga_Switch_R = 1;
+				Maga_Switch_X = 1;
 			}
 			
-			if (!IF_KEY_PRESSED_S)
+			if (!IF_KEY_PRESSED_X)
 			{
-				ulTimePressS = ulTimeCurrent;//刷新S按下的时间
+				ulTimePressX = ulTimeCurrent;//刷新S按下的时间
 			}
 			
-			if ( ulTimeCurrent - ulTimePressS >  (TIME_STAMP_500MS + TIME_STAMP_300MS)  //连按S超过800ms
+			if ( ulTimeCurrent - ulTimePressX >  (TIME_STAMP_500MS + TIME_STAMP_300MS)  //连按S超过800ms
 						|| IF_KEY_PRESSED_Q || IF_KEY_PRESSED_E || IF_KEY_PRESSED_V )	
 			{
 				Magazine_Key_Switch = MAGA_KEY_CLOSE;

@@ -1,10 +1,10 @@
 .\objects\buzzer.o: ..\user\hardware\buzzer\buzzer.c
 .\objects\buzzer.o: ..\user\hardware\buzzer\buzzer.h
 .\objects\buzzer.o: ..\user\main.h
-.\objects\buzzer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\buzzer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\buzzer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\buzzer.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\buzzer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\buzzer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\buzzer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\buzzer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\buzzer.o: ..\User\hardware\SYS\sys.h
 .\objects\buzzer.o: ..\user\main.h
 .\objects\buzzer.o: ..\CMSIS\stm32f4xx.h

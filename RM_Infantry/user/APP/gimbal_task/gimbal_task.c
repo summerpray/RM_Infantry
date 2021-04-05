@@ -225,20 +225,20 @@ void GIMBAL_task(void *pvParameters)
 				RC_Set_Mode();
 				GIMBAL_Set_Control();
 			  actGimbal = GIMBAL_NORMAL;
-				GIMBAL_PositionLoop();
-				//RC_Set_Mode();
+				//GIMBAL_PositionLoop();
 			}
 			
 			if(IF_RC_SW2_UP)
 			{
-				actGimbal = GIMBAL_AUTO;
+				actGimbal = GIMBAL_NORMAL;
 				KEY_Set_Mode();
 				RC_Set_Mode();
-				if (IF_MOUSE_PRESSED_RIGH)
-				{
-					GIMBAL_AUTO_Mode_Ctrl();
-					GIMBAL_PositionLoop_AUTO();
-				}
+//				if (IF_MOUSE_PRESSED_RIGH)
+//				{
+//					GIMBAL_AUTO_Mode_Ctrl();
+//					GIMBAL_PositionLoop_AUTO();
+//          Vision_Ctrl();
+//				}
 			}
 //			else
 //			{
@@ -249,7 +249,7 @@ void GIMBAL_task(void *pvParameters)
 
 		}
 		//根据操作模式变换PID,每次都要变,很重要                       现在还没写！！！！！！！！！！！！
-		//GIMBAL_PositionLoop();
+		GIMBAL_PositionLoop();
 		GIMBAL_CanSend();
 		
 		//如果不是自瞄模式,对角度和速度进行二阶卡尔曼滤波融合,0位置,1速度      ????????????????????????????????
@@ -472,7 +472,7 @@ void GIMBAL_Set_Control(void)
     }
 
 #else 
-//		Cloud_Angle_Target[YAW][MECH] += (rc_add_yaw/5);                                 //根据云台安装方式,轴上和轴下正负不同        /-
+		Cloud_Angle_Target[YAW][MECH] += (rc_add_yaw/5);                                 //根据云台安装方式,轴上和轴下正负不同        /-
 		
 		Cloud_Angle_Target[PITCH][MECH]-= rc_add_pit;
 		                               //注意正负                /+
@@ -911,7 +911,6 @@ void GIMBAL_PositionLoop(void)
 //		Cloud_Palstance_Measure[PITCH][MECH] = Cloud_Palstance_Measure[PITCH][MECH]/10;
 		
 		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_Yaw_Gyro_PID,Cloud_Angle_Measure[YAW][GYRO], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
-		out = Gimbal_Yaw_Gyro_PID.out;
 		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_Mech_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
 //		motor_gyro_set[PITCH][GYRO] = GIMBAL_PID_Calc(&Gimbal_Pitch_Gyro_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][GYRO],Cloud_Palstance_Measure[PITCH][GYRO]); 
 		

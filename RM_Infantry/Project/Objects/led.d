@@ -1,10 +1,10 @@
 .\objects\led.o: ..\user\hardware\led\led.c
 .\objects\led.o: ..\user\hardware\led\led.h
 .\objects\led.o: ..\user\main.h
-.\objects\led.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\led.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\led.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\led.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\led.o: ..\User\hardware\SYS\sys.h
 .\objects\led.o: ..\user\main.h
 .\objects\led.o: ..\CMSIS\stm32f4xx.h

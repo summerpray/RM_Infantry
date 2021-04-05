@@ -3,11 +3,16 @@
 
 #include "main.h"
 
-
 //弹仓开关角度对应的PWM值
-#define Magazine_Close_Angle   1920
-#define Magazine_Open_Angle    1800
+#define Magazine_Close_Angle 1920
+#define Magazine_Open_Angle 1800
 
+typedef enum
+{
+    MAG_OPEN = 0,
+    MAG_CLOSE = 1,
+
+} MagState;
 
 void Magazine_Ctrl(void);
 void Magazine_Servo(int16_t pwm);
@@ -18,4 +23,3 @@ bool Magazine_IfOpen(void);
 bool Magazine_IfWait(void);
 
 #endif
-

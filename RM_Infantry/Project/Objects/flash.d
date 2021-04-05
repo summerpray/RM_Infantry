@@ -2,10 +2,10 @@
 .\objects\flash.o: ..\user\hardware\flash\flash.h
 .\objects\flash.o: ..\User\hardware\SYS\sys.h
 .\objects\flash.o: ..\user\main.h
-.\objects\flash.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\flash.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\flash.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\flash.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\flash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\flash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\flash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\flash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\flash.o: ..\User\hardware\SYS\sys.h
 .\objects\flash.o: ..\CMSIS\stm32f4xx.h
 .\objects\flash.o: ..\CMSIS\core_cm4.h

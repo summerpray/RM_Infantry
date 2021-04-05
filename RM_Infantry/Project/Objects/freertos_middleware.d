@@ -1,10 +1,10 @@
 .\objects\freertos_middleware.o: ..\user\APP\FreeRTOS_middleware\FreeRTOS_middleware.c
 .\objects\freertos_middleware.o: ..\user\APP\FreeRTOS_middleware\FreeRTOS_Middleware.h
 .\objects\freertos_middleware.o: ..\user\main.h
-.\objects\freertos_middleware.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\freertos_middleware.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\freertos_middleware.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\freertos_middleware.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\freertos_middleware.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\freertos_middleware.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\freertos_middleware.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\freertos_middleware.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\freertos_middleware.o: ..\User\hardware\SYS\sys.h
 .\objects\freertos_middleware.o: ..\user\main.h
 .\objects\freertos_middleware.o: ..\CMSIS\stm32f4xx.h
@@ -47,7 +47,7 @@
 .\objects\freertos_middleware.o: ..\User\hardware\delay\delay.h
 .\objects\freertos_middleware.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\freertos_middleware.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\freertos_middleware.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\freertos_middleware.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\freertos_middleware.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\freertos_middleware.o: ..\User\FreeRTOS\include\portable.h
 .\objects\freertos_middleware.o: ..\User\FreeRTOS\include\deprecated_definitions.h

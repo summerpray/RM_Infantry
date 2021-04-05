@@ -1,10 +1,10 @@
 .\objects\myiic.o: ..\user\mpu6050\myiic.c
 .\objects\myiic.o: ..\user\mpu6050\myiic.h
 .\objects\myiic.o: ..\user\main.h
-.\objects\myiic.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\myiic.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\myiic.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\myiic.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\myiic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\myiic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\myiic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\myiic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\myiic.o: ..\User\hardware\SYS\sys.h
 .\objects\myiic.o: ..\user\main.h
 .\objects\myiic.o: ..\CMSIS\stm32f4xx.h

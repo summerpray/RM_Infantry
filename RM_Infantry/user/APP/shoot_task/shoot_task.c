@@ -178,7 +178,7 @@ void shoot_task(void *pvParameters)
         
 			}
 			Fric_Key_Ctrl();
-			
+			Magazine_Ctrl();
 //测试平台    启用正常程序需要去掉正常程序的注释
 //			if(IF_RC_SW1_DOWN)
 //			{

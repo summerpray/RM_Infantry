@@ -1,10 +1,10 @@
 .\objects\pid.o: ..\user\APP\pid\pid.c
 .\objects\pid.o: ..\user\APP\pid\pid.h
 .\objects\pid.o: ..\user\main.h
-.\objects\pid.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\pid.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\pid.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\pid.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\pid.o: ..\User\hardware\SYS\sys.h
 .\objects\pid.o: ..\user\main.h
 .\objects\pid.o: ..\CMSIS\stm32f4xx.h

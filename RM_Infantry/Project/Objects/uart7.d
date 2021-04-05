@@ -1,10 +1,10 @@
 .\objects\uart7.o: ..\user\hardware\uart7\uart7.c
 .\objects\uart7.o: ..\User\hardware\SYS\sys.h
 .\objects\uart7.o: ..\user\main.h
-.\objects\uart7.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\uart7.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\uart7.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\uart7.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uart7.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\uart7.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\uart7.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\uart7.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\uart7.o: ..\User\hardware\SYS\sys.h
 .\objects\uart7.o: ..\CMSIS\stm32f4xx.h
 .\objects\uart7.o: ..\CMSIS\core_cm4.h

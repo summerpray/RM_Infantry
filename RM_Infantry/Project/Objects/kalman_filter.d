@@ -1,10 +1,10 @@
 .\objects\kalman_filter.o: ..\user\kalman_filter.c
 .\objects\kalman_filter.o: ..\user\kalman_filter.h
 .\objects\kalman_filter.o: ..\user\main.h
-.\objects\kalman_filter.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\kalman_filter.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\kalman_filter.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\kalman_filter.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\kalman_filter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\kalman_filter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\kalman_filter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\kalman_filter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\kalman_filter.o: ..\User\hardware\SYS\sys.h
 .\objects\kalman_filter.o: ..\user\main.h
 .\objects\kalman_filter.o: ..\CMSIS\stm32f4xx.h
@@ -47,4 +47,4 @@
 .\objects\kalman_filter.o: ..\User\hardware\delay\delay.h
 .\objects\kalman_filter.o: ..\User\DSP\Include\arm_math.h
 .\objects\kalman_filter.o: ..\CMSIS\core_cm4.h
-.\objects\kalman_filter.o: D:\MDK5\mdk5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\kalman_filter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
