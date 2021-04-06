@@ -70,17 +70,17 @@
 //**自瞄模式**//
 
 //pitch 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出 自瞄PID
-#define PITCH_KEY_PID_KP 300.0f//1950
-#define PITCH_KEY_PID_KI 0.0f
-#define PITCH_KEY_PID_KD 0.0f
+#define PITCH_KEY_PID_KP 1500.0f//1950
+#define PITCH_KEY_PID_KI 0.1f
+#define PITCH_KEY_PID_KD 1.0f
 
 #define PITCH_KEY_PID_MAX_OUT 10000.0f
 #define PITCH_KEY_PID_MAX_IOUT 100.0f
 
 //yaw 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出 自瞄PID
-#define YAW_KEY_PID_KP 10.0f//1950
-#define YAW_KEY_PID_KI 0.0f
-#define YAW_KEY_PID_KD 0.0f
+#define YAW_KEY_PID_KP 2000.0f//1950
+#define YAW_KEY_PID_KI 0.3f
+#define YAW_KEY_PID_KD 3.0f
 
 #define YAW_KEY_PID_MAX_OUT 10000.0f
 #define YAW_KEY_PID_MAX_IOUT 100.0f
@@ -108,7 +108,7 @@
 #define max_pitch_relative_angle   (PI/8)
 #define min_pitch_relative_angle  -(PI)
 #define mid_yaw_angle                0       //安装时歪了 所以这里纠正
-#define mid_pitch_angle          -(PI/1.2)
+#define mid_pitch_angle          -(PI/1.5)
 
 //云台跟随pid
 #define  GIMBAL_FOLLOW_CHASSIS_PID_KP 0.10f  //0.15

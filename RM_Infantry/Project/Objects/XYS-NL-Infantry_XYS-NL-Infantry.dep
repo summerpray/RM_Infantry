@@ -2369,7 +2369,7 @@ I (..\User\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x60694315)
 I (..\User\FreeRTOS\include\mpu_wrappers.h)(0x60694315)
 I (..\User\FreeRTOS\include\task.h)(0x60694315)
 I (..\User\FreeRTOS\include\list.h)(0x60694315)
-F (..\user\vision.c)(0x60694315)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CMSIS -I ..\FWLIB\inc -I ..\user\mpu6050 -I ..\User\DSP\Include -I ..\User\FreeRTOS\include -I ..\User\FreeRTOS\portable -I ..\User\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\user\user_lib -I ..\User\hardware\ADC -I ..\User\hardware\BUZZER -I ..\User\hardware\delay -I ..\User\hardware\EXIT_Init -I ..\User\hardware\CAN -I ..\User\hardware\LED -I ..\User\hardware\FLASH -I ..\User\hardware\FRIC -I ..\User\hardware\LASER -I ..\User\hardware\POWER_CTRL -I ..\User\hardware\RC -I ..\User\hardware\RNG -I ..\User\hardware\SPI -I ..\User\hardware\SYS -I ..\user\hardware\timer -I ..\User\APP\Calibrate_Task -I ..\User\APP\CAN_Receive -I ..\User\APP\Detect_Task -I ..\User\APP\FreeRTOS_Middleware -I ..\User\APP\Gimbal_Task -I ..\User\APP\INS_Task -I ..\User\APP\pid -I ..\User\APP\Remote_Control -I ..\User\APP\Shoot -I ..\User\APP\Start_Task -I ..\User\APP\User_Task -I ..\user\hardware\usart6 -I ..\user\mpu6050\eMPL -I ..\user\AHRS -I ..\user\APP\chassis_task -I ..\user\APP\shoot_task -I ..\user\hardware\usart7 -I ..\user -I ..\user\hardware\magazine -I ..\user\hardware\motor_driver -I ..\user\APP\gimbal_key_control -I ..\user\hardware\surper_cap -I ..\user\hardware\uart7-I.\RTE\_XYS-NL-Infantry-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427X -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o .\objects\vision.o --omf_browse .\objects\vision.crf --depend .\objects\vision.d)
+F (..\user\vision.c)(0x606AC842)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CMSIS -I ..\FWLIB\inc -I ..\user\mpu6050 -I ..\User\DSP\Include -I ..\User\FreeRTOS\include -I ..\User\FreeRTOS\portable -I ..\User\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\user\user_lib -I ..\User\hardware\ADC -I ..\User\hardware\BUZZER -I ..\User\hardware\delay -I ..\User\hardware\EXIT_Init -I ..\User\hardware\CAN -I ..\User\hardware\LED -I ..\User\hardware\FLASH -I ..\User\hardware\FRIC -I ..\User\hardware\LASER -I ..\User\hardware\POWER_CTRL -I ..\User\hardware\RC -I ..\User\hardware\RNG -I ..\User\hardware\SPI -I ..\User\hardware\SYS -I ..\user\hardware\timer -I ..\User\APP\Calibrate_Task -I ..\User\APP\CAN_Receive -I ..\User\APP\Detect_Task -I ..\User\APP\FreeRTOS_Middleware -I ..\User\APP\Gimbal_Task -I ..\User\APP\INS_Task -I ..\User\APP\pid -I ..\User\APP\Remote_Control -I ..\User\APP\Shoot -I ..\User\APP\Start_Task -I ..\User\APP\User_Task -I ..\user\hardware\usart6 -I ..\user\mpu6050\eMPL -I ..\user\AHRS -I ..\user\APP\chassis_task -I ..\user\APP\shoot_task -I ..\user\hardware\usart7 -I ..\user -I ..\user\hardware\magazine -I ..\user\hardware\motor_driver -I ..\user\APP\gimbal_key_control -I ..\user\hardware\surper_cap -I ..\user\hardware\uart7-I.\RTE\_XYS-NL-Infantry-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427X -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o .\objects\vision.o --omf_browse .\objects\vision.crf --depend .\objects\vision.d)
 I (..\user\vision.h)(0x60694315)
 I (..\user\main.h)(0x60694315)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
@@ -2419,7 +2419,7 @@ I (..\User\APP\Remote_Control\remote_control.h)(0x60694315)
 I (..\User\hardware\RC\rc.h)(0x60694315)
 I (..\user\crc.h)(0x60694315)
 I (..\user\hardware\uart7\uart7.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\gimbal_task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\gimbal_task.h)(0x606ADA6D)
 I (..\User\APP\CAN_Receive\CAN_Receive.h)(0x60694315)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\user\kalman.h)(0x60694315)
@@ -3203,7 +3203,7 @@ I (..\User\APP\Start_Task\start_task.h)(0x60694315)
 I (..\User\APP\Remote_Control\Remote_Control.h)(0x60694315)
 I (..\User\hardware\RC\rc.h)(0x60694315)
 I (..\user\judge.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x606ADA6D)
 I (..\User\APP\CAN_Receive\CAN_Receive.h)(0x60694315)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\user\APP\shoot_task\shoot_task.h)(0x60694315)
@@ -3417,7 +3417,7 @@ I (..\FWLIB\inc\stm32f4xx_sai.h)(0x60694317)
 I (..\user\hardware\usart6\usart6.h)(0x60694315)
 I (..\User\hardware\delay\delay.h)(0x60694315)
 I (..\user\APP\chassis_task\chassis_task.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x606ADA6D)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\User\APP\Remote_Control\remote_control.h)(0x60694315)
 I (..\User\hardware\RC\rc.h)(0x60694315)
@@ -3485,7 +3485,7 @@ I (..\FWLIB\inc\stm32f4xx_sai.h)(0x60694317)
 I (..\user\hardware\usart6\usart6.h)(0x60694315)
 I (..\User\hardware\delay\delay.h)(0x60694315)
 I (..\User\APP\CAN_Receive\CAN_Receive.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x606ADA6D)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\User\APP\Remote_Control\remote_control.h)(0x60694315)
 I (..\User\hardware\RC\rc.h)(0x60694315)
@@ -3566,8 +3566,8 @@ I (..\User\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x60694315)
 I (..\User\FreeRTOS\include\mpu_wrappers.h)(0x60694315)
 I (..\User\FreeRTOS\include\task.h)(0x60694315)
 I (..\User\FreeRTOS\include\list.h)(0x60694315)
-F (..\user\APP\gimbal_task\gimbal_task.c)(0x6069722B)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CMSIS -I ..\FWLIB\inc -I ..\user\mpu6050 -I ..\User\DSP\Include -I ..\User\FreeRTOS\include -I ..\User\FreeRTOS\portable -I ..\User\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\user\user_lib -I ..\User\hardware\ADC -I ..\User\hardware\BUZZER -I ..\User\hardware\delay -I ..\User\hardware\EXIT_Init -I ..\User\hardware\CAN -I ..\User\hardware\LED -I ..\User\hardware\FLASH -I ..\User\hardware\FRIC -I ..\User\hardware\LASER -I ..\User\hardware\POWER_CTRL -I ..\User\hardware\RC -I ..\User\hardware\RNG -I ..\User\hardware\SPI -I ..\User\hardware\SYS -I ..\user\hardware\timer -I ..\User\APP\Calibrate_Task -I ..\User\APP\CAN_Receive -I ..\User\APP\Detect_Task -I ..\User\APP\FreeRTOS_Middleware -I ..\User\APP\Gimbal_Task -I ..\User\APP\INS_Task -I ..\User\APP\pid -I ..\User\APP\Remote_Control -I ..\User\APP\Shoot -I ..\User\APP\Start_Task -I ..\User\APP\User_Task -I ..\user\hardware\usart6 -I ..\user\mpu6050\eMPL -I ..\user\AHRS -I ..\user\APP\chassis_task -I ..\user\APP\shoot_task -I ..\user\hardware\usart7 -I ..\user -I ..\user\hardware\magazine -I ..\user\hardware\motor_driver -I ..\user\APP\gimbal_key_control -I ..\user\hardware\surper_cap -I ..\user\hardware\uart7-I.\RTE\_XYS-NL-Infantry-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427X -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o .\objects\gimbal_task.o --omf_browse .\objects\gimbal_task.crf --depend .\objects\gimbal_task.d)
-I (..\user\APP\gimbal_task\Gimbal_Task.h)(0x60694315)
+F (..\user\APP\gimbal_task\gimbal_task.c)(0x606BDA69)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CMSIS -I ..\FWLIB\inc -I ..\user\mpu6050 -I ..\User\DSP\Include -I ..\User\FreeRTOS\include -I ..\User\FreeRTOS\portable -I ..\User\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\user\user_lib -I ..\User\hardware\ADC -I ..\User\hardware\BUZZER -I ..\User\hardware\delay -I ..\User\hardware\EXIT_Init -I ..\User\hardware\CAN -I ..\User\hardware\LED -I ..\User\hardware\FLASH -I ..\User\hardware\FRIC -I ..\User\hardware\LASER -I ..\User\hardware\POWER_CTRL -I ..\User\hardware\RC -I ..\User\hardware\RNG -I ..\User\hardware\SPI -I ..\User\hardware\SYS -I ..\user\hardware\timer -I ..\User\APP\Calibrate_Task -I ..\User\APP\CAN_Receive -I ..\User\APP\Detect_Task -I ..\User\APP\FreeRTOS_Middleware -I ..\User\APP\Gimbal_Task -I ..\User\APP\INS_Task -I ..\User\APP\pid -I ..\User\APP\Remote_Control -I ..\User\APP\Shoot -I ..\User\APP\Start_Task -I ..\User\APP\User_Task -I ..\user\hardware\usart6 -I ..\user\mpu6050\eMPL -I ..\user\AHRS -I ..\user\APP\chassis_task -I ..\user\APP\shoot_task -I ..\user\hardware\usart7 -I ..\user -I ..\user\hardware\magazine -I ..\user\hardware\motor_driver -I ..\user\APP\gimbal_key_control -I ..\user\hardware\surper_cap -I ..\user\hardware\uart7-I.\RTE\_XYS-NL-Infantry-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427X -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o .\objects\gimbal_task.o --omf_browse .\objects\gimbal_task.crf --depend .\objects\gimbal_task.d)
+I (..\user\APP\gimbal_task\Gimbal_Task.h)(0x606ADA6D)
 I (..\user\main.h)(0x60694315)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
@@ -3792,7 +3792,7 @@ I (..\User\FreeRTOS\include\list.h)(0x60694315)
 I (..\User\APP\User_Task\User_Task.h)(0x60694315)
 I (..\user\APP\chassis_task\Chassis_Task.h)(0x60694315)
 I (..\User\APP\CAN_Receive\CAN_Receive.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x606ADA6D)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\user\user_lib\user_lib.h)(0x60694315)
 I (..\User\hardware\LED\led.h)(0x60694315)
@@ -3848,14 +3848,14 @@ I (..\user\hardware\usart6\usart6.h)(0x60694315)
 I (..\User\hardware\delay\delay.h)(0x60694315)
 I (..\user\APP\chassis_task\chassis_task.h)(0x60694315)
 I (..\User\APP\CAN_Receive\CAN_Receive.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x606ADA6D)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\User\APP\Remote_Control\remote_control.h)(0x60694315)
 I (..\User\hardware\RC\rc.h)(0x60694315)
 I (..\user\user_lib\user_lib.h)(0x60694315)
 I (..\User\DSP\Include\arm_math.h)(0x60694315)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
-F (..\user\APP\shoot_task\shoot_task.c)(0x60694315)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CMSIS -I ..\FWLIB\inc -I ..\user\mpu6050 -I ..\User\DSP\Include -I ..\User\FreeRTOS\include -I ..\User\FreeRTOS\portable -I ..\User\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\user\user_lib -I ..\User\hardware\ADC -I ..\User\hardware\BUZZER -I ..\User\hardware\delay -I ..\User\hardware\EXIT_Init -I ..\User\hardware\CAN -I ..\User\hardware\LED -I ..\User\hardware\FLASH -I ..\User\hardware\FRIC -I ..\User\hardware\LASER -I ..\User\hardware\POWER_CTRL -I ..\User\hardware\RC -I ..\User\hardware\RNG -I ..\User\hardware\SPI -I ..\User\hardware\SYS -I ..\user\hardware\timer -I ..\User\APP\Calibrate_Task -I ..\User\APP\CAN_Receive -I ..\User\APP\Detect_Task -I ..\User\APP\FreeRTOS_Middleware -I ..\User\APP\Gimbal_Task -I ..\User\APP\INS_Task -I ..\User\APP\pid -I ..\User\APP\Remote_Control -I ..\User\APP\Shoot -I ..\User\APP\Start_Task -I ..\User\APP\User_Task -I ..\user\hardware\usart6 -I ..\user\mpu6050\eMPL -I ..\user\AHRS -I ..\user\APP\chassis_task -I ..\user\APP\shoot_task -I ..\user\hardware\usart7 -I ..\user -I ..\user\hardware\magazine -I ..\user\hardware\motor_driver -I ..\user\APP\gimbal_key_control -I ..\user\hardware\surper_cap -I ..\user\hardware\uart7-I.\RTE\_XYS-NL-Infantry-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427X -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o .\objects\shoot_task.o --omf_browse .\objects\shoot_task.crf --depend .\objects\shoot_task.d)
+F (..\user\APP\shoot_task\shoot_task.c)(0x606BE461)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CMSIS -I ..\FWLIB\inc -I ..\user\mpu6050 -I ..\User\DSP\Include -I ..\User\FreeRTOS\include -I ..\User\FreeRTOS\portable -I ..\User\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\user\user_lib -I ..\User\hardware\ADC -I ..\User\hardware\BUZZER -I ..\User\hardware\delay -I ..\User\hardware\EXIT_Init -I ..\User\hardware\CAN -I ..\User\hardware\LED -I ..\User\hardware\FLASH -I ..\User\hardware\FRIC -I ..\User\hardware\LASER -I ..\User\hardware\POWER_CTRL -I ..\User\hardware\RC -I ..\User\hardware\RNG -I ..\User\hardware\SPI -I ..\User\hardware\SYS -I ..\user\hardware\timer -I ..\User\APP\Calibrate_Task -I ..\User\APP\CAN_Receive -I ..\User\APP\Detect_Task -I ..\User\APP\FreeRTOS_Middleware -I ..\User\APP\Gimbal_Task -I ..\User\APP\INS_Task -I ..\User\APP\pid -I ..\User\APP\Remote_Control -I ..\User\APP\Shoot -I ..\User\APP\Start_Task -I ..\User\APP\User_Task -I ..\user\hardware\usart6 -I ..\user\mpu6050\eMPL -I ..\user\AHRS -I ..\user\APP\chassis_task -I ..\user\APP\shoot_task -I ..\user\hardware\usart7 -I ..\user -I ..\user\hardware\magazine -I ..\user\hardware\motor_driver -I ..\user\APP\gimbal_key_control -I ..\user\hardware\surper_cap -I ..\user\hardware\uart7-I.\RTE\_XYS-NL-Infantry-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427X -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o .\objects\shoot_task.o --omf_browse .\objects\shoot_task.crf --depend .\objects\shoot_task.d)
 I (..\user\APP\shoot_task\shoot_task.h)(0x60694315)
 I (..\user\main.h)(0x60694315)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
@@ -3922,7 +3922,7 @@ I (..\User\FreeRTOS\include\list.h)(0x60694315)
 I (..\User\FreeRTOS\include\queue.h)(0x60694315)
 I (..\User\FreeRTOS\include\timers.h)(0x60694315)
 I (..\User\APP\Start_Task\start_task.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\gimbal_task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\gimbal_task.h)(0x606ADA6D)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\user\vision.h)(0x60694315)
 I (..\user\hardware\magazine\magazine.h)(0x60694315)
@@ -3983,7 +3983,7 @@ I (..\user\vision.h)(0x60694315)
 I (..\user\hardware\magazine\magazine.h)(0x60694315)
 I (..\user\APP\chassis_task\chassis_task.h)(0x60694315)
 I (..\User\APP\CAN_Receive\CAN_Receive.h)(0x60694315)
-I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x60694315)
+I (..\User\APP\Gimbal_Task\Gimbal_Task.h)(0x606ADA6D)
 I (..\User\APP\pid\pid.h)(0x60694315)
 I (..\User\APP\Remote_Control\remote_control.h)(0x60694315)
 I (..\User\hardware\RC\rc.h)(0x60694315)

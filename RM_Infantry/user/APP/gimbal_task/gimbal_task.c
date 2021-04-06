@@ -225,31 +225,27 @@ void GIMBAL_task(void *pvParameters)
 				RC_Set_Mode();
 				GIMBAL_Set_Control();
 			  actGimbal = GIMBAL_NORMAL;
-				//GIMBAL_PositionLoop();
+				GIMBAL_PositionLoop();
 			}
-			
 			if(IF_RC_SW2_UP)
 			{
-				actGimbal = GIMBAL_NORMAL;
-				KEY_Set_Mode();
-				RC_Set_Mode();
-//				if (IF_MOUSE_PRESSED_RIGH)
-//				{
-//					GIMBAL_AUTO_Mode_Ctrl();
-//					GIMBAL_PositionLoop_AUTO();
-//          Vision_Ctrl();
-//				}
+				modeGimbal = CLOUD_GYRO_MODE;
+				if (IF_MOUSE_PRESSED_RIGH)
+				{
+					GIMBAL_AUTO_Mode_Ctrl();
+					GIMBAL_PositionLoop_AUTO();
+				}
+				else
+				{
+					actGimbal = GIMBAL_NORMAL;
+					KEY_Set_Mode();
+					GIMBAL_Set_Key_Control();
+					GIMBAL_PositionLoop();
+				}
 			}
-//			else
-//			{
-//				GIMBAL_Set_Control();
-//			  actGimbal = GIMBAL_NORMAL;
-
-//			}
-
 		}
 		//根据操作模式变换PID,每次都要变,很重要                       现在还没写！！！！！！！！！！！！
-		GIMBAL_PositionLoop();
+		//GIMBAL_PositionLoop();
 		GIMBAL_CanSend();
 		
 		//如果不是自瞄模式,对角度和速度进行二阶卡尔曼滤波融合,0位置,1速度      ????????????????????????????????
@@ -661,9 +657,10 @@ void GIMBAL_AUTO_Mode_Ctrl(void)//上左+   下右-
 	
 //	if(VisionRecvData.identify_target == TRUE)                     //识别到了目标
 //	{
-		Cloud_Angle_Target[YAW][GYRO] = (Cloud_Angle_Measure[YAW][MECH] + Auto_Error_Yaw[NOW]);
-		//Cloud_Angle_Target[PITCH][MECH] = (Cloud_Angle_Measure[PITCH][MECH]-Auto_Error_Pitch[NOW]);
+		Cloud_Angle_Target[YAW][GYRO] = (Cloud_Angle_Measure[YAW][MECH] - Auto_Error_Yaw[NOW]);
+		Cloud_Angle_Target[PITCH][MECH] = (Cloud_Angle_Measure[PITCH][MECH] + Auto_Error_Pitch[NOW]);
 //	}
+	//float temp = Auto_Error_Pitch[NOW];
 	modeGimbal = CLOUD_GYRO_MODE;
 }
 
@@ -910,7 +907,7 @@ void GIMBAL_PositionLoop(void)
 //		Cloud_Palstance_Measure[YAW][MECH] = Cloud_Palstance_Measure[YAW][MECH]/10;
 //		Cloud_Palstance_Measure[PITCH][MECH] = Cloud_Palstance_Measure[PITCH][MECH]/10;
 		
-		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_Yaw_Gyro_PID,Cloud_Angle_Measure[YAW][GYRO], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
+		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_Yaw_Gyro_PID,Cloud_Angle_Measure[YAW][MECH], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
 		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_Mech_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
 //		motor_gyro_set[PITCH][GYRO] = GIMBAL_PID_Calc(&Gimbal_Pitch_Gyro_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][GYRO],Cloud_Palstance_Measure[PITCH][GYRO]); 
 		
@@ -957,17 +954,9 @@ void GIMBAL_PositionLoop_AUTO(void)
 	}
 	else if(modeGimbal == CLOUD_GYRO_MODE)
 	{
-//		Cloud_Palstance_Measure[YAW][MECH] = Cloud_Palstance_Measure[YAW][MECH]/10;
+//		Cloud_Palstance_Measure[YAW][GYRO] = Cloud_Palstance_Measure[YAW][MECH]/100;
 //		Cloud_Palstance_Measure[PITCH][MECH] = Cloud_Palstance_Measure[PITCH][MECH]/10;
-		if (Cloud_Angle_Target[PITCH][MECH] > max_pitch_relative_angle)
-    {
-        Cloud_Angle_Target[PITCH][MECH] = max_pitch_relative_angle;
-    }
-    else if (Cloud_Angle_Target[PITCH][MECH] < min_pitch_relative_angle)
-    {
-        Cloud_Angle_Target[PITCH][MECH] = min_pitch_relative_angle;
-    }
-		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_yaw_key_PID,Cloud_Angle_Measure[YAW][GYRO], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
+		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_yaw_key_PID,Cloud_Angle_Measure[YAW][MECH], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
 		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_key_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
 //		motor_gyro_set[PITCH][GYRO] = GIMBAL_PID_Calc(&Gimbal_Pitch_Gyro_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][GYRO],Cloud_Palstance_Measure[PITCH][GYRO]); 
 		
@@ -975,7 +964,7 @@ void GIMBAL_PositionLoop_AUTO(void)
 		current_set[PITCH][MECH] = PID_Calc(&gimbal_pitch_motor_mech_pid,Cloud_Palstance_Measure[PITCH][MECH],motor_gyro_set[PITCH][MECH]);	
 //		current_set[PITCH][GYRO] = PID_Calc(&gimbal_pitch_motor_gyro_pid,Cloud_Palstance_Measure[PITCH][GYRO],motor_gyro_set[PITCH][GYRO]);	
     
-    given_current[YAW][GYRO]	=	 current_set[YAW][GYRO];
+    given_current[YAW][GYRO]	=	 current_set[YAW][GYRO]; 
     given_current[PITCH][MECH]	=	current_set[PITCH][MECH];
 	}
 	else if(modeGimbal == CLOUD_TOP_MODE)

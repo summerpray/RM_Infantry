@@ -79,6 +79,8 @@ float  Revolver_Speed_Target;//转速过低容易卡弹,尽量让转速上6000
 //拨盘电机输出量,正数逆时针
 float Revolver_Final_Output;
 
+float shooter_heat_cooling;
+
 /****************射频控制******************/
 
 uint16_t  Fric_enable = 0;  //键盘模式控制摩擦轮是否开启
@@ -178,7 +180,7 @@ void shoot_task(void *pvParameters)
         
 			}
 			Fric_Key_Ctrl();
-			Magazine_Ctrl();
+			//Magazine_Ctrl();
 //测试平台    启用正常程序需要去掉正常程序的注释
 //			if(IF_RC_SW1_DOWN)
 //			{
@@ -587,7 +589,7 @@ void SHOOT_TRIPLE_Ctrl(void)
 {
 
 	Revolver_mode = REVOL_SPEED_MODE;
-
+	shooter_heat_cooling = JUDGE_usGetShootCold();
 	if(JUDGE_usGetShootCold() <= 40)
 	{
 		Revolver_Freq = 8;//射频选择
