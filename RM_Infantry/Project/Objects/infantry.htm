@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\infantry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\infantry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sun Apr 04 14:36:24 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Apr 06 10:08:48 2021
 <BR><P>
 <H3>Maximum Stack Usage =        400 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -713,8 +713,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 120 + Unknown Stack Size
 <LI>Call Chain = _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ferror
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ferror
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
@@ -1752,14 +1752,14 @@ Global Symbols
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_set_bypass
+<BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Get_Gyroscope
+<LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_set_bypass
 <LI><a href="#[1df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_mem
 <LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_fifo_stream
 <LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_init
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro_self_test
 <LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_st_biases
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_accel_prod_shift
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Get_Gyroscope
 </UL>
 
 <P><STRONG><a name="[140]"></a>MPU_Set_Accel_Fsr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, mpu6050.o(i.MPU_Set_Accel_Fsr))
@@ -1942,9 +1942,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[117]"></a>RAMP_float</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, main.o(i.RAMP_float))
-<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<BR><BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_InitCtrl
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
 <LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_InitCtrl
 </UL>
 
 <P><STRONG><a name="[ca]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd))
@@ -2173,9 +2173,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vision_If_Armor
 <LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vision_Clean_Ammor_Flag
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_BUFF_YAW_READY
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_BUFF_PITCH_READY
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
 </UL>
 <BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
@@ -2625,20 +2625,15 @@ Global Symbols
 <P><STRONG><a name="[196]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fpclassify.o(i.__ARM_fpclassify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_fpclassify
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[193]"></a>__hardfp_asin</STRONG> (Thumb, 770 bytes, Stack size 88 bytes, asin.o(i.__hardfp_asin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -2647,6 +2642,11 @@ Global Symbols
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_dmp_get_data
 </UL>
@@ -2654,17 +2654,17 @@ Global Symbols
 <P><STRONG><a name="[19c]"></a>__hardfp_atan</STRONG> (Thumb, 622 bytes, Stack size 48 bytes, atan.o(i.__hardfp_atan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
-<LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
+<BR>[Calls]<UL><LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
 </UL>
@@ -2672,13 +2672,13 @@ Global Symbols
 <P><STRONG><a name="[19d]"></a>__hardfp_atan2</STRONG> (Thumb, 432 bytes, Stack size 48 bytes, atan2.o(i.__hardfp_atan2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
-<LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
-<LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
+<BR>[Calls]<UL><LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
+<LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_dmp_get_data
 </UL>
@@ -2686,13 +2686,13 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>__hardfp_cos</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, cos.o(i.__hardfp_cos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_d2iz
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_key_Contorl
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_Contorl
@@ -2714,13 +2714,13 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>__hardfp_sin</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, sin.o(i.__hardfp_sin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_d2iz
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_key_Contorl
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_Contorl
@@ -2739,8 +2739,7 @@ Global Symbols
 <P><STRONG><a name="[1a0]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 938 bytes, Stack size 120 bytes, rred.o(i.__ieee754_rem_pio2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = __ieee754_rem_pio2 &rArr; __aeabi_d2iz
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
+<BR>[Calls]<UL><LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
@@ -2748,6 +2747,7 @@ Global Symbols
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
@@ -2756,11 +2756,11 @@ Global Symbols
 <P><STRONG><a name="[1a2]"></a>__kernel_cos</STRONG> (Thumb, 322 bytes, Stack size 64 bytes, cos_i.o(i.__kernel_cos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = __kernel_cos &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
@@ -2772,22 +2772,22 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[1a1]"></a>__kernel_sin</STRONG> (Thumb, 280 bytes, Stack size 72 bytes, sin_i.o(i.__kernel_sin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = __kernel_sin &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
@@ -2798,10 +2798,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 </UL>
 
 <P><STRONG><a name="[19e]"></a>__mathlib_dbl_infnan2</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan2))
@@ -2827,9 +2827,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[8d]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
@@ -2837,8 +2837,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[85]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, usart6.o(i._sys_exit))
-<BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
 </UL>
 
 <P><STRONG><a name="[a2]"></a>_ttywrch</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, usart6.o(i._ttywrch))
@@ -3145,10 +3145,10 @@ Global Symbols
 <P><STRONG><a name="[199]"></a>fabs</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fabs.o(i.fabs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = fabs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
+<BR>[Called By]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 </UL>
 
 <P><STRONG><a name="[f2]"></a>first_order_filter_cali</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, user_lib.o(i.first_order_filter_cali))
@@ -4107,17 +4107,17 @@ Global Symbols
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Key_Ctrl
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_control
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_NORMAL_Mode_Ctrl
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_task
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_InitCtrl
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_AUTO_Mode_Ctrl
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
 <LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_control
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_NORMAL_Mode_Ctrl
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_task
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_InitCtrl
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_AUTO_Mode_Ctrl
 </UL>
 
 <P><STRONG><a name="[22b]"></a>xTaskIncrementTick</STRONG> (Thumb, 282 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
@@ -4199,12 +4199,12 @@ Global Symbols
 <P><STRONG><a name="[101]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
 <BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_key_Contorl
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_Contorl
-<LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 </UL>
 
 <P><STRONG><a name="[289]"></a>_dneg</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
@@ -4246,13 +4246,13 @@ Global Symbols
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_Contorl
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_Set_Control
+<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[237]"></a>_dadd</STRONG> (Thumb, 580 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
@@ -4271,10 +4271,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
-<LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 </UL>
 
 <P><STRONG><a name="[23b]"></a>_ddiv</STRONG> (Thumb, 748 bytes, Stack size 32 bytes, ddiv_clz.o(x$fpl$ddiv), UNUSED)
@@ -4339,13 +4339,13 @@ Global Symbols
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Key_MoveRamp
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_dmp_get_data
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_Set_Control
+<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[242]"></a>_dmul</STRONG> (Thumb, 440 bytes, Stack size 32 bytes, dmul_clz.o(x$fpl$dmul), UNUSED)
@@ -4362,14 +4362,14 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dunder_d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
-<LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<BR>[Called By]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 <LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmple
 <LI><a href="#[23b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 <LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+<LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
 </UL>
 
 <P><STRONG><a name="[23d]"></a>__fpl_drenorm2</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, drenorm_clz.o(x$fpl$drenorm), UNUSED)
@@ -4405,12 +4405,12 @@ Global Symbols
 <P><STRONG><a name="[19a]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
+<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[246]"></a>_drsb</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb), UNUSED)
@@ -4434,12 +4434,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
+<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
+<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
-<LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
 <P><STRONG><a name="[24a]"></a>_dsub</STRONG> (Thumb, 664 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
@@ -4472,11 +4472,10 @@ Global Symbols
 <P><STRONG><a name="[232]"></a>__fpl_exception</STRONG> (Thumb, 454 bytes, Stack size 16 bytes, except.o(x$fpl$exception))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = __fpl_exception &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
-<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<BR>[Calls]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
-<BR>[Called By]<UL><LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
-<LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
+<BR>[Called By]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 <LI><a href="#[23c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dunder
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
@@ -4486,6 +4485,7 @@ Global Symbols
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 <LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+<LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
 </UL>
 
 <P><STRONG><a name="[a4]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
@@ -4497,10 +4497,10 @@ Global Symbols
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motor_Speed_PID
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Angle_error
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_dmp_get_data
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_Set_Control
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
 </UL>
 
 <P><STRONG><a name="[24d]"></a>_f2d</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
