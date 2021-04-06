@@ -239,7 +239,6 @@ void GIMBAL_task(void *pvParameters)
 				{
 					actGimbal = GIMBAL_NORMAL;
 					KEY_Set_Mode();
-					GIMBAL_Set_Key_Control();
 					GIMBAL_PositionLoop();
 				}
 			}
@@ -907,7 +906,7 @@ void GIMBAL_PositionLoop(void)
 //		Cloud_Palstance_Measure[YAW][MECH] = Cloud_Palstance_Measure[YAW][MECH]/10;
 //		Cloud_Palstance_Measure[PITCH][MECH] = Cloud_Palstance_Measure[PITCH][MECH]/10;
 		
-		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_Yaw_Gyro_PID,Cloud_Angle_Measure[YAW][MECH], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
+		motor_gyro_set[YAW][GYRO] = GIMBAL_PID_Calc(&Gimbal_Yaw_Gyro_PID,Cloud_Angle_Measure[YAW][GYRO], Cloud_Angle_Target[YAW][GYRO],Cloud_Palstance_Measure[YAW][GYRO]);
 		motor_gyro_set[PITCH][MECH] = GIMBAL_PID_Calc(&Gimbal_Pitch_Mech_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][MECH],Cloud_Palstance_Measure[PITCH][MECH]);
 //		motor_gyro_set[PITCH][GYRO] = GIMBAL_PID_Calc(&Gimbal_Pitch_Gyro_PID,Cloud_Angle_Measure[PITCH][MECH], Cloud_Angle_Target[PITCH][GYRO],Cloud_Palstance_Measure[PITCH][GYRO]); 
 		

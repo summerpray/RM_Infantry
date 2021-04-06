@@ -61,7 +61,7 @@
 
 //yaw 角度环 角度由陀螺仪解算 PID参数以及 PID最大输出，积分输出
 #define YAW_GYRO_ABSOLUTE_PID_KP 3000.0f//3500
-#define YAW_GYRO_ABSOLUTE_PID_KI 0.1f
+#define YAW_GYRO_ABSOLUTE_PID_KI 0.10f
 #define YAW_GYRO_ABSOLUTE_PID_KD 3.0f
 
 #define YAW_GYRO_ABSOLUTE_PID_MAX_OUT 10000.0f
@@ -70,7 +70,7 @@
 //**自瞄模式**//
 
 //pitch 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出 自瞄PID
-#define PITCH_KEY_PID_KP 1500.0f//1950
+#define PITCH_KEY_PID_KP 1000.0f//1950
 #define PITCH_KEY_PID_KI 0.1f
 #define PITCH_KEY_PID_KD 1.0f
 

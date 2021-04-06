@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\infantry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\infantry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Apr 06 12:32:36 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Apr 06 14:36:55 2021
 <BR><P>
 <H3>Maximum Stack Usage =        400 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -962,7 +962,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_CANbusCtrlMotor
+<BR>[Called By]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_CANbusCtrlMotor
 </UL>
 
 <P><STRONG><a name="[c2]"></a>CAN_ClearITPendingBit</STRONG> (Thumb, 162 bytes, Stack size 0 bytes, stm32f4xx_can.o(i.CAN_ClearITPendingBit))
@@ -1256,31 +1256,31 @@ Global Symbols
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[15d]"></a>DMA_Cmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_Cmd))
+<P><STRONG><a name="[15c]"></a>DMA_Cmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_Cmd))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART7_IRQHandler
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART6_IRQHandler
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[159]"></a>DMA_DeInit</STRONG> (Thumb, 324 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_DeInit))
+<P><STRONG><a name="[158]"></a>DMA_DeInit</STRONG> (Thumb, 324 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_DeInit))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[15c]"></a>DMA_DoubleBufferModeCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_DoubleBufferModeCmd))
+<P><STRONG><a name="[15b]"></a>DMA_DoubleBufferModeCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_DoubleBufferModeCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[15b]"></a>DMA_DoubleBufferModeConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_DoubleBufferModeConfig))
+<P><STRONG><a name="[15a]"></a>DMA_DoubleBufferModeConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_DoubleBufferModeConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[18b]"></a>DMA_GetCurrDataCounter</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_GetCurrDataCounter))
@@ -1294,12 +1294,12 @@ Global Symbols
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[15a]"></a>DMA_Init</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, stm32f4xx_dma.o(i.DMA_Init))
+<P><STRONG><a name="[159]"></a>DMA_Init</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, stm32f4xx_dma.o(i.DMA_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DMA_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[18c]"></a>DMA_SetCurrDataCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_SetCurrDataCounter))
@@ -1325,7 +1325,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[108]"></a>Fric_Open</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fric.o(i.Fric_Open))
-<BR><BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_Key_Ctrl
 </UL>
@@ -1337,12 +1337,12 @@ Global Symbols
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Friction_Ramp
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FRIC_RcSwitch
 </UL>
-<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_TRIPLE_Ctrl
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_TRIPLE_Ctrl
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
 </UL>
 
 <P><STRONG><a name="[10b]"></a>Friction_Ramp</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, shoot_task.o(i.Friction_Ramp))
@@ -1364,11 +1364,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[172]"></a>GIMBAL_BUFF_PITCH_READY</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_task.o(i.GIMBAL_BUFF_PITCH_READY))
-<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<BR><BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
 </UL>
 
 <P><STRONG><a name="[171]"></a>GIMBAL_BUFF_YAW_READY</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_task.o(i.GIMBAL_BUFF_YAW_READY))
-<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<BR><BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
 </UL>
 
 <P><STRONG><a name="[112]"></a>GIMBAL_CanSend</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, gimbal_task.o(i.GIMBAL_CanSend))
@@ -1389,12 +1389,12 @@ Global Symbols
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_NORMAL_Mode_Ctrl
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Key_Ctrl
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Key_Ctrl
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
 </UL>
 
 <P><STRONG><a name="[174]"></a>GIMBAL_IfManulHit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, gimbal_task.o(i.GIMBAL_IfManulHit))
 <BR><BR>[Called By]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vision_Read_Data
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
 </UL>
 
 <P><STRONG><a name="[113]"></a>GIMBAL_InitCtrl</STRONG> (Thumb, 462 bytes, Stack size 8 bytes, gimbal_task.o(i.GIMBAL_InitCtrl))
@@ -1477,7 +1477,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RampInc_float
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_NORMAL_Mode_Ctrl
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_task
 </UL>
 
 <P><STRONG><a name="[c6]"></a>GIMBAL_UpdateAngle</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, gimbal_task.o(i.GIMBAL_UpdateAngle))
@@ -1496,7 +1495,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[6b]"></a>GIMBAL_task</STRONG> (Thumb, 144 bytes, Stack size 8 bytes, gimbal_task.o(i.GIMBAL_task))
+<P><STRONG><a name="[6b]"></a>GIMBAL_task</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, gimbal_task.o(i.GIMBAL_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = GIMBAL_task &rArr; vTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
@@ -1506,7 +1505,6 @@ Global Symbols
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSTEM_GetSystemState
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Set_Mode
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Set_Mode
-<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_Set_Key_Control
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_Set_Control
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_PositionLoop_AUTO
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_PositionLoop
@@ -1531,7 +1529,7 @@ Global Symbols
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_driver_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_mode_init
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_mode_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 
@@ -1546,7 +1544,7 @@ Global Symbols
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_mode_init
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_mode_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[1c9]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_ResetBits))
@@ -1555,7 +1553,7 @@ Global Symbols
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_led_on
 </UL>
 
-<P><STRONG><a name="[14f]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_SetBits))
+<P><STRONG><a name="[14e]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_SetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_ctrl_on
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_driver_Init
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_red_off
@@ -1679,7 +1677,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[175]"></a>JUDGE_usGetShootCold</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, judge.o(i.JUDGE_usGetShootCold))
-<BR><BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_TRIPLE_Ctrl
+<BR><BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_TRIPLE_Ctrl
 </UL>
 
 <P><STRONG><a name="[14c]"></a>JUDGE_usGetShootNum</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, judge.o(i.JUDGE_usGetShootNum))
@@ -1869,7 +1867,8 @@ Global Symbols
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Servo
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Key_Ctrl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_10ms
+<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shoot_task
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_10ms
 </UL>
 
 <P><STRONG><a name="[e5]"></a>Magazine_IfOpen</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, magazine.o(i.Magazine_IfOpen))
@@ -1884,14 +1883,13 @@ Global Symbols
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_LEVEL_Mode_Ctrl
 </UL>
 
-<P><STRONG><a name="[149]"></a>Magazine_Key_Ctrl</STRONG> (Thumb, 282 bytes, Stack size 8 bytes, magazine.o(i.Magazine_Key_Ctrl))
+<P><STRONG><a name="[149]"></a>Magazine_Key_Ctrl</STRONG> (Thumb, 278 bytes, Stack size 8 bytes, magazine.o(i.Magazine_Key_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Magazine_Key_Ctrl
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JUDGE_usGetShootNum
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JUDGE_ShootNum_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_IfBuffHit
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Revolver_Angle_Rest
 </UL>
 <BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Ctrl
 </UL>
@@ -1910,7 +1908,7 @@ Global Symbols
 <P><STRONG><a name="[b4]"></a>Motor_driver_Init</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, motor_driver.o(i.Motor_driver_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Motor_driver_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 </UL>
@@ -1928,7 +1926,7 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_mode_init
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_mode_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[a9]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
@@ -1957,8 +1955,8 @@ Global Symbols
 
 <P><STRONG><a name="[117]"></a>RAMP_float</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, main.o(i.RAMP_float))
 <BR><BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_InitCtrl
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
 </UL>
 
 <P><STRONG><a name="[ca]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd))
@@ -1974,7 +1972,7 @@ Global Symbols
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_driver_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_mode_init
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_mode_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 
@@ -1989,7 +1987,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[cc]"></a>RCC_APB1PeriphResetCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphResetCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
+<BR><BR>[Called By]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Init
@@ -1997,46 +1995,46 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_mode_init
 </UL>
 
-<P><STRONG><a name="[151]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
+<P><STRONG><a name="[150]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;temperature_ADC_init
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM8_Init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[152]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphResetCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
+<P><STRONG><a name="[151]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphResetCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;temperature_ADC_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[191]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 214 bytes, Stack size 20 bytes, stm32f4xx_rcc.o(i.RCC_GetClocksFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
-<P><STRONG><a name="[150]"></a>RC_Init</STRONG> (Thumb, 312 bytes, Stack size 80 bytes, rc.o(i.RC_Init))
+<P><STRONG><a name="[14f]"></a>RC_Init</STRONG> (Thumb, 312 bytes, Stack size 80 bytes, rc.o(i.RC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = RC_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
+<BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeConfig
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeCmd
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeConfig
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeCmd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;remote_control_init
 </UL>
@@ -2045,7 +2043,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_task
 </UL>
 
-<P><STRONG><a name="[15e]"></a>REVOLVER_CANbusCtrlMotor</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_CANbusCtrlMotor))
+<P><STRONG><a name="[15d]"></a>REVOLVER_CANbusCtrlMotor</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_CANbusCtrlMotor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = REVOLVER_CANbusCtrlMotor &rArr; CAN_CMD_SHOOT &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_CMD_SHOOT
@@ -2057,56 +2055,56 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shoot_task
 </UL>
 
-<P><STRONG><a name="[15f]"></a>REVOLVER_KeyPosiCtrl</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_KeyPosiCtrl))
+<P><STRONG><a name="[15e]"></a>REVOLVER_KeyPosiCtrl</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_KeyPosiCtrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = REVOLVER_KeyPosiCtrl &rArr; REVOL_PositStuck &rArr; __aeabi_f2d
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RAMP_float
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[161]"></a>REVOLVER_KeySpeedCtrl</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_KeySpeedCtrl))
+<P><STRONG><a name="[160]"></a>REVOLVER_KeySpeedCtrl</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_KeySpeedCtrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = REVOLVER_KeySpeedCtrl &rArr; REVOL_SpeedStuck &rArr; __aeabi_f2d
 </UL>
-<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
+<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[163]"></a>REVOLVER_Key_Ctrl</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_Key_Ctrl))
+<P><STRONG><a name="[162]"></a>REVOLVER_Key_Ctrl</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_Key_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = REVOLVER_Key_Ctrl &rArr; REVOLVER_KeySpeedCtrl &rArr; REVOL_SpeedStuck &rArr; __aeabi_f2d
 </UL>
-<BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_TRIPLE_Ctrl
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeySpeedCtrl
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
+<BR>[Calls]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_TRIPLE_Ctrl
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeySpeedCtrl
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shoot_task
 </UL>
 
-<P><STRONG><a name="[16a]"></a>REVOLVER_Rc_Ctrl</STRONG> (Thumb, 358 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_Rc_Ctrl))
+<P><STRONG><a name="[169]"></a>REVOLVER_Rc_Ctrl</STRONG> (Thumb, 358 bytes, Stack size 8 bytes, shoot_task.o(i.REVOLVER_Rc_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = REVOLVER_Rc_Ctrl &rArr; REVOL_SpeedStuck &rArr; __aeabi_f2d
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RAMP_float
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_Open
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Fric
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Revolver_Angle_Rest
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Switch
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Revolver_Angle_Rest
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Switch
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shoot_task
 </UL>
 
-<P><STRONG><a name="[16b]"></a>REVOLVER_Rc_Switch</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, shoot_task.o(i.REVOLVER_Rc_Switch))
-<BR><BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<P><STRONG><a name="[16a]"></a>REVOLVER_Rc_Switch</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, shoot_task.o(i.REVOLVER_Rc_Switch))
+<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
 </UL>
 
 <P><STRONG><a name="[217]"></a>REVOLVER_Rest</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, shoot_task.o(i.REVOLVER_Rest))
@@ -2121,15 +2119,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[160]"></a>REVOL_PositStuck</STRONG> (Thumb, 226 bytes, Stack size 24 bytes, shoot_task.o(i.REVOL_PositStuck))
+<P><STRONG><a name="[15f]"></a>REVOL_PositStuck</STRONG> (Thumb, 226 bytes, Stack size 24 bytes, shoot_task.o(i.REVOL_PositStuck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = REVOL_PositStuck &rArr; __aeabi_f2d
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
+<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
 </UL>
 
 <P><STRONG><a name="[16c]"></a>REVOL_PositionLoop</STRONG> (Thumb, 208 bytes, Stack size 8 bytes, shoot_task.o(i.REVOL_PositionLoop))
@@ -2150,15 +2148,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shoot_task
 </UL>
 
-<P><STRONG><a name="[162]"></a>REVOL_SpeedStuck</STRONG> (Thumb, 176 bytes, Stack size 24 bytes, shoot_task.o(i.REVOL_SpeedStuck))
+<P><STRONG><a name="[161]"></a>REVOL_SpeedStuck</STRONG> (Thumb, 176 bytes, Stack size 24 bytes, shoot_task.o(i.REVOL_SpeedStuck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = REVOL_SpeedStuck &rArr; __aeabi_f2d
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeySpeedCtrl
+<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeySpeedCtrl
 </UL>
 
 <P><STRONG><a name="[16d]"></a>REVOL_UpdateMotorAngleSum</STRONG> (Thumb, 182 bytes, Stack size 0 bytes, shoot_task.o(i.REVOL_UpdateMotorAngleSum))
@@ -2172,16 +2170,15 @@ Global Symbols
 
 <P><STRONG><a name="[105]"></a>Reset_Fric</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, shoot_task.o(i.Reset_Fric))
 <BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_Mode
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[14e]"></a>Revolver_Angle_Rest</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, shoot_task.o(i.Revolver_Angle_Rest))
-<BR><BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Key_Ctrl
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<P><STRONG><a name="[16b]"></a>Revolver_Angle_Rest</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, shoot_task.o(i.Revolver_Angle_Rest))
+<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
 </UL>
 
-<P><STRONG><a name="[169]"></a>SHOOT_BUFF_Ctrl_Gimbal</STRONG> (Thumb, 456 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_BUFF_Ctrl_Gimbal))
+<P><STRONG><a name="[168]"></a>SHOOT_BUFF_Ctrl_Gimbal</STRONG> (Thumb, 456 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_BUFF_Ctrl_Gimbal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SHOOT_BUFF_Ctrl_Gimbal &rArr; SHOOT_SINGLE_Ctrl &rArr; Fric_mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
@@ -2189,30 +2186,30 @@ Global Symbols
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vision_Clean_Ammor_Flag
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_BUFF_YAW_READY
 <LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_BUFF_PITCH_READY
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[167]"></a>SHOOT_HIGHTF_LOWS_Ctrl</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_HIGHTF_LOWS_Ctrl))
+<P><STRONG><a name="[166]"></a>SHOOT_HIGHTF_LOWS_Ctrl</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_HIGHTF_LOWS_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SHOOT_HIGHTF_LOWS_Ctrl &rArr; Fric_mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[168]"></a>SHOOT_MIDF_HIGHTS_Ctrl</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_MIDF_HIGHTS_Ctrl))
+<P><STRONG><a name="[167]"></a>SHOOT_MIDF_HIGHTS_Ctrl</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_MIDF_HIGHTS_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SHOOT_MIDF_HIGHTS_Ctrl &rArr; Fric_mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[164]"></a>SHOOT_NORMAL_Ctrl</STRONG> (Thumb, 368 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_NORMAL_Ctrl))
+<P><STRONG><a name="[163]"></a>SHOOT_NORMAL_Ctrl</STRONG> (Thumb, 368 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_NORMAL_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SHOOT_NORMAL_Ctrl &rArr; Fric_mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
@@ -2220,26 +2217,26 @@ Global Symbols
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_IfBuffHit
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[165]"></a>SHOOT_SINGLE_Ctrl</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_SINGLE_Ctrl))
+<P><STRONG><a name="[164]"></a>SHOOT_SINGLE_Ctrl</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_SINGLE_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SHOOT_SINGLE_Ctrl &rArr; Fric_mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
-<P><STRONG><a name="[166]"></a>SHOOT_TRIPLE_Ctrl</STRONG> (Thumb, 170 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_TRIPLE_Ctrl))
+<P><STRONG><a name="[165]"></a>SHOOT_TRIPLE_Ctrl</STRONG> (Thumb, 170 bytes, Stack size 8 bytes, shoot_task.o(i.SHOOT_TRIPLE_Ctrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SHOOT_TRIPLE_Ctrl &rArr; Fric_mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JUDGE_usGetShootCold
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_mode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 </UL>
 
 <P><STRONG><a name="[13b]"></a>SYSTEM_GetRemoteMode</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, start_task.o(i.SYSTEM_GetRemoteMode))
@@ -2343,7 +2340,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3PreloadConfig
@@ -2386,7 +2383,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_DeInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphResetCmd
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Init
 </UL>
@@ -2476,7 +2473,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_SetCurrDataCounter
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrentMemoryTarget
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrDataCounter
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearFlag
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
@@ -2491,7 +2488,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_SetCurrDataCounter
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrentMemoryTarget
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrDataCounter
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearFlag
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
@@ -2504,7 +2501,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_SetCurrDataCounter
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrentMemoryTarget
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearFlag
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
@@ -2513,33 +2510,33 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[156]"></a>USART_ClearFlag</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ClearFlag))
+<P><STRONG><a name="[155]"></a>USART_ClearFlag</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ClearFlag))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[158]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
+<P><STRONG><a name="[157]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[155]"></a>USART_DMACmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_DMACmd))
+<P><STRONG><a name="[154]"></a>USART_DMACmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_DMACmd))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[153]"></a>USART_DeInit</STRONG> (Thumb, 206 bytes, Stack size 8 bytes, stm32f4xx_usart.o(i.USART_DeInit))
+<P><STRONG><a name="[152]"></a>USART_DeInit</STRONG> (Thumb, 206 bytes, Stack size 8 bytes, stm32f4xx_usart.o(i.USART_DeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART_DeInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphResetCmd
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[188]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f4xx_usart.o(i.USART_GetITStatus))
@@ -2550,22 +2547,22 @@ Global Symbols
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[157]"></a>USART_ITConfig</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
+<P><STRONG><a name="[156]"></a>USART_ITConfig</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = USART_ITConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
-<P><STRONG><a name="[154]"></a>USART_Init</STRONG> (Thumb, 204 bytes, Stack size 48 bytes, stm32f4xx_usart.o(i.USART_Init))
+<P><STRONG><a name="[153]"></a>USART_Init</STRONG> (Thumb, 204 bytes, Stack size 48 bytes, stm32f4xx_usart.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart6_init
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart7_init
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 
 <P><STRONG><a name="[189]"></a>USART_ReceiveData</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ReceiveData))
@@ -2596,7 +2593,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[173]"></a>Vision_Clean_Ammor_Flag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, vision.o(i.Vision_Clean_Ammor_Flag))
-<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<BR><BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
 </UL>
 
 <P><STRONG><a name="[111]"></a>Vision_Clean_Update_Flag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, vision.o(i.Vision_Clean_Update_Flag))
@@ -2616,7 +2613,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[170]"></a>Vision_If_Armor</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, vision.o(i.Vision_If_Armor))
-<BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<BR><BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
 </UL>
 
 <P><STRONG><a name="[110]"></a>Vision_If_Update</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, vision.o(i.Vision_If_Update))
@@ -2721,8 +2718,8 @@ Global Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motor_Speed_PID_KEY
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motor_Speed_PID
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
 </UL>
 
 <P><STRONG><a name="[a7]"></a>__hardfp_sin</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, sin.o(i.__hardfp_sin))
@@ -3177,7 +3174,7 @@ Global Symbols
 <P><STRONG><a name="[104]"></a>flow_led_off</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, led.o(i.flow_led_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = flow_led_off
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_configuration
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Set_Mode
@@ -3245,7 +3242,7 @@ Global Symbols
 <P><STRONG><a name="[1d1]"></a>laser_on</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, laser.o(i.laser_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = laser_on
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;laser_configuration
 </UL>
@@ -3265,7 +3262,7 @@ Global Symbols
 <P><STRONG><a name="[1d2]"></a>led_green_off</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, led.o(i.led_green_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = led_green_off
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_configuration
 </UL>
@@ -3273,7 +3270,7 @@ Global Symbols
 <P><STRONG><a name="[12c]"></a>led_red_off</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, led.o(i.led_red_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = led_red_off
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_configuration
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_task
@@ -3614,7 +3611,7 @@ Global Symbols
 <P><STRONG><a name="[b7]"></a>power_ctrl_on</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, power_ctrl.o(i.power_ctrl_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = power_ctrl_on
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
 </UL>
@@ -3646,7 +3643,7 @@ Global Symbols
 <P><STRONG><a name="[b9]"></a>remote_control_init</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, remote_control.o(i.remote_control_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = remote_control_init &rArr; RC_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
 </UL>
@@ -3663,18 +3660,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_dmp_init
 </UL>
 
-<P><STRONG><a name="[6d]"></a>shoot_task</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, shoot_task.o(i.shoot_task))
+<P><STRONG><a name="[6d]"></a>shoot_task</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, shoot_task.o(i.shoot_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = shoot_task &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSTEM_GetSystemState
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magazine_Ctrl
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedLoop
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositionLoop
 <LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rest
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Rc_Ctrl
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_Key_Ctrl
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_InitArgument
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_CANbusCtrlMotor
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_CANbusCtrlMotor
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Fric_Key_Ctrl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> start_task.o(i.start_task)
@@ -3715,12 +3713,12 @@ Global Symbols
 <P><STRONG><a name="[ac]"></a>temperature_ADC_init</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, adc.o(i.temperature_ADC_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = temperature_ADC_init &rArr; temperature_ADC_Reset &rArr; ADC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
+<BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_TempSensorVrefintCmd
 <LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_RegularChannelConfig
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_CommonInit
 <LI><a href="#[220]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Cmd
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;temperature_ADC_Reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
@@ -3730,21 +3728,21 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = uart7_init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeConfig
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeCmd
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeConfig
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeCmd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
 </UL>
@@ -3753,21 +3751,21 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = usart6_init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeConfig
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeCmd
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeConfig
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DoubleBufferModeCmd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
 </UL>
@@ -4125,12 +4123,12 @@ Global Symbols
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_task
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_InitCtrl
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_AUTO_Mode_Ctrl
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_SINGLE_Ctrl
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_NORMAL_Ctrl
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_MIDF_HIGHTS_Ctrl
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_HIGHTF_LOWS_Ctrl
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHOOT_BUFF_Ctrl_Gimbal
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOLVER_KeyPosiCtrl
 </UL>
 
 <P><STRONG><a name="[22c]"></a>xTaskIncrementTick</STRONG> (Thumb, 282 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
@@ -4407,8 +4405,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Keyboard_Move_Calculate
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
 </UL>
 
 <P><STRONG><a name="[245]"></a>_drcmple</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf), UNUSED)
@@ -4512,8 +4510,8 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Angle_error
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_dmp_get_data
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GIMBAL_Set_Control
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_SpeedStuck
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;REVOL_PositStuck
 </UL>
 
 <P><STRONG><a name="[24e]"></a>_f2d</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)

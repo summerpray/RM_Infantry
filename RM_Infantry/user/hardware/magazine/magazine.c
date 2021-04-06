@@ -188,7 +188,7 @@ void Magazine_Key_Ctrl(void)
 				if(JUDGE_usGetShootNum()>0)
 				{
 					JUDGE_ShootNum_Clear();//发弹量清零
-					Revolver_Angle_Rest();//拨盘角度清零
+					//Revolver_Angle_Rest();//拨盘角度清零
 				}
 				ulTimePressX = ulTimeCurrent;
 			}
