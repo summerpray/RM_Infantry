@@ -27,7 +27,7 @@ extern VisionRecvData_t VisionRecvData;
 
 /*******************摩檫轮电机参数**********************/
 
-float Friction_PWM_Output[6]     = {0, 300, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
+float Friction_PWM_Output[6]     = {0, 220, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
 
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0,  20,  26,  34,  36};//测试时随便定的速度,后面测试更改
@@ -169,18 +169,18 @@ void shoot_task(void *pvParameters)
 		}
 		else
 		{	
-//		if (IF_RC_SW2_UP)
-//			{
+		if (IF_RC_SW2_UP)
+			{
 				REVOLVER_Key_Ctrl();
 				revol_remot_change = TRUE;
-//			}
-		if (IF_RC_SW2_MID)
+				Fric_Key_Ctrl();
+				Magazine_Ctrl();
+			}
+		else
 			{
 				REVOLVER_Rc_Ctrl();
-        
 			}
-			Fric_Key_Ctrl();
-			Magazine_Ctrl();
+			
 //测试平台    启用正常程序需要去掉正常程序的注释
 //			if(IF_RC_SW1_DOWN)
 //			{
@@ -251,6 +251,25 @@ void Fric_Key_Ctrl(void)
         Reset_Fric();
     }
 }
+
+/**
+  * @brief  键盘模式摩擦轮改变状态
+  * @param  void
+  * @retval void
+  * @attention
+  */
+void Fric_RC_Ctrl(void)
+{
+    if(IF_RC_SW1_DOWN)
+    {
+        Fric_Open(Friction_PWM_Output[FRI_LOW], Friction_PWM_Output[FRI_LOW]);
+    }
+    else if (IF_RC_SW1_UP)
+    {
+        Reset_Fric();
+    }
+}
+
 
 
 
@@ -365,7 +384,7 @@ void REVOLVER_Rc_Ctrl(void)
 		if(Key_ShootNum != 0)
 		{
 			Key_ShootNum--;
-			Revolver_Buff_Target_Sum += AN_BULLET;  //改过
+			Revolver_Buff_Target_Sum -= AN_BULLET; 
 		}
 		
 		if(Revolver_Angle_Target_Sum != Revolver_Buff_Target_Sum)//缓慢转过去
@@ -379,7 +398,7 @@ void REVOLVER_Rc_Ctrl(void)
 		}
 		else
 		{
-     Fric_mode(FRI_MID);
+     Fric_mode(FRI_LOW);
 		}
 		REVOL_PositStuck();//卡弹判断及倒转
 	}
@@ -396,7 +415,7 @@ void REVOLVER_Rc_Ctrl(void)
       Fric_Open(Friction_PWM_Output[FRI_LOW], Friction_PWM_Output[FRI_LOW]);
       Revolver_Freq = 5;//射频选择
 			//速度环转速设置
-			Revolver_Speed_Target = REVOL_SPEED_RATIO/REVOL_SPEED_GRID*Revolver_Freq;
+			Revolver_Speed_Target = -REVOL_SPEED_RATIO/REVOL_SPEED_GRID*Revolver_Freq;
 		}
     else
     {												

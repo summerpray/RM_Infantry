@@ -220,31 +220,36 @@ void GIMBAL_task(void *pvParameters)
 		}
 		else
 		{
-			if (IF_RC_SW2_MID)
+			if(IF_RC_SW2_UP)
+			{
+				RC_Set_Mode();
+				if (IF_MOUSE_PRESSED_RIGH)
+				{
+					actGimbal = GIMBAL_AUTO;
+				}
+				else
+				{					
+					KEY_Set_Mode();
+				}
+			}
+			else
 			{
 				RC_Set_Mode();
 				GIMBAL_Set_Control();
 			  actGimbal = GIMBAL_NORMAL;
 				GIMBAL_PositionLoop();
 			}
-			if(IF_RC_SW2_UP)
-			{
-				modeGimbal = CLOUD_GYRO_MODE;
-				if (IF_MOUSE_PRESSED_RIGH)
-				{
-					GIMBAL_AUTO_Mode_Ctrl();
-					GIMBAL_PositionLoop_AUTO();
-				}
-				else
-				{
-					actGimbal = GIMBAL_NORMAL;
-					KEY_Set_Mode();
-					GIMBAL_PositionLoop();
-				}
-			}
 		}
-		//根据操作模式变换PID,每次都要变,很重要                       现在还没写！！！！！！！！！！！！
+		//根据操作模式变换PID,每次都要变,很重要
 		//GIMBAL_PositionLoop();
+		if (IF_MOUSE_PRESSED_RIGH)
+		{
+			GIMBAL_PositionLoop_AUTO();
+		}
+		else
+		{
+			GIMBAL_PositionLoop();
+		}
 		GIMBAL_CanSend();
 		
 		//如果不是自瞄模式,对角度和速度进行二阶卡尔曼滤波融合,0位置,1速度      ????????????????????????????????
