@@ -95,6 +95,7 @@ void SHOOT_BUFF_Ctrl(void);//打符射击控制,仅用于摄像头位于底盘
 void SHOOT_BUFF_Ctrl_Gimbal(void);//打符射击控制，摄像头在云台
 void REVOLVER_KeyPosiCtrl(void);//键盘模式拨盘位置环控制
 void REVOLVER_KeySpeedCtrl(void);//键盘模式拨盘速度环控制
+void Fric_RC_Ctrl(void);
 
 void REVOLVER_SHAKE(void);//测试平台用
 bool FRIC_RcSwitch(void);

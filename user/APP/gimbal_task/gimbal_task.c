@@ -220,31 +220,31 @@ void GIMBAL_task(void *pvParameters)
 		}
 		else
 		{
-			if (IF_RC_SW2_MID)
+			if(IF_RC_SW2_UP)
+			{
+				if (IF_MOUSE_PRESSED_RIGH)
+				{
+					actGimbal = GIMBAL_AUTO;
+				}
+				KEY_Set_Mode();
+			}
+			else
 			{
 				RC_Set_Mode();
 				GIMBAL_Set_Control();
 			  actGimbal = GIMBAL_NORMAL;
-				GIMBAL_PositionLoop();
-			}
-			if(IF_RC_SW2_UP)
-			{
-				modeGimbal = CLOUD_GYRO_MODE;
-				if (IF_MOUSE_PRESSED_RIGH)
-				{
-					GIMBAL_AUTO_Mode_Ctrl();
-					GIMBAL_PositionLoop_AUTO();
-				}
-				else
-				{
-					actGimbal = GIMBAL_NORMAL;
-					KEY_Set_Mode();
-					GIMBAL_PositionLoop();
-				}
 			}
 		}
-		//根据操作模式变换PID,每次都要变,很重要                       现在还没写！！！！！！！！！！！！
+		//根据操作模式变换PID,每次都要变,很重要
 		//GIMBAL_PositionLoop();
+		if (IF_MOUSE_PRESSED_RIGH)
+		{
+			GIMBAL_PositionLoop_AUTO();
+		}
+		else
+		{
+			GIMBAL_PositionLoop();
+		}
 		GIMBAL_CanSend();
 		
 		//如果不是自瞄模式,对角度和速度进行二阶卡尔曼滤波融合,0位置,1速度      ????????????????????????????????
@@ -568,11 +568,14 @@ void KEY_Set_Mode(void)
 				mobpre_yaw_left_delay  = 0;//重置左预测的开火延迟
 				mobpre_yaw_right_delay = 0;//重置右预测的开火延迟	
 				mobpre_yaw_stop_delay = 0;//停止预测开火延时重置
-	        
+				
+//				Cloud_Angle_Target[YAW][GYRO] = Cloud_Angle_Measure[YAW][MECH];
+//				Cloud_Angle_Measure[YAW][GYRO] = Cloud_Angle_Measure[YAW][MECH];
 			}
-			else 
+			else if(IF_MOUSE_PRESSED_RIGH)
 			{
 				GIMBAL_AUTO_Mode_Ctrl();
+				
 			}
 		break;
 	}
@@ -660,7 +663,7 @@ void GIMBAL_AUTO_Mode_Ctrl(void)//上左+   下右-
 		Cloud_Angle_Target[PITCH][MECH] = (Cloud_Angle_Measure[PITCH][MECH] + Auto_Error_Pitch[NOW]);
 //	}
 	//float temp = Auto_Error_Pitch[NOW];
-	modeGimbal = CLOUD_GYRO_MODE;
+	//modeGimbal = CLOUD_GYRO_MODE;
 }
 
 
