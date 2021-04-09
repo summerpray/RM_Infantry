@@ -1245,7 +1245,7 @@ void Chassis_Motor_Speed_PID_KEY(void)
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
 		{
-			Chassis_Speed_Target[i] *= vector_rate / 3;
+			Chassis_Speed_Target[i] *= vector_rate / 2;
 		}
 	}
 

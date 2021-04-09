@@ -27,7 +27,7 @@ extern VisionRecvData_t VisionRecvData;
 
 /*******************摩檫轮电机参数**********************/
 
-float Friction_PWM_Output[6]     = {0, 220, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
+float Friction_PWM_Output[6]     = {0, 300, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
 
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0,  20,  26,  34,  36};//测试时随便定的速度,后面测试更改
@@ -991,7 +991,7 @@ void REVOL_PositStuck(void)
 		if (stuck_time > Stuck_SpeedPID_Time)//卡太久了,提示要倒转
 		{
 			//倒转不能放在Revol_Posit_ifStuck == TRUE中,否则就不是堵一次倒转1/2格了
-			Revolver_Angle_Target_Sum = Revolver_Angle_Measure_Sum - AN_BULLET ;//倒转 1格  
+			Revolver_Angle_Target_Sum = Revolver_Angle_Measure_Sum + AN_BULLET ;//倒转 1格  
 			Revolver_Buff_Target_Sum = Revolver_Angle_Target_Sum;
 			
 			Stuck_Posit_Sum++;//卡弹计数,给机械组的大兄弟点面子

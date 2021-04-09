@@ -236,8 +236,7 @@ void GIMBAL_task(void *pvParameters)
 			{
 				RC_Set_Mode();
 				GIMBAL_Set_Control();
-			  actGimbal = GIMBAL_NORMAL;
-				GIMBAL_PositionLoop();
+			  	actGimbal = GIMBAL_NORMAL;
 			}
 		}
 		//根据操作模式变换PID,每次都要变,很重要
@@ -573,11 +572,13 @@ void KEY_Set_Mode(void)
 				mobpre_yaw_left_delay  = 0;//重置左预测的开火延迟
 				mobpre_yaw_right_delay = 0;//重置右预测的开火延迟	
 				mobpre_yaw_stop_delay = 0;//停止预测开火延时重置
-	        
+
+				Cloud_Angle_Target[YAW][GYRO] = Cloud_Angle_Measure[YAW][MECH];
 			}
 			else 
 			{
 				GIMBAL_AUTO_Mode_Ctrl();
+				
 			}
 		break;
 	}
