@@ -220,6 +220,7 @@ void CHASSIS_CORGI_Mode_Ctrl(int16_t sRevolMax, int16_t sRevolRamp);
 void CHASSIS_UPUP_Mode_Ctrl(void);
 void CHASSIS_MISS_Mode_Ctrl(void);
 void Chassis_Keyboard_Move_Calculate( int16_t sMoveMax, int16_t sMoveRamp );
+void Chassis_Keyboard_Move_TOP_Calculate(int16_t sMoveMax, int16_t sMoveRamp);
 float Chassis_Key_MoveRamp( uint8_t status, int16_t *time, int16_t inc, int16_t dec );
 void Chassis_Mouse_Move_Calculate( int16_t sRevolMax );
 bool CHASSIS_IfActiveMode(void);//获取底盘移动模式

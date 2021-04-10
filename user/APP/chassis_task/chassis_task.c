@@ -94,7 +94,6 @@ void chassis_task(void *pvParameters)
 			{
 				chassis_feedback_update();
 				Chassis_Key_Ctrl();
-
 				Chassis_Set_key_Contorl();
 			}
 			else //遥控器模式
@@ -114,7 +113,6 @@ void chassis_task(void *pvParameters)
 		Chassis_Omni_Move_Calculate(); //底盘全向运动分析
 		if (IF_RC_SW2_UP)
 		{
-			Chassis_MotorOutput();		   //对四个电机分别做PID计算  //可以都用同一套,暂时没整合
 			Chassis_Motor_Speed_PID_KEY(); //PID计算
 		}
 		else
@@ -839,27 +837,8 @@ void Chassis_Keyboard_Move_Calculate(int16_t sMoveMax, int16_t sMoveRamp)
 			Slope_Chassis_Move_Righ = (int16_t)(Chassis_Standard_Move_Max *
 												Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc / 1.5, TIME_DEC_NORMAL));
 
-			fp32 vx_set_channel, vy_set_channel;
-
-			vx_set_channel = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
-			vy_set_channel = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
-
-			//一阶低通滤波代替斜波作为底盘速度输入
-			first_order_filter_cali(&chassis_cmd_slow_set_vx, vx_set_channel);
-			first_order_filter_cali(&chassis_cmd_slow_set_vy, vy_set_channel);
-
-			//停止信号，不需要缓慢加速，直接减速到零
-			if (vx_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN && vx_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN)
-			{
-				chassis_cmd_slow_set_vx.out = 0.0f;
-			}
-
-			if (vy_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN && vy_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN)
-			{
-				chassis_cmd_slow_set_vy.out = 0.0f;
-			}
-			Chassis_Move_X = chassis_cmd_slow_set_vx.out; //遥控器输出X轴方向的值
-			Chassis_Move_Y = chassis_cmd_slow_set_vy.out; //遥控器输出Y轴方向的值
+			Chassis_Move_X = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
+			Chassis_Move_Y = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
 		}
 		else //其他模式不需要进行速度方向突变特殊处理
 		{
@@ -897,27 +876,9 @@ void Chassis_Keyboard_Move_Calculate(int16_t sMoveMax, int16_t sMoveRamp)
 
 			if (Chassis_Action != CHASSIS_SHAKE)
 			{
-				fp32 vx_set_channel, vy_set_channel;
+				Chassis_Move_X = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
+				Chassis_Move_Y = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
 
-				vx_set_channel = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
-				vy_set_channel = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
-
-				//一阶低通滤波代替斜波作为底盘速度输入
-				first_order_filter_cali(&chassis_cmd_slow_set_vx, vx_set_channel);
-				first_order_filter_cali(&chassis_cmd_slow_set_vy, vy_set_channel);
-
-				//停止信号，不需要缓慢加速，直接减速到零
-				if (vx_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN && vx_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN)
-				{
-					chassis_cmd_slow_set_vx.out = 0.0f;
-				}
-
-				if (vy_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN && vy_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN)
-				{
-					chassis_cmd_slow_set_vy.out = 0.0f;
-				}
-				Chassis_Move_X = chassis_cmd_slow_set_vx.out; //遥控器输出X轴方向的值
-				Chassis_Move_Y = chassis_cmd_slow_set_vy.out; //遥控器输出Y轴方向的值
 			}
 		}
 	}
@@ -1245,7 +1206,7 @@ void Chassis_Motor_Speed_PID_KEY(void)
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
 		{
-			Chassis_Speed_Target[i] *= vector_rate / 2;
+			Chassis_Speed_Target[i] *= vector_rate / 1.2;
 		}
 	}
 
