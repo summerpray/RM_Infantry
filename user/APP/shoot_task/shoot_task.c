@@ -28,7 +28,7 @@ extern VisionRecvData_t VisionRecvData;
 /*******************摩檫轮电机参数**********************/
 
 float Friction_PWM_Output[6]     = {0, 300, 505, 583, 695, 685};//关闭  低速  中速  高速  狂暴  哨兵
-
+uint16_t FricMode = 0;   										//摩擦轮模式选择
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0,  20,  26,  34,  36};//测试时随便定的速度,后面测试更改
 
@@ -240,11 +240,16 @@ void Fric_Key_Ctrl(void)
         Chass_Switch_G = 0;
         Fric_enable ++;
         Fric_enable %= 2;   //按基数次有效，偶数次无效，按一次开再按一次关
+		if (IF_KEY_PRESSED_CTRL && IF_KEY_PRESSED_G)
+		{
+			FricMode ++ ;
+		}
     }
-
+	FricMode %= 6;
     if(Fric_enable)
     {
-        Fric_Open(Friction_PWM_Output[FRI_LOW], Friction_PWM_Output[FRI_LOW]);
+
+        Fric_Open(Friction_PWM_Output[FricMode], Friction_PWM_Output[FricMode]);
     }
     else
     {
