@@ -222,10 +222,10 @@ void GIMBAL_task(void *pvParameters)
 		{
 			if(IF_RC_SW2_UP)
 			{
-//				if (IF_MOUSE_PRESSED_RIGH)
-//				{
-//					actGimbal = GIMBAL_AUTO;
-//				}
+				if (IF_MOUSE_PRESSED_RIGH)
+				{
+					actGimbal = GIMBAL_AUTO;
+				}
 				KEY_Set_Mode();
 			}
 			else

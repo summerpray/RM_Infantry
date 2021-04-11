@@ -44,7 +44,7 @@ extern void chassis_task(void *pvParameters);
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_IOUT 1000.0f
 
 //µ×ÅÌÐý×ª¸úËæPID ¼üÅÌÄ£Ê½
-#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 0.50f  //0.15
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 0.3f  //0.15
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KI 0.0f
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD 0.0f
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_OUT 3.0f //3.0
