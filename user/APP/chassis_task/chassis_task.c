@@ -77,7 +77,7 @@ uint32_t Miss_Mode_Time = 0; //自动闪避已过时长
 uint8_t remote_change = TRUE;
 
 //底盘功率更改变量
-uint16_t Chassis_Mode = 0;
+uint16_t Chassis_Power_Level = 0;
 
 void chassis_task(void *pvParameters)
 {
@@ -96,7 +96,7 @@ void chassis_task(void *pvParameters)
 			if (IF_RC_SW2_UP) //键盘模式
 			{
 				chassis_feedback_update();
-				Chassis_Mode_Set();        //底盘功率换挡
+				Chassis_Power_Change();    //底盘功率换挡
 				Chassis_Key_Ctrl();		   //底盘按键功能
 				Chassis_Set_key_Contorl(); //底盘移动计算
 			}
@@ -489,26 +489,27 @@ void Chassis_Set_Contorl(void)
   * @attention  
   *              
   */
-void Chassis_Mode_Set(void)
+void Chassis_Power_Change(void)
 {
 	if(IF_KEY_PRESSED_CTRL || IF_KEY_PRESSED_SHIFT)
 	{ 
 		if (IF_KEY_PRESSED_CTRL)
 		{
-			Chassis_Mode ++;
-			if (Chassis_Mode > 2)
+			Chassis_Power_Level ++;
+			if (Chassis_Power_Level > 1)
 			{
-				Chassis_Mode = 2;
+				Chassis_Power_Level = 1;
 			}
 		}
 		else if (IF_KEY_PRESSED_SHIFT)
 		{
-			Chassis_Mode --;
-			if (Chassis_Mode < 0)
+			Chassis_Power_Level --;
+			if (Chassis_Power_Level < 0)
 			{
-				Chassis_Mode = 0;
+				Chassis_Power_Level = 0;
 			}
 		}
+	}
 }
 
 
@@ -685,11 +686,6 @@ void Chassis_NORMAL_Mode_Ctrl(void)
 		Chass_Switch_F = 1;
 	}
 
-	if (!IF_KEY_PRESSED_F) //R松开
-	{
-		Chass_Switch_F = 1;
-	}
-
 	/*---------------------------------------------------------------------------------------------------------------------------------*/
 
 	/*----------------------------------------------****F按一下则进入扭屁股模式****----------------------------------------------------*/
@@ -742,16 +738,16 @@ void Chassis_NORMAL_Mode_Ctrl(void)
 	/*---------------------------------------------------------------------------------------------------------------------------------*/
 		/* 	以下内容没有必要 */
 		/*-----------------------------------------------****按住Ctrl则进入机械模式****----------------------------------------------------*/
-		// if (IF_KEY_PRESSED_CTRL)
-		// {
-		// 	Chassis_Mode = CHASSIS_MECH_MODE;
-		// }
-		// else //松开CTRL进入陀螺仪模式
-		// {
-		// 	Chassis_Mode = CHASSIS_GYRO_MODE;
-		// }
-		// Chassis_Keyboard_Move_Calculate(STANDARD_MAX_NORMAL, TIME_INC_NORMAL); //设置速度最大值与斜坡时间
-		// Chassis_Mouse_Move_Calculate(REVOLVE_MAX_NORMAL);
+		if (IF_KEY_PRESSED_CTRL)
+		{
+			Chassis_Mode = CHASSIS_MECH_MODE;
+		}
+		else //松开CTRL进入陀螺仪模式
+		{
+			Chassis_Mode = CHASSIS_GYRO_MODE;
+		}
+		Chassis_Keyboard_Move_Calculate(STANDARD_MAX_NORMAL, TIME_INC_NORMAL); //设置速度最大值与斜坡时间
+		Chassis_Mouse_Move_Calculate(REVOLVE_MAX_NORMAL);
 }
 
 /*-------------------------------------------鼠标键盘控制计算Chassis_Move_X |Chassis_Move_Y |Chassis_Move_Z-------------------------------------------------*/
@@ -1234,7 +1230,7 @@ void Chassis_Motor_Speed_PID_KEY(void)
 		}
 	}
 	//底盘不同功率控制 
-	if (max_vector > MAX_WHEEL_SPEED && Chassis_Mode == LOW)
+	if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == LOW)
 	{
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
@@ -1242,20 +1238,12 @@ void Chassis_Motor_Speed_PID_KEY(void)
 			Chassis_Speed_Target[i] *= vector_rate / 1.6;
 		}
 	}
-	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Mode == MID)
+	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == HIGH)
 	{
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
 		{
 			Chassis_Speed_Target[i] *= vector_rate / 1.3;
-		}
-	}
-	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Mode == HIGH)
-	{
-		vector_rate = MAX_WHEEL_SPEED / (max_vector);
-		for (i = 0; i < 4; i++)
-		{
-			Chassis_Speed_Target[i] *= vector_rate;
 		}
 	}
 

@@ -65,8 +65,7 @@ extern void chassis_task(void *pvParameters);
 
 //键盘模式底盘功率切换控制
 #define LOW 0
-#define MID 1
-#define HIGH 2
+#define HIGH 1
 
 //底盘电机最大速度
 #define MAX_WHEEL_SPEED 2.0f  
@@ -210,7 +209,7 @@ void Chassis_Set_key_Contorl(void); //键盘模式不同模式不同处理
 void Chassis_Omni_Move_Calculate(void);
 void Chassis_RC_Ctrl(void);
 void Chassis_Key_Ctrl(void);
-void Chassis_Mode_Set(void); //换挡
+void Chassis_Power_Change(void); //换挡
 void Chassis_NORMAL_Mode_Ctrl(void);
 void CHASSIS_CANSend(void);
 void CHASSIS_UpdateMotorAngle( ChassisWheel Wheel, int16_t angle );
