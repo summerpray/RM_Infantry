@@ -240,16 +240,10 @@ void Fric_Key_Ctrl(void)
         Chass_Switch_G = 0;
         Fric_enable ++;
         Fric_enable %= 2;   //按基数次有效，偶数次无效，按一次开再按一次关
-		if (IF_KEY_PRESSED_CTRL && IF_KEY_PRESSED_G)
-		{
-			FricMode ++ ;
-		}
     }
-	FricMode %= 6;
     if(Fric_enable)
     {
-
-        Fric_Open(Friction_PWM_Output[FricMode], Friction_PWM_Output[FricMode]);
+        Fric_Open(Friction_PWM_Output[FRI_LOW], Friction_PWM_Output[FRI_LOW]);
     }
     else
     {
