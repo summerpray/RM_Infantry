@@ -149,7 +149,7 @@ void Magazine_Key_Ctrl(void)
 {
 	static uint32_t ulTimePressX   = 0;
 //	static uint32_t ulTimeOpen     = 0;
-	       portTickType ulTimeCurrent  = 0;
+	portTickType ulTimeCurrent  = 0;
 	static uint32_t PressR_Gap = 0;//关弹仓情况下，R按一下之后长时间不再按一次则忽略此次
 	
 	if(maga_remot_change == TRUE)//刚从遥控模式切过来
@@ -164,17 +164,17 @@ void Magazine_Key_Ctrl(void)
 	switch (Magazine_Key_Switch)
 	{
 		case MAGA_KEY_CLOSE:	
-			if(!IF_KEY_PRESSED_X)//R松开
+			if(!IF_KEY_PRESSED_X)//X松开
 			{
 				Maga_Switch_X = 1;
-				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_500MS)//500ms内没按下R
+				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_500MS)//500ms内没按下X
 				{
 					Maga_Times = 0;//重新记次
 				}
 			} 
 			
 			if (IF_KEY_PRESSED_X && Maga_Switch_X == 1
-					&& GIMBAL_IfBuffHit() != TRUE)//R按下
+					&& GIMBAL_IfBuffHit() != TRUE)//X按下
 			{
 				PressR_Gap = ulTimeCurrent;//记录按下时间
 				Maga_Switch_X = 0;	

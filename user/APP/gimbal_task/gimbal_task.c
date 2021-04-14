@@ -493,8 +493,8 @@ void GIMBAL_Set_Control(void)
 			Cloud_Angle_Target[YAW][TOP]=Cloud_Angle_Measure[YAW][GYRO];
 			Cloud_Angle_Target[PITCH][MECH]=Cloud_Angle_Measure[PITCH][MECH];
 		}
-    Cloud_Angle_Target[YAW][TOP] += rc_add_yaw;                                     //注意正负
-    Cloud_Angle_Target[PITCH][MECH] += rc_add_pit;
+    	Cloud_Angle_Target[YAW][TOP] += rc_add_yaw;                                     //注意正负
+    	Cloud_Angle_Target[PITCH][MECH] += rc_add_pit;
 //		Cloud_Angle_Target[YAW][MECH] = Cloud_Angle_Measure[YAW][MECH];
 //		Cloud_Angle_Target[PITCH][MECH] = Cloud_Angle_Measure[PITCH][MECH];
 		Cloud_Angle_Target[YAW][GYRO]=Cloud_Angle_Measure[YAW][GYRO];

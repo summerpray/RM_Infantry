@@ -117,6 +117,7 @@ void chassis_task(void *pvParameters)
 		Chassis_Omni_Move_Calculate(); //底盘全向运动分析
 		if (IF_RC_SW2_UP)
 		{
+			//Chassis_MotorOutput();
 			Chassis_Motor_Speed_PID_KEY(); //PID计算
 		}
 		else
@@ -466,11 +467,11 @@ void Chassis_Set_Contorl(void)
 	{
 		if ((fabs(Chassis_Move_X) < 0.001) && (fabs(Chassis_Move_Y) < 0.001))
 		{
-			Chassis_Move_Z = 1.5f;
+			Chassis_Move_Z = 1.0f;
 		}
 		else
 		{
-			Chassis_Move_Z = 1.0f;
+			Chassis_Move_Z = 0.5f;
 			Angle_error();
 
 			Chassis_Move_X1 = (cos(theta) * Chassis_Move_X) + (-sin(theta) * Chassis_Move_Y);
@@ -493,7 +494,7 @@ void Chassis_Power_Change(void)
 {
 	if(IF_KEY_PRESSED_CTRL || IF_KEY_PRESSED_SHIFT)
 	{ 
-		if (IF_KEY_PRESSED_CTRL)
+		if (IF_KEY_PRESSED_SHIFT)
 		{
 			Chassis_Power_Level ++;
 			if (Chassis_Power_Level > 1)
@@ -501,13 +502,10 @@ void Chassis_Power_Change(void)
 				Chassis_Power_Level = 1;
 			}
 		}
-		else if (IF_KEY_PRESSED_SHIFT)
+		else if (IF_KEY_PRESSED_CTRL)
 		{
-			Chassis_Power_Level --;
-			if (Chassis_Power_Level < 0)
-			{
-				Chassis_Power_Level = 0;
-			}
+			Chassis_Power_Level = 0;
+			
 		}
 	}
 }
@@ -550,7 +548,6 @@ void Chassis_Set_key_Contorl(void)
 		Chassis_Move_X = fp32_constrain(Chassis_Move_X, vx_min_speed, vx_max_speed);
 		Chassis_Move_Y = fp32_constrain(Chassis_Move_Y, vy_min_speed, vy_max_speed);
 	}
-
 	else if (Chassis_Mode == CHASSIS_GYRO_MODE)
 	{
 		Angle_error();
@@ -576,7 +573,7 @@ void Chassis_Set_key_Contorl(void)
 		}
 		else
 		{
-			Chassis_Move_Z = 1.0f;
+			Chassis_Move_Z = 0.0f;
 			Angle_error();
 
 			Chassis_Move_X1 = (cos(theta) * Chassis_Move_X) + (-sin(theta) * Chassis_Move_Y);
@@ -854,17 +851,17 @@ void Chassis_Keyboard_Move_Calculate(int16_t sMoveMax, int16_t sMoveRamp)
 			//键盘模式下全向移动,斜坡量计算,注意正负,最大输出量*斜坡比例得到缓慢增加的值,模拟摇杆
 			//前后的增加斜坡是变化的
 			Slope_Chassis_Move_Fron = (int16_t)(Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeXFron, timeInc_Saltation, TIME_DEC_NORMAL));
+												Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeXFron, timeInc / 1.5, TIME_DEC_NORMAL));
 
 			Slope_Chassis_Move_Back = (int16_t)(-Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeXBack, timeInc_Saltation, TIME_DEC_NORMAL));
+												Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeXBack, timeInc / 1.5, TIME_DEC_NORMAL));
 
 			//左右的增加斜坡跟前后不一样,别搞错
 			Slope_Chassis_Move_Left = (int16_t)(+Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeYRigh, timeInc / 1.5, TIME_DEC_NORMAL));
+												Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeYRigh, timeInc_Saltation, TIME_DEC_NORMAL));
 
 			Slope_Chassis_Move_Righ = (int16_t)(Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc / 1.5, TIME_DEC_NORMAL));
+												Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc_Saltation, TIME_DEC_NORMAL));
 
 			Chassis_Move_X = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
 			Chassis_Move_Y = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
@@ -891,24 +888,46 @@ void Chassis_Keyboard_Move_Calculate(int16_t sMoveMax, int16_t sMoveRamp)
 				timeYLeft = 0;
 			}
 
-			Slope_Chassis_Move_Fron = (int16_t)(-Chassis_Standard_Move_Max *
+			Slope_Chassis_Move_Righ = (int16_t)(-Chassis_Standard_Move_Max *
 												Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeXFron, timeInc, TIME_DEC_NORMAL));
 
-			Slope_Chassis_Move_Back = (int16_t)(+Chassis_Standard_Move_Max *
+			Slope_Chassis_Move_Left = (int16_t)(+Chassis_Standard_Move_Max *
 												Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeXBack, timeInc, TIME_DEC_NORMAL));
 
-			Slope_Chassis_Move_Left = (int16_t)(-Chassis_Standard_Move_Max *
+			Slope_Chassis_Move_Back = (int16_t)(-Chassis_Standard_Move_Max *
 												Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeYRigh, timeInc, TIME_DEC_NORMAL));
 
-			Slope_Chassis_Move_Righ = (int16_t)(+Chassis_Standard_Move_Max *
+			Slope_Chassis_Move_Fron = (int16_t)(+Chassis_Standard_Move_Max *
 												Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc, TIME_DEC_NORMAL));
+			
+			Chassis_Move_X = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
+			Chassis_Move_Y = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
 
-			if (Chassis_Action != CHASSIS_SHAKE)
+			int16_t vx_channel, vy_channel;
+			fp32 vx_set_channel, vy_set_channel;
+			//死区限制，因为遥控器可能存在差异 摇杆在中间，其值不为0               当遥控器拨动值较小时输出为0，防止误触
+			rc_deadline_limit(Chassis_Move_Y, vy_channel, CHASSIS_RC_DEADLINE);
+			rc_deadline_limit(Chassis_Move_X, vx_channel, CHASSIS_RC_DEADLINE);
+
+			vx_set_channel = vx_channel * CHASSIS_VX_RC_SEN;
+			vy_set_channel = vy_channel * CHASSIS_VX_RC_SEN;
+
+			//一阶低通滤波代替斜波作为底盘速度输入
+			first_order_filter_cali(&chassis_cmd_slow_set_vx, vx_set_channel);
+			first_order_filter_cali(&chassis_cmd_slow_set_vy, vy_set_channel);
+
+			//停止信号，不需要缓慢加速，直接减速到零
+			if (vx_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN && vx_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN)
 			{
-				Chassis_Move_X = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
-				Chassis_Move_Y = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
-
+				chassis_cmd_slow_set_vx.out = 0.0f;
 			}
+
+			if (vy_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN && vy_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN)
+			{
+				chassis_cmd_slow_set_vy.out = 0.0f;
+			}
+			Chassis_Move_X = chassis_cmd_slow_set_vx.out; //遥控器输出X轴方向的值
+			Chassis_Move_Y = chassis_cmd_slow_set_vy.out; //遥控器输出Y轴方向的值
 		}
 	}
 }
@@ -1235,7 +1254,7 @@ void Chassis_Motor_Speed_PID_KEY(void)
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
 		{
-			Chassis_Speed_Target[i] *= vector_rate / 1.6;
+			Chassis_Speed_Target[i] *= vector_rate / LOW_RATE;
 		}
 	}
 	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == HIGH)
@@ -1243,7 +1262,7 @@ void Chassis_Motor_Speed_PID_KEY(void)
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
 		{
-			Chassis_Speed_Target[i] *= vector_rate / 1.3;
+			Chassis_Speed_Target[i] *= vector_rate / HIGH_RATE;
 		}
 	}
 
@@ -1259,7 +1278,8 @@ void Chassis_Motor_Speed_PID_KEY(void)
 	//赋值电流值
 	for (i = 0; i < 4; i++)
 	{
-		Chassis_Final_Output[i] = constrain_float(motor_key_pid[i].out, -4000, 4000);
+		//Chassis_Final_Output[i] = constrain_float(motor_key_pid[i].out, -4000, 4000);
+		Chassis_Final_Output[i] = motor_key_pid[i].out;
 	}
 }
 

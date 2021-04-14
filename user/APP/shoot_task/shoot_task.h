@@ -5,7 +5,7 @@
 #include  <math.h>
 #include <stdlib.h>
 
-#define 	REVOL_SPEED_GRID      12			  //拨盘格数
+#define 	REVOL_SPEED_GRID      8			  //拨盘格数
 #define   AN_BULLET         (24576.0f)		//单个子弹电机位置增加值
 #define   REVOL_SPEED_RATIO   2160        //电机轴一秒转一圈,2160转子转速,60*36,乘射频再除以拨盘格数就可得相应射频下的转速
 
@@ -81,6 +81,7 @@ void REVOLVER_UpdateMotorSpeed(int16_t speed);//中断读转速
 void REVOLVER_UpdateMotorAngle(int16_t angle);//中断读角度
 void Reset_Fric(void);//复位摩擦轮
 void ReFric(void);//用于摩擦轮清空枪膛
+void Fric_Power_Change(void);//改变摩擦轮速度
 void REVOLVER_CANbusCtrlMotor(void);//can发送函数
 
 
