@@ -3,8 +3,8 @@
 
 #include "main.h"
 
-//µ¯²Ö¿ª¹Ø½Ç¶È¶ÔÓ¦µÄPWMÖµ
-#define Magazine_Close_Angle 1920
+//ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ø½Ç¶È¶ï¿½Ó¦ï¿½ï¿½PWMÖµ
+#define Magazine_Close_Angle 1870
 #define Magazine_Open_Angle 1800
 
 typedef enum
@@ -18,7 +18,7 @@ void Magazine_Ctrl(void);
 void Magazine_Servo(int16_t pwm);
 void Magazine_Key_Ctrl(void);
 bool Magezine_Rc_Switch(void);
-/*******************µ¯²Ö¸¨Öúº¯Êý*************************/
+/*******************ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*************************/
 bool Magazine_IfOpen(void);
 bool Magazine_IfWait(void);
 
