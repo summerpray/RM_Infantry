@@ -27,7 +27,7 @@ extern VisionRecvData_t VisionRecvData;
 
 /*******************摩檫轮电机参数**********************/
 
-float Friction_PWM_Output[6] = {0, 300, 310, 320, 330, 350}; //关闭  低速  中速  高速  狂暴  哨兵
+float Friction_PWM_Output[6] = {0, 290, 300, 310, 330, 350}; //关闭  低速  中速  高速  狂暴  哨兵
 uint16_t FricMode = 1;										 //摩擦轮模式选择
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0, 20, 26, 34, 36}; //测试时随便定的速度,后面测试更改

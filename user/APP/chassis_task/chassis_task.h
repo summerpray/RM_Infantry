@@ -73,7 +73,7 @@ extern void chassis_task(void *pvParameters);
 //底盘运动过程最大前进速度
 #define NORMAL_MAX_CHASSIS_SPEED_X 2.0f
 //底盘运动过程最大平移速度
-#define NORMAL_MAX_CHASSIS_SPEED_Y 2.0f
+#define NORMAL_MAX_CHASSIS_SPEED_Y 1.0f
 //底盘运动过程最大旋转速度
 #define NORMAL_MAX_CHASSIS_SPEED_Z 0.05f
 
@@ -85,8 +85,8 @@ extern void chassis_task(void *pvParameters);
 
 #define CHASSIS_RC_DEADLINE 10
 
-#define HIGH_RATE 1.5f
-#define LOW_RATE 1.9f
+#define HIGH_RATE 1.8f
+#define LOW_RATE 2.1f
 
 //摇摆原地不动摇摆最大角度(rad)
 #define SWING_NO_MOVE_ANGLE 0.5f
@@ -107,7 +107,7 @@ void chassis_feedback_update(void);   //电机数据更新
 /*--------------------myself-------------*/
 /*----------------------------------------------------------对轮子转速的限制-----------------------------------------------------------------------------------------*/
 
-#define 	  Omni_Speed_Max              9000     //底盘水平移动速度限幅,防止键盘模式下速度超过这个值
+#define 	  Omni_Speed_Max              6000     //底盘水平移动速度限幅,防止键盘模式下速度超过这个值
 #define		  STANDARD_MAX_NORMAL         9000     //平地开车最快速度，防止摇杆比例*660超过这个值
 #define     Omni_SupCap_Max             10000    //按住shift加速时候的速度，后续测试再更改
 

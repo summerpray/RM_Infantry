@@ -4,7 +4,8 @@
 #include "main.h"
 
 //���ֿ��ؽǶȶ�Ӧ��PWMֵ
-#define Magazine_Close_Angle 1870
+
+#define Magazine_Close_Angle 1849
 #define Magazine_Open_Angle 1800
 
 typedef enum

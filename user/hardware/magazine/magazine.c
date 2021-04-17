@@ -13,29 +13,29 @@ extern RC_ctrl_t rc_ctrl;
  
 bool Senty_Run_Flag = FALSE;
 
-int16_t Magazine_Target;//PWMÄ¿±êÖµ
-int16_t Magazine_Actual;//PWMÕæÊµÖµ
-int16_t Magazine_ServoRamp = 100;//µ¯²ÖÐ±ÆÂ,¿ØÖÆ±ä»¯ËÙ¶È,Êµ²âºÃÏñÃ»Ê²Ã´ÓÃ
+int16_t Magazine_Target;//PWMÄ¿ï¿½ï¿½Öµ
+int16_t Magazine_Actual;//PWMï¿½ï¿½ÊµÖµ
+int16_t Magazine_ServoRamp = 100;//ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½,ï¿½ï¿½ï¿½Æ±ä»¯ï¿½Ù¶ï¿½,Êµï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ê²Ã´ï¿½ï¿½
 
-//µ¯²Ö¿ª¹Ø±êÖ¾Î»
-#define MAGA_STEP0    0		//Ê§ÄÜ±êÖ¾
-#define MAGA_STEP1    1		//SW1¸´Î»±êÖ¾
-#define MAGA_STEP2    2		//µ¯²Ö¿ª¹Ø±êÖ¾
+//ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ø±ï¿½Ö¾Î»
+#define MAGA_STEP0    0		//Ê§ï¿½Ü±ï¿½Ö¾
+#define MAGA_STEP1    1		//SW1ï¿½ï¿½Î»ï¿½ï¿½Ö¾
+#define MAGA_STEP2    2		//ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ø±ï¿½Ö¾
 
-uint8_t	Magazine_Switch = 0;//µ¯²ÖÒ£¿ØÄ£Ê½¿ª¹Ø±êÖ¾Î»×ª»»
+uint8_t	Magazine_Switch = 0;//ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ø±ï¿½Ö¾Î»×ªï¿½ï¿½
 
 
-#define MAGA_KEY_CLOSE    0		//µ¯²Ö¼üÅÌÄ£Ê½¿ª¹Ø±êÖ¾Î»
-#define MAGA_KEY_OPEN     1		//µ¯²Ö¼üÅÌÄ£Ê½¿ª¹Ø±êÖ¾Î»
+#define MAGA_KEY_CLOSE    0		//ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ø±ï¿½Ö¾Î»
+#define MAGA_KEY_OPEN     1		//ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ø±ï¿½Ö¾Î»
 
-uint8_t Magazine_Key_Switch = 0;//µ¯²Ö¼üÅÌÄ£Ê½¿ª¹Ø±êÖ¾Î»×ª»»
+uint8_t Magazine_Key_Switch = 0;//ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ø±ï¿½Ö¾Î»×ªï¿½ï¿½
 
 u8 Maga_Switch_X = 1;
 u8 Maga_Key_R_Change = 0;
 u8 Maga_Times = 0;
 
 /**
-  * @brief  µ¯²Ö¶æ»ú¿ØÖÆ
+  * @brief  ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   * @param  void
   * @retval void
   * @attention 
@@ -43,9 +43,9 @@ u8 Maga_Times = 0;
 uint8_t maga_remot_change = TRUE;
 void Magazine_Ctrl(void)
 {
-	if (SYSTEM_GetSystemState() == SYSTEM_STARTING)//¶æ»ú½Ç¶ÈÏµÍ³³õÊ¼»¯
+	if (SYSTEM_GetSystemState() == SYSTEM_STARTING)//ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ÏµÍ³ï¿½ï¿½Ê¼ï¿½ï¿½
 	{
-		//½Ç¶È³õÊ¼»¯,Ê¹Ä¿±êÖµÓë²âÁ¿Öµ¶¼Îª¹Ø±ÕÖµ
+		//ï¿½Ç¶È³ï¿½Ê¼ï¿½ï¿½,Ê¹Ä¿ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Îªï¿½Ø±ï¿½Öµ
 		Magazine_Target = Magazine_Close_Angle;
 		Magazine_Actual = Magazine_Close_Angle;
 		Maga_Switch_X = 1;
@@ -54,33 +54,33 @@ void Magazine_Ctrl(void)
 	}
 	else
 	{
-		if (Magezine_Rc_Switch() == TRUE)//ÅÐ¶ÏÊÇ·ñÒªµ¯²Ö¸Ä±äµ±Ç°×´Ì¬
+		if (Magezine_Rc_Switch() == TRUE)//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½ï¿½Ö¸Ä±äµ±Ç°×´Ì¬
 		{
-			//¸Ä±äµ±Ç°×´Ì¬µÄÅÐ¶Ï
-			if (Magazine_Target == Magazine_Open_Angle)//µ¯²Ö¿ªÆô´Ë´¦Ê¼ÖÕ½øÈë
+			//ï¿½Ä±äµ±Ç°×´Ì¬ï¿½ï¿½ï¿½Ð¶ï¿½
+			if (Magazine_Target == Magazine_Open_Angle)//ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ï¿½Ë´ï¿½Ê¼ï¿½Õ½ï¿½ï¿½ï¿½
 			{
-				Magazine_Target = Magazine_Close_Angle;//ÈôÖ®Ç°´ò¿ª,ÔòÏÖÔÚ¹Ø±Õ
+				Magazine_Target = Magazine_Close_Angle;//ï¿½ï¿½Ö®Ç°ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹Ø±ï¿½
 			}
-			else			//ÔÚµ¯²Ö¹Ø±ÕÖ®ºó´Ë´¦Ê¼ÖÕ½øÈë
+			else			//ï¿½Úµï¿½ï¿½Ö¹Ø±ï¿½Ö®ï¿½ï¿½Ë´ï¿½Ê¼ï¿½Õ½ï¿½ï¿½ï¿½
 			{
-				Magazine_Target = Magazine_Open_Angle;//ÈôÖ®Ç°¹Ø±Õ,ÔòÏÖÔÚ´ò¿ª
+				Magazine_Target = Magazine_Open_Angle;//ï¿½ï¿½Ö®Ç°ï¿½Ø±ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
 			}
 		}
     	if (SYSTEM_GetRemoteMode() == KEY)
-		  {
+		  	{
 			  Magazine_Key_Ctrl();
-		  }
+		 	}
 		else
 		  {
-			 Magazine_Key_Switch = MAGA_KEY_CLOSE;
-			   Maga_Switch_X = 1;
-			  Maga_Key_R_Change = 0;
-			  Maga_Times = 0;
-		    maga_remot_change = TRUE;//±ê¼ÇÇÐ»ØÁËÒ£¿ØÄ£Ê½
+			Magazine_Key_Switch = MAGA_KEY_CLOSE;
+			Maga_Switch_X = 1;
+			Maga_Key_R_Change = 0;
+			Maga_Times = 0;
+		    maga_remot_change = TRUE;//ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½Ò£ï¿½ï¿½Ä£Ê½
 		  }
 	  }
 	
-	//Ê¹¶æ»úÊµ¼ÊÖµÖð²½±Æ½üÄ¿±êÖµ,Ð±ÆÂÊä³ö
+	//Ê¹ï¿½ï¿½ï¿½Êµï¿½ï¿½Öµï¿½ð²½±Æ½ï¿½Ä¿ï¿½ï¿½Öµ,Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (Magazine_Actual < Magazine_Target)
 	{
 		Magazine_Actual += Magazine_ServoRamp;
@@ -98,40 +98,40 @@ void Magazine_Ctrl(void)
 
 
 /**
-  * @brief  Ò£¿ØÄ£Ê½,ÅÐ¶ÏÊÇ·ñÏÂ´ïÁË×´Ì¬×ª»»Ö¸Áî,½øÈëÒ»´ÎÖ®ºóÁ¢¿Ì±ä³ÉFALSE
+  * @brief  Ò£ï¿½ï¿½Ä£Ê½,ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½Â´ï¿½ï¿½ï¿½×´Ì¬×ªï¿½ï¿½Ö¸ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ï¿½FALSE
   * @param  void
-  * @retval ÊÇ·ñÏÂ´ïÁË¸Ä±ä×´Ì¬µÄÖ¸Áî
-  * @attention Âß¼­½Ï¸´ÔÓ,ºÃºÃÏëÏë
+  * @retval ï¿½Ç·ï¿½ï¿½Â´ï¿½ï¿½Ë¸Ä±ï¿½×´Ì¬ï¿½ï¿½Ö¸ï¿½ï¿½
+  * @attention ï¿½ß¼ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½,ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½
   */
 bool Magezine_Rc_Switch(void)
 {
-	if (IF_RC_SW2_MID)//Ò£¿ØÄ£Ê½
+	if (IF_RC_SW2_MID)//Ò£ï¿½ï¿½Ä£Ê½
 	{
-		if (IF_RC_SW1_UP)//¿ªÆôµ¯²ÖÌõ¼þ1
+		if (IF_RC_SW1_UP)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1
 		{
-			if (Magazine_Switch == MAGA_STEP1)//¿ªÆôµ¯²ÖÌõ¼þ2
+			if (Magazine_Switch == MAGA_STEP1)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2
 			{
 				Magazine_Switch = MAGA_STEP2;
 			}
-			else if (Magazine_Switch == MAGA_STEP2)//µ¯²Ö¹Ø±Õ
+			else if (Magazine_Switch == MAGA_STEP2)//ï¿½ï¿½ï¿½Ö¹Ø±ï¿½
 			{
-				Magazine_Switch = MAGA_STEP0;//ÇÐ¶ÏÁªÏµ
+				Magazine_Switch = MAGA_STEP0;//ï¿½Ð¶ï¿½ï¿½ï¿½Ïµ
 			}
 		}
-		else		//±êÖ¾SW1ÊÇ·ñÓÐ¸´Î»µÄÇé¿ö,ÔÚ¸´Î»µÄÇé¿öÏÂ²ÅÄÜÔÙ´Î½øÈëSTERP2
+		else		//ï¿½ï¿½Ö¾SW1ï¿½Ç·ï¿½ï¿½Ð¸ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ú¸ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½ï¿½Ù´Î½ï¿½ï¿½ï¿½STERP2
 		{
-			Magazine_Switch = MAGA_STEP1;//±£ÕÏSW1ÔÚÏÂ´Î±ä»»Ö®Ç°Ò»Ö±²»ÄÜÓÃ
+			Magazine_Switch = MAGA_STEP1;//ï¿½ï¿½ï¿½ï¿½SW1ï¿½ï¿½ï¿½Â´Î±ä»»Ö®Ç°Ò»Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 	}
-	else//s2²»ÔÚÖÐ¼ä,²»ÔÊÐíµ¯²Ö¿ªÆô
+	else//s2ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½
 	{
-		Magazine_Switch = MAGA_STEP0;//¿ÉÄÜÊÇÄ¦²ÁÂÖ¿ªÆôÒ²¿ÉÄÜÊÇÇÐ»»³É¼üÅÌÄ£Ê½
+		Magazine_Switch = MAGA_STEP0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¦ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½É¼ï¿½ï¿½ï¿½Ä£Ê½
 	}
 	
 	
 	if (Magazine_Switch == MAGA_STEP2)
 	{
-		return TRUE;//Ö»ÓÐSW1ÖØÐÂ±ä»»µÄÊ±ºò²ÅÎªTRUE
+		return TRUE;//Ö»ï¿½ï¿½SW1ï¿½ï¿½ï¿½Â±ä»»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ÎªTRUE
 	}
 	else
 	{
@@ -140,7 +140,7 @@ bool Magezine_Rc_Switch(void)
 }
 
 /**
-  * @brief  ¼üÅÌÄ£Ê½
+  * @brief  ï¿½ï¿½ï¿½ï¿½Ä£Ê½
   * @param  void
   * @retval void
   * @attention 
@@ -150,9 +150,9 @@ void Magazine_Key_Ctrl(void)
 	static uint32_t ulTimePressX   = 0;
 //	static uint32_t ulTimeOpen     = 0;
 	portTickType ulTimeCurrent  = 0;
-	static uint32_t PressR_Gap = 0;//¹Øµ¯²ÖÇé¿öÏÂ£¬R°´Ò»ÏÂÖ®ºó³¤Ê±¼ä²»ÔÙ°´Ò»´ÎÔòºöÂÔ´Ë´Î
+	static uint32_t PressR_Gap = 0;//ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½Rï¿½ï¿½Ò»ï¿½ï¿½Ö®ï¿½ï¿½Ê±ï¿½ä²»ï¿½Ù°ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ë´ï¿½
 	
-	if(maga_remot_change == TRUE)//¸Õ´ÓÒ£¿ØÄ£Ê½ÇÐ¹ýÀ´
+	if(maga_remot_change == TRUE)//ï¿½Õ´ï¿½Ò£ï¿½ï¿½Ä£Ê½ï¿½Ð¹ï¿½ï¿½ï¿½
 	{
 		Magazine_Key_Switch = MAGA_KEY_CLOSE;
 		Magazine_Target = Magazine_Close_Angle;
@@ -164,31 +164,31 @@ void Magazine_Key_Ctrl(void)
 	switch (Magazine_Key_Switch)
 	{
 		case MAGA_KEY_CLOSE:	
-			if(!IF_KEY_PRESSED_X)//XËÉ¿ª
+			if(!IF_KEY_PRESSED_X)//Xï¿½É¿ï¿½
 			{
 				Maga_Switch_X = 1;
-				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_500MS)//500msÄÚÃ»°´ÏÂX
+				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_200MS)//500msï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½X
 				{
-					Maga_Times = 0;//ÖØÐÂ¼Ç´Î
+					Maga_Times = 0;//ï¿½ï¿½ï¿½Â¼Ç´ï¿½
 				}
 			} 
 			
 			if (IF_KEY_PRESSED_X && Maga_Switch_X == 1
-					&& GIMBAL_IfBuffHit() != TRUE)//X°´ÏÂ
+					&& GIMBAL_IfBuffHit() != TRUE)//Xï¿½ï¿½ï¿½ï¿½
 			{
-				PressR_Gap = ulTimeCurrent;//¼ÇÂ¼°´ÏÂÊ±¼ä
+				PressR_Gap = ulTimeCurrent;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 				Maga_Switch_X = 0;	
 				Maga_Times++;	
 			}	
 			
-			if(Maga_Times >= 2)//500msÄÚÁ¬°´2´Î
+			if(Maga_Times >= 2)//500msï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½
 			{
-				Magazine_Key_Switch = MAGA_KEY_OPEN;//¿ªµ¯²Ö
+				Magazine_Key_Switch = MAGA_KEY_OPEN;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				Magazine_Target = Magazine_Open_Angle;
 				if(JUDGE_usGetShootNum()>0)
 				{
-					JUDGE_ShootNum_Clear();//·¢µ¯Á¿ÇåÁã
-					//Revolver_Angle_Rest();//²¦ÅÌ½Ç¶ÈÇåÁã
+					JUDGE_ShootNum_Clear();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					//Revolver_Angle_Rest();//ï¿½ï¿½ï¿½Ì½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½
 				}
 				ulTimePressX = ulTimeCurrent;
 			}
@@ -199,17 +199,17 @@ void Magazine_Key_Ctrl(void)
 		break;
 				
 		case MAGA_KEY_OPEN:	
-			if(!IF_KEY_PRESSED_X)//RËÉ¿ª
+			if(!IF_KEY_PRESSED_X)//Rï¿½É¿ï¿½
 			{
 				Maga_Switch_X = 1;
 			}
 			
 			if (!IF_KEY_PRESSED_X)
 			{
-				ulTimePressX = ulTimeCurrent;//Ë¢ÐÂS°´ÏÂµÄÊ±¼ä
+				ulTimePressX = ulTimeCurrent;//Ë¢ï¿½ï¿½Sï¿½ï¿½ï¿½Âµï¿½Ê±ï¿½ï¿½
 			}
 			
-			if ( ulTimeCurrent - ulTimePressX >  (TIME_STAMP_500MS + TIME_STAMP_300MS)  //Á¬°´S³¬¹ý800ms
+			if ( ulTimeCurrent - ulTimePressX >  (TIME_STAMP_500MS + TIME_STAMP_300MS)  //ï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½800ms
 						|| IF_KEY_PRESSED_Q || IF_KEY_PRESSED_E || IF_KEY_PRESSED_V )	
 			{
 				Magazine_Key_Switch = MAGA_KEY_CLOSE;
@@ -224,13 +224,13 @@ void Magazine_Key_Ctrl(void)
 	
 }
 
-/**************µ¯²Ö¼üÅÌÄ£Ê½¸÷ÀàÐ¡º¯Êý****************/
+/**************ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½****************/
 
 /**
-  * @brief  µ¯²Ö¶æ»úËÅ·þ
-  * @param  Ä¿±êPWMÖµ
+  * @brief  ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½Å·ï¿½
+  * @param  Ä¿ï¿½ï¿½PWMÖµ
   * @retval void
-  * @attention 28×îÐ¡
+  * @attention 28ï¿½ï¿½Ð¡
   */
 void Magazine_Servo(int16_t pwm)
 {
@@ -240,17 +240,17 @@ void Magazine_Servo(int16_t pwm)
 }
 
 
-/*******************µ¯²Ö¸¨Öúº¯Êý*************************/
+/*******************ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*************************/
 
 /**
-  * @brief  µ¯²ÖÊÇ·ñÒÑ¾­´ò¿ªÍê³É
+  * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   * @param  void
-  * @retval TRUE´ò¿ª,FALSEÎ´´ò¿ª
+  * @retval TRUEï¿½ï¿½,FALSEÎ´ï¿½ï¿½
   * @attention 
   */
 bool Magazine_IfOpen(void)
 {
-	if (Magazine_Actual == Magazine_Open_Angle)//ÓÃÊµ¼ÊÊä³öÅÐ¶Ï
+	if (Magazine_Actual == Magazine_Open_Angle)//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 	{
 		return TRUE;
 	}
@@ -261,14 +261,14 @@ bool Magazine_IfOpen(void)
 }
 
 /**
-  * @brief  µ¯²ÖÊÇ·ñÕýÔÚ´ò¿ª
+  * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
   * @param  void
-  * @retval TRUE´ò¿ªÖÐ,falseÎ´´ò¿ª
+  * @retval TRUEï¿½ï¿½ï¿½ï¿½,falseÎ´ï¿½ï¿½
   * @attention 
   */
 bool Magazine_IfWait(void)
 {
-	if (Magazine_Target == Magazine_Open_Angle)//ÓÃÄ¿±êÊä³öÅÐ¶Ï
+	if (Magazine_Target == Magazine_Open_Angle)//ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 	{
 		return TRUE;
 	}
@@ -278,7 +278,7 @@ bool Magazine_IfWait(void)
 	}
 }
 
-/****************¿ØÖÆÉÚ±ø°´¼üÅÐ¶Ï£¬¸ßË¢ÐÂÂÊ£¬·ÀÖ¹¼ì²â²»µ½°´¼ü*********************/
+/****************ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½Ë¢ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½â²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*********************/
 
 bool Senty_Run(void)
 {
