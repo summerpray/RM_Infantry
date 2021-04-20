@@ -85,8 +85,8 @@ extern void chassis_task(void *pvParameters);
 
 #define CHASSIS_RC_DEADLINE 10
 
-#define HIGH_RATE 1.8f
-#define LOW_RATE 2.1f
+#define HIGH_RATE 1.6f
+#define LOW_RATE 1.9f
 
 //摇摆原地不动摇摆最大角度(rad)
 #define SWING_NO_MOVE_ANGLE 0.5f

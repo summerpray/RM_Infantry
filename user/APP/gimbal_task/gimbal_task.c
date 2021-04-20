@@ -604,6 +604,7 @@ void GIMBAL_Set_Key_Control(void)
 		Mouse_Gyro_Pitch += MOUSE_Y_MOVE_SPEED * Pitch_Mouse_Sen;//pitch仍旧使用机械模式
 /*-------鼠标长时间不动，云台停止移动------*/
 		if(MOUSE_X_MOVE_SPEED == 0)
+	
 		{
 			Mouse_Yaw_Stop ++ ;
 			if(Mouse_Yaw_Stop > 25)//鼠标长时间停留，停止移动

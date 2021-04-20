@@ -388,7 +388,7 @@ void Chassis_Rc_Control(void)
 	rc_deadline_limit(rc_ctrl.rc.ch[2], vx_channel, CHASSIS_RC_DEADLINE);
 
 	vx_set_channel = vx_channel * -CHASSIS_VX_RC_SEN; //将遥控器的值转化为机器人运动的速度
-	vy_set_channel = vy_channel * CHASSIS_VY_RC_SEN;
+	vy_set_channel = vy_channel *  CHASSIS_VY_RC_SEN;
 
 	//一阶低通滤波代替斜波作为底盘速度输入
 	first_order_filter_cali(&chassis_cmd_slow_set_vx, vx_set_channel);
@@ -620,7 +620,7 @@ void Chassis_Key_Ctrl(void)
 			Chass_Key_F_Change %= 2; //按基数次有效，偶数次无效，按一次开再按一次关
 		}
 
-		if (0)
+		if (Chass_Key_F_Change)
 		{
 			Chassis_Mode = CHASSIS_TOP_MODE; //陀螺仪模式,底盘跟随云台动
 			Chassis_Keyboard_Move_Calculate(STANDARD_MAX_NORMAL, TIME_INC_NORMAL);
@@ -628,6 +628,7 @@ void Chassis_Key_Ctrl(void)
 		}
 		else
 		{
+			Chassis_Mode = CHASSIS_GYRO_MODE; 
 			Chassis_Action = CHASSIS_NORMAL; //退出小陀螺模式，进入普通模式
 		}
 		break;
