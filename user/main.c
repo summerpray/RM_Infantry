@@ -58,7 +58,9 @@ extern  RC_ctrl_t rc_ctrl;
 int main(void)
 {	
 
-    BSP_init();
+
+
+	BSP_init();
     delay_ms(500);
     startTast();
     vTaskStartScheduler();

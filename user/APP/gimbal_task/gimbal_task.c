@@ -598,7 +598,8 @@ void GIMBAL_Set_Key_Control(void)
 			
 			Cloud_Angle_Target[YAW][GYRO] = Cloud_Angle_Measure[YAW][GYRO];		
 	}
-	else if(modeGimbal == CLOUD_GYRO_MODE)
+	
+	else
 	{
       	Mouse_Gyro_Yaw   += MOUSE_X_MOVE_SPEED * Yaw_Mouse_Sen;//记录目标变化角度
 		Mouse_Gyro_Pitch += MOUSE_Y_MOVE_SPEED * Pitch_Mouse_Sen;//pitch仍旧使用机械模式
@@ -630,8 +631,25 @@ void GIMBAL_Set_Key_Control(void)
 			Mouse_Pitch_Stop = 0;
 		}
 /*-----------------------------------------*/
-		Cloud_Angle_Target[YAW][GYRO]   = RampInc_float( &Mouse_Gyro_Yaw, Cloud_Angle_Target[YAW][GYRO], Yaw_Mouse_ramp );
-		Cloud_Angle_Target[PITCH][MECH] = RampInc_float( &Mouse_Gyro_Pitch, Cloud_Angle_Target[PITCH][MECH], Pitch_Mouse_ramp );		
+	    if(modeGimbal == CLOUD_TOP_MODE)
+		{
+			//应该要在这里加调整枪口的程序
+			if(IF_KEY_PRESSED_F)
+			{
+				Cloud_Angle_Target[YAW][TOP]=Cloud_Angle_Measure[YAW][GYRO];
+				Cloud_Angle_Target[PITCH][MECH]=Cloud_Angle_Measure[PITCH][MECH];
+			}
+    		Cloud_Angle_Target[YAW][TOP] += RampInc_float( &Mouse_Gyro_Yaw, Cloud_Angle_Target[YAW][TOP], Yaw_Mouse_ramp );                              //注意正负
+    		Cloud_Angle_Target[PITCH][MECH] +=  RampInc_float( &Mouse_Gyro_Pitch, Cloud_Angle_Target[PITCH][MECH], Pitch_Mouse_ramp );
+//			Cloud_Angle_Target[YAW][MECH] = Cloud_Angle_Measure[YAW][MECH];
+//			Cloud_Angle_Target[PITCH][MECH] = Cloud_Angle_Measure[PITCH][MECH];
+			Cloud_Angle_Target[YAW][GYRO]=Cloud_Angle_Measure[YAW][GYRO];
+		}
+		else if (modeGimbal == CLOUD_GYRO_MODE)
+		{
+			Cloud_Angle_Target[YAW][GYRO]   = RampInc_float( &Mouse_Gyro_Yaw, Cloud_Angle_Target[YAW][GYRO], Yaw_Mouse_ramp );
+			Cloud_Angle_Target[PITCH][MECH] = RampInc_float( &Mouse_Gyro_Pitch, Cloud_Angle_Target[PITCH][MECH], Pitch_Mouse_ramp );		
+		}
 	}
 }
 
