@@ -79,6 +79,8 @@ uint8_t remote_change = TRUE;
 //底盘功率更改变量
 uint16_t Chassis_Power_Level = 0;
 
+float temp[2] = {0,0};
+
 void chassis_task(void *pvParameters)
 {
 	//    //空闲一段时间
@@ -93,19 +95,16 @@ void chassis_task(void *pvParameters)
 		}
 		else
 		{
+			chassis_feedback_update();
 			if (IF_RC_SW2_UP) //键盘模式
-			{
-				chassis_feedback_update();
-				Chassis_Power_Change();    //底盘功率换挡
-				Chassis_Key_Ctrl();		   //底盘按键功能
-				Chassis_Set_key_Contorl(); //底盘移动计算
+			{			
+				//Chassis_Power_Change();    //底盘功率换挡
+				Chassis_Key_Ctrl();		   //底盘按键功能	
 			}
 			else //遥控器模式
 			{
 				Chassis_Set_Mode();		   //切换模式
-				chassis_feedback_update(); //更新数据
-				Chassis_Rc_Control();	   //遥控器输入
-				Chassis_Set_Contorl();	   //不同模式不同处理
+				Chassis_Rc_Control();
 
 				/*切换键盘模式时候的变量初始化*/
 				Chassis_Action = CHASSIS_NORMAL;
@@ -114,6 +113,8 @@ void chassis_task(void *pvParameters)
 				remote_change = TRUE;	//标记切回了遥控模式
 			}
 		}
+		
+		Chassis_Set_Contorl(); //底盘移动计算
 		Chassis_Omni_Move_Calculate(); //底盘全向运动分析
 		if (IF_RC_SW2_UP)
 		{
@@ -387,6 +388,9 @@ void Chassis_Rc_Control(void)
 	rc_deadline_limit(rc_ctrl.rc.ch[3], vy_channel, CHASSIS_RC_DEADLINE);
 	rc_deadline_limit(rc_ctrl.rc.ch[2], vx_channel, CHASSIS_RC_DEADLINE);
 
+	temp[0] = rc_ctrl.rc.ch[3];
+	temp[1] = rc_ctrl.rc.ch[2];
+
 	vx_set_channel = vx_channel * -CHASSIS_VX_RC_SEN; //将遥控器的值转化为机器人运动的速度
 	vy_set_channel = vy_channel *  CHASSIS_VY_RC_SEN;
 
@@ -406,6 +410,7 @@ void Chassis_Rc_Control(void)
 	}
 	Chassis_Move_X = chassis_cmd_slow_set_vx.out; //遥控器输出X轴方向的值
 	Chassis_Move_Y = chassis_cmd_slow_set_vy.out; //遥控器输出Y轴方向的值
+
 }
 
 /**
@@ -471,9 +476,9 @@ void Chassis_Set_Contorl(void)
 		}
 		else
 		{
-			Chassis_Move_Z = 0.5f;
-			Angle_error();
+			Chassis_Move_Z = 1.0f;
 
+			Angle_error();
 			Chassis_Move_X1 = (cos(theta) * Chassis_Move_X) + (-sin(theta) * Chassis_Move_Y);
 			Chassis_Move_Y1 = (sin(theta) * Chassis_Move_X) + (cos(theta) * Chassis_Move_Y);
 			Chassis_Move_X = fp32_constrain(Chassis_Move_X1, vx_min_speed, vx_max_speed);
@@ -581,6 +586,7 @@ void Chassis_Set_key_Contorl(void)
 			Chassis_Move_X = fp32_constrain(Chassis_Move_X1, vx_min_speed, vx_max_speed);
 			Chassis_Move_Y = fp32_constrain(Chassis_Move_Y1, vy_min_speed, vy_max_speed);
 			Chassis_Move_Z = fp32_constrain(Chassis_Move_Z, vz_min_speed, vz_max_speed);
+			
 		}
 	}
 }
@@ -766,7 +772,7 @@ void Chassis_Mouse_Move_Calculate(int16_t sRevolMax)
 	if (Chassis_Mode == CHASSIS_GYRO_MODE) //陀螺仪模式
 	{
 		sErrorReal = GIMBAL_GetOffsetAngle(); //获取实时偏差,用于扭屁股下的底盘位置补偿
-		Chassis_Move_Z = -PID_Calc(&chassis_angle_pid, 0.0f, sErrorReal);
+		Chassis_Move_Z = -PID_Calc(&chassis_angle_key_pid, 0.0f, sErrorReal);
 		//Chassis_Move_Z = Chassis_SpeedZ_PID(sErrorReal, kKey_Gyro_Chassis_Revolve);
 		//Chassis_Move_Z = PID_Calc(&chassis_angle_pid, 0.0f, Chassis_Gyro_Error);
 	}
@@ -805,106 +811,140 @@ void Chassis_Keyboard_Move_Calculate(int16_t sMoveMax, int16_t sMoveRamp)
 		k_rc_z = 1;
 	}
 
-	if (ulCurrentTime >= ulDelay) //每10ms变化一次斜坡量
+	// if (ulCurrentTime >= ulDelay) //每10ms变化一次斜坡量
+	// {
+	// 	ulDelay = ulCurrentTime + TIME_STAMP_10MS;
+
+	// 	if (Chassis_Action == CHASSIS_NORMAL && !KEY_PRESSED_OFFSET_SHIFT) //只有一般模式下才判断速度突变情况,防止打滑
+	// 	{
+	// 		if (IF_KEY_PRESSED_W) //等超级电容出来再测试电容放电时是否要全力加速
+	// 		{
+	// 			timeXBack = 0; //按下前进则后退斜坡归零,方便下次计算后退斜坡
+	// 			//前进X是正数,可在此加入超级电容按键判断
+	// 			if (Chassis_Move_X < sMoveMax / 2.5)		//转向突变,刚开始的一小段时间斜坡降低,防止轮子打滑浪费功率
+	// 			{											//利用速度是否到最大速度的1/5来判断不知道是否合理
+	// 				timeInc_Saltation = TIME_INC_SALTATION; //以爬坡模式处理速度方向突变
+	// 			}
+	// 			else //已经过了打滑时间且轮子有了一定的速度
+	// 			{
+	// 				timeInc_Saltation = sMoveRamp;
+	// 			}
+	// 		}
+
+	// 		if (IF_KEY_PRESSED_S)
+	// 		{
+	// 			timeXFron = 0; //同理
+	// 			//后退X是负
+	// 			if (Chassis_Move_X > (-sMoveMax) / 2.5) //转向突变,刚开始的一小段时间斜坡降低,防止轮子打滑浪费功率
+	// 			{
+	// 				timeInc_Saltation = TIME_INC_SALTATION; //以爬坡模式处理速度方向突变
+	// 			}
+	// 			else //已经过了打滑时间且轮子有了一定的速度
+	// 			{
+	// 				timeInc_Saltation = sMoveRamp;
+	// 			}
+	// 		}
+
+	// 		if (IF_KEY_PRESSED_D)
+	// 		{
+	// 			timeYRigh = 0;
+	// 		}
+
+	// 		if (IF_KEY_PRESSED_A)
+	// 		{
+	// 			timeYLeft = 0;
+	// 		}
+
+	// 		//键盘模式下全向移动,斜坡量计算,注意正负,最大输出量*斜坡比例得到缓慢增加的值,模拟摇杆
+	// 		//前后的增加斜坡是变化的
+	// 		Slope_Chassis_Move_Fron = (int16_t)(Chassis_Standard_Move_Max *
+	// 											Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeXFron, timeInc / 1.5, TIME_DEC_NORMAL));
+
+	// 		Slope_Chassis_Move_Back = (int16_t)(-Chassis_Standard_Move_Max *
+	// 											Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeXBack, timeInc / 1.5, TIME_DEC_NORMAL));
+
+	// 		//左右的增加斜坡跟前后不一样,别搞错
+	// 		Slope_Chassis_Move_Left = (int16_t)(+Chassis_Standard_Move_Max *
+	// 											Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeYRigh, timeInc_Saltation, TIME_DEC_NORMAL));
+
+	// 		Slope_Chassis_Move_Righ = (int16_t)(Chassis_Standard_Move_Max *
+	// 											Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc_Saltation, TIME_DEC_NORMAL));
+
+	// 		Chassis_Move_X = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z / 4000; //将遥控器的值转化为机器人运动的速度
+	// 		Chassis_Move_Y = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z / 4000;
+	// 	}
+	//	else //其他模式不需要进行速度方向突变特殊处理
+		
+	if (IF_KEY_PRESSED_W)
 	{
-		ulDelay = ulCurrentTime + TIME_STAMP_10MS;
-
-		if (Chassis_Action == CHASSIS_NORMAL && !KEY_PRESSED_OFFSET_SHIFT) //只有一般模式下才判断速度突变情况,防止打滑
-		{
-			if (IF_KEY_PRESSED_W) //等超级电容出来再测试电容放电时是否要全力加速
-			{
-				timeXBack = 0; //按下前进则后退斜坡归零,方便下次计算后退斜坡
-				//前进X是正数,可在此加入超级电容按键判断
-				if (Chassis_Move_X < sMoveMax / 2.5)		//转向突变,刚开始的一小段时间斜坡降低,防止轮子打滑浪费功率
-				{											//利用速度是否到最大速度的1/5来判断不知道是否合理
-					timeInc_Saltation = TIME_INC_SALTATION; //以爬坡模式处理速度方向突变
-				}
-				else //已经过了打滑时间且轮子有了一定的速度
-				{
-					timeInc_Saltation = sMoveRamp;
-				}
-			}
-
-			if (IF_KEY_PRESSED_S)
-			{
-				timeXFron = 0; //同理
-				//后退X是负
-				if (Chassis_Move_X > (-sMoveMax) / 2.5) //转向突变,刚开始的一小段时间斜坡降低,防止轮子打滑浪费功率
-				{
-					timeInc_Saltation = TIME_INC_SALTATION; //以爬坡模式处理速度方向突变
-				}
-				else //已经过了打滑时间且轮子有了一定的速度
-				{
-					timeInc_Saltation = sMoveRamp;
-				}
-			}
-
-			if (IF_KEY_PRESSED_D)
-			{
-				timeYRigh = 0;
-			}
-
-			if (IF_KEY_PRESSED_A)
-			{
-				timeYLeft = 0;
-			}
-
-			//键盘模式下全向移动,斜坡量计算,注意正负,最大输出量*斜坡比例得到缓慢增加的值,模拟摇杆
-			//前后的增加斜坡是变化的
-			Slope_Chassis_Move_Fron = (int16_t)(Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeXFron, timeInc / 1.5, TIME_DEC_NORMAL));
-
-			Slope_Chassis_Move_Back = (int16_t)(-Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeXBack, timeInc / 1.5, TIME_DEC_NORMAL));
-
-			//左右的增加斜坡跟前后不一样,别搞错
-			Slope_Chassis_Move_Left = (int16_t)(+Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeYRigh, timeInc_Saltation, TIME_DEC_NORMAL));
-
-			Slope_Chassis_Move_Righ = (int16_t)(Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc_Saltation, TIME_DEC_NORMAL));
-
-			Chassis_Move_X = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
-			Chassis_Move_Y = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
-		}
-		else //其他模式不需要进行速度方向突变特殊处理
-		{
-			if (IF_KEY_PRESSED_W)
-			{
-				timeXBack = 0; //按下前进则后退斜坡归零,方便下次计算后退斜坡
-			}
-
-			if (IF_KEY_PRESSED_S)
-			{
-				timeXFron = 0; //同理
-			}
-
-			if (IF_KEY_PRESSED_D)
-			{
-				timeYRigh = 0;
-			}
-
-			if (IF_KEY_PRESSED_A)
-			{
-				timeYLeft = 0;
-			}
-
-			Slope_Chassis_Move_Righ = (int16_t)(-Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeXFron, timeInc, TIME_DEC_NORMAL * 0.8));
-
-			Slope_Chassis_Move_Left = (int16_t)(+Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeXBack, timeInc, TIME_DEC_NORMAL * 0.8));
-
-			Slope_Chassis_Move_Back = (int16_t)(-Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeYRigh, timeInc, TIME_DEC_NORMAL));
-
-			Slope_Chassis_Move_Fron = (int16_t)(+Chassis_Standard_Move_Max *
-												Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeYLeft, timeInc, TIME_DEC_NORMAL));
-			
-			Chassis_Move_X = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
-			Chassis_Move_Y = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
-		}
+		timeXBack = 0; //按下前进则后退斜坡归零,方便下次计算后退斜坡
 	}
+
+	if (IF_KEY_PRESSED_S)
+	{
+		timeXFron = 0; //同理
+	}
+	if (IF_KEY_PRESSED_D)
+	{
+		timeYLeft = 0;
+	}
+
+	if (IF_KEY_PRESSED_A)
+	{
+		timeYRigh = 0;
+	}
+	int16_t vx_channel, vy_channel;
+	fp32 vx_set_channel, vy_set_channel;
+	Slope_Chassis_Move_Righ = (int16_t)(-1024 *
+										Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeYRigh, timeInc / 1.5, TIME_DEC_NORMAL * 0.8));
+
+	Slope_Chassis_Move_Left = (int16_t)(+1024 *
+										Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeYLeft, timeInc / 1.5, TIME_DEC_NORMAL * 0.8));
+
+	Slope_Chassis_Move_Back = (int16_t)(-1024 *
+										Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeXBack, timeInc, TIME_DEC_NORMAL));
+
+	Slope_Chassis_Move_Fron = (int16_t)(+1024 *
+										Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeXFron, timeInc, TIME_DEC_NORMAL));
+
+	vx_channel = (Slope_Chassis_Move_Left + Slope_Chassis_Move_Righ) * k_rc_z;
+	vy_channel = (Slope_Chassis_Move_Back + Slope_Chassis_Move_Fron) * k_rc_z; //将遥控器的值转化为机器人运动的速度
+		
+	vx_set_channel = vx_channel *  CHASSIS_VX_RC_SEN; //将遥控器的值转化为机器人运动的速度
+	vy_set_channel = vy_channel *  CHASSIS_VY_RC_SEN;
+
+	//一阶低通滤波代替斜波作为底盘速度输入
+	first_order_filter_cali(&chassis_cmd_slow_set_vx, vx_set_channel);
+	first_order_filter_cali(&chassis_cmd_slow_set_vy, vy_set_channel);
+	if (vx_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN && vx_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VX_RC_SEN)
+	{
+		chassis_cmd_slow_set_vx.out = 0.0f;
+	}
+
+	if (vy_set_channel < CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN && vy_set_channel > -CHASSIS_RC_DEADLINE * CHASSIS_VY_RC_SEN)
+	{
+		chassis_cmd_slow_set_vy.out = 0.0f;
+	}
+
+	Chassis_Move_X = chassis_cmd_slow_set_vx.out; //遥控器输出X轴方向的值
+	Chassis_Move_Y = chassis_cmd_slow_set_vy.out; //遥控器输出Y轴方向的值
+		// Slope_Chassis_Move_Righ = (int16_t)(-Chassis_Standard_Move_Max *
+		// 									Chassis_Key_MoveRamp(IF_KEY_PRESSED_D, &timeYRigh, timeInc, TIME_DEC_NORMAL * 0.8));
+
+		// Slope_Chassis_Move_Left = (int16_t)(+Chassis_Standard_Move_Max *
+		// 									Chassis_Key_MoveRamp(IF_KEY_PRESSED_A, &timeYLeft, timeInc, TIME_DEC_NORMAL * 0.8));
+
+		// Slope_Chassis_Move_Back = (int16_t)(-Chassis_Standard_Move_Max *
+		// 									Chassis_Key_MoveRamp(IF_KEY_PRESSED_S, &timeXBack, timeInc, TIME_DEC_NORMAL));
+
+		// Slope_Chassis_Move_Fron = (int16_t)(+Chassis_Standard_Move_Max *
+		// 									Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeXFron, timeInc, TIME_DEC_NORMAL));
+		
+		
+	temp[0] = Chassis_Move_X;
+	temp[1] = Chassis_Move_Y;
+		
+	
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
