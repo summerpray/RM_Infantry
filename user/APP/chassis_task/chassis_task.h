@@ -37,9 +37,9 @@ extern void chassis_task(void *pvParameters);
 #define M3505_MOTOR_SPEED_PID_MAX_OUT 16000.0f
 #define M3505_MOTOR_SPEED_PID_MAX_IOUT 2000.0f
 
-#define M3505_MOTOR_SPEED_KEY_PID_KP 10000.0f//6000
-#define M3505_MOTOR_SPEED_KEY_PID_KI 0.01f
-#define M3505_MOTOR_SPEED_KEY_PID_KD 3.0f
+#define M3505_MOTOR_SPEED_KEY_PID_KP 15000.0f//6000
+#define M3505_MOTOR_SPEED_KEY_PID_KI 10.0f
+#define M3505_MOTOR_SPEED_KEY_PID_KD 0.0f
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_OUT 16000.0f
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_IOUT 2000.0f
 
@@ -75,7 +75,7 @@ extern void chassis_task(void *pvParameters);
 //底盘运动过程最大平移速度
 #define NORMAL_MAX_CHASSIS_SPEED_Y 1.0f
 //底盘运动过程最大旋转速度
-#define NORMAL_MAX_CHASSIS_SPEED_Z 0.05f
+#define NORMAL_MAX_CHASSIS_SPEED_Z 0.2f
 
 
 //遥控器前进摇杆（max 660）转化成车体前进速度（m/s）的比例
@@ -85,11 +85,11 @@ extern void chassis_task(void *pvParameters);
 
 #define CHASSIS_RC_DEADLINE 10
 
-#define HIGH_RATE 1.6f
-#define LOW_RATE 1.9f
+#define HIGH_RATE 1.3f
+#define LOW_RATE 1.5f
 
 //摇摆原地不动摇摆最大角度(rad)
-#define SWING_NO_MOVE_ANGLE 0.5f
+#define SWING_NO_MOVE_ANGLE 0.785f
 //摇摆过程底盘运动最大角度(rad)
 #define SWING_MOVE_ANGLE 0.31415926535897932384626433832795f
 

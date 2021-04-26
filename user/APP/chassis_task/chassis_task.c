@@ -67,7 +67,11 @@ first_order_filter_type_t chassis_cmd_slow_set_vy;
 
 //小陀螺
 bool Chass_Switch_F = 1;
-u8 Chass_Key_F_Change = 0;
+uint32_t Chass_Key_F_Change = 0;
+
+//扭腰
+bool Chass_Switch_R = 1;
+uint32_t Chass_Key_R_Change = 0;
 
 //自动闪避
 #define MISS_MAX_TIME 1000	 //自动闪避最大归位时间,单位2*ms
@@ -98,7 +102,7 @@ void chassis_task(void *pvParameters)
 			chassis_feedback_update();
 			if (IF_RC_SW2_UP) //键盘模式
 			{			
-				//Chassis_Power_Change();    //底盘功率换挡
+				Chassis_Power_Change();    //底盘功率换挡
 				Chassis_Key_Ctrl();		   //底盘按键功能	
 			}
 			else //遥控器模式
@@ -108,8 +112,8 @@ void chassis_task(void *pvParameters)
 
 				/*切换键盘模式时候的变量初始化*/
 				Chassis_Action = CHASSIS_NORMAL;
-				Chass_Switch_F = 1;		//重置扭腰
-				Chass_Key_F_Change = 0; //重置扭腰
+				Chass_Switch_R = 1;		//重置扭腰
+				Chass_Key_R_Change = 0; //重置扭腰
 				remote_change = TRUE;	//标记切回了遥控模式
 			}
 		}
@@ -430,7 +434,7 @@ void Chassis_Set_Contorl(void)
 
 		float C_A_M_Y_M = 0;
 
-		chassis_follow_gimbal_yaw_control(); //是否需要摇摆      在这里得到angle_swing_set
+		angle_swing_set = chassis_follow_gimbal_yaw_control(); //是否需要摇摆      在这里得到angle_swing_set
 
 		//旋转控制底盘速度方向，保证前进方向是云台方向，有利于运动平稳
 		sin_yaw = arm_sin_f32(Cloud_Angle_Measure[YAW][MECH]);
@@ -441,14 +445,14 @@ void Chassis_Set_Contorl(void)
 		C_A_M_Y_M = Cloud_Angle_Measure[YAW][MECH];
 #endif
 
-		Chassis_Move_X = cos_yaw * Chassis_Move_X + sin_yaw * Chassis_Move_Y; //当我们控制移动时需要用到
-		Chassis_Move_Y = -sin_yaw * Chassis_Move_X + cos_yaw * Chassis_Move_Y;
+		Chassis_Move_X1 = cos_yaw * Chassis_Move_X + sin_yaw * Chassis_Move_Y; //当我们控制移动时需要用到
+		Chassis_Move_Y1 = -sin_yaw * Chassis_Move_X + cos_yaw * Chassis_Move_Y;
 
 		//计算旋转PID角速度
 		Chassis_Move_Z = PID_Calc(&chassis_angle_pid, C_A_M_Y_M, rad_format(angle_swing_set));
 		//速度限幅
-		Chassis_Move_X = fp32_constrain(Chassis_Move_X, vx_min_speed, vx_max_speed);
-		Chassis_Move_Y = fp32_constrain(Chassis_Move_Y, vy_min_speed, vy_max_speed);
+		Chassis_Move_X = fp32_constrain(Chassis_Move_X1, vx_min_speed, vx_max_speed);
+		Chassis_Move_Y = fp32_constrain(Chassis_Move_Y1, vy_min_speed, vy_max_speed);
 	}
 
 	else if (Chassis_Mode == CHASSIS_GYRO_MODE)
@@ -638,6 +642,32 @@ void Chassis_Key_Ctrl(void)
 			Chassis_Action = CHASSIS_NORMAL; //退出小陀螺模式，进入普通模式
 		}
 		break;
+		/*----------------------------扭腰模式---------------------------	*/
+	case CHASSIS_SHAKE:
+		if (!IF_KEY_PRESSED_R)
+		{
+			Chass_Switch_R = 1;
+		}
+
+		if (IF_KEY_PRESSED_R && Chass_Switch_R == 1)
+		{
+			Chass_Switch_R = 0;
+			Chass_Key_R_Change++;
+			Chass_Key_R_Change %= 2; //按基数次有效，偶数次无效，按一次开再按一次关
+		}
+
+		if (Chass_Key_R_Change)
+		{
+			Chassis_Mode = CHASSIS_SHAKE_MODE; //陀螺仪模式,底盘跟随云台动
+			Chassis_Keyboard_Move_Calculate(STANDARD_MAX_NORMAL, TIME_INC_NORMAL);
+			//这里要写一个小陀螺模式的函数
+		}
+		else
+		{
+			Chassis_Mode = CHASSIS_GYRO_MODE; 
+			Chassis_Action = CHASSIS_NORMAL; //退出小陀螺模式，进入普通模式
+		}
+		break;
 		/*----------------------------爬坡模式---------------------------	*/
 	case CHASSIS_UP:
 		CHASSIS_UPUP_Mode_Ctrl();
@@ -689,21 +719,25 @@ void Chassis_NORMAL_Mode_Ctrl(void)
 	{
 		Chass_Switch_F = 1;
 	}
+	if (!IF_KEY_PRESSED_R) //F松开
+	{
+		Chass_Switch_R = 1;
+	}
 
 	/*---------------------------------------------------------------------------------------------------------------------------------*/
 
-	/*----------------------------------------------****F按一下则进入扭屁股模式****----------------------------------------------------*/
-	//	if (IF_KEY_PRESSED_F && !IF_KEY_PRESSED_CTRL  && Chass_Switch_F == 1)
-	//	{
-	//		Chass_Switch_F = 0;
-	//		Chass_Key_F_Change ++;
-	//		Chass_Key_F_Change %= 2;
-	//		Chassis_Action = CHASSIS_SHAKE;//记得写个能退出扭屁股模式的函数
-	//	}
+	/*----------------------------------------------****R按一下则进入扭屁股模式****----------------------------------------------------*/
+	if (IF_KEY_PRESSED_R && !IF_KEY_PRESSED_CTRL  && Chass_Switch_R == 1)
+	{
+		Chass_Switch_R = 0;
+		Chass_Key_R_Change ++;
+		Chass_Key_R_Change %= 2;
+		Chassis_Action = CHASSIS_SHAKE;//记得写个能退出扭屁股模式的函数
+	}
 
 	/*---------------------------------------------------------------------------------------------------------------------------------*/
 
-	/*----------------------------------------------****R按一下则进入小陀螺模式****----------------------------------------------------*/
+	/*----------------------------------------------****F按一下则进入小陀螺模式****----------------------------------------------------*/
 
 	else if (IF_KEY_PRESSED_F && !IF_KEY_PRESSED_CTRL && Chass_Switch_F == 1)
 	{
@@ -1206,16 +1240,14 @@ void Chassis_Omni_Move_Calculate(void)
 void Chassis_Motor_Speed_PID(void)
 {
 	fp32 max_vector = 0.0f, vector_rate = 0.0f;
-	fp32 temp = 0.0f;
 	uint8_t i = 0;
 
 	//计算轮子控制最大速度，并限制其最大速度
 	for (i = 0; i < 4; i++)
 	{
-		temp = fabs(Chassis_Speed_Target[i]);
-		if (max_vector < temp)
+		if (max_vector < fabs(Chassis_Speed_Target[i]))
 		{
-			max_vector = temp;
+			max_vector = fabs(Chassis_Speed_Target[i]);
 		}
 	}
 
@@ -1251,16 +1283,14 @@ void Chassis_Motor_Speed_PID(void)
 void Chassis_Motor_Speed_PID_KEY(void)
 {
 	fp32 max_vector = 0.0f, vector_rate = 0.0f;
-	fp32 temp = 0.0f;
 	uint8_t i = 0;
 
 	//计算轮子控制最大速度，并限制其最大速度
 	for (i = 0; i < 4; i++)
 	{
-		temp = fabs(Chassis_Speed_Target[i]);
-		if (max_vector < temp)
+		if (max_vector < fabs(Chassis_Speed_Target[i]))
 		{
-			max_vector = temp;
+			max_vector = fabs(Chassis_Speed_Target[i]);
 		}
 	}
 	//底盘不同功率控制 

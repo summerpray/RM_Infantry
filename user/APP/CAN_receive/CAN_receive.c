@@ -71,7 +71,7 @@ void CAN1_RX0_IRQHandler(void)
 		CAN_ClearITPendingBit(CAN1,CAN_IT_FMP0);
 	  CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);
 	}
-	if(RxMessage.StdId == 0x203)//REVOLVER
+	if(RxMessage.StdId == 0x205)//REVOLVER
 	{
 		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
 		REVOLVER_UpdateMotorAngle(rota_measure);
@@ -80,8 +80,6 @@ void CAN1_RX0_IRQHandler(void)
 		REVOLVER_UpdateMotorSpeed(speed_measure);
 		
 	}
-	
-	
 	//云台电机机械角度读取
 	if(RxMessage.StdId == 0x209)//yaw轴电机
 	{
@@ -131,57 +129,59 @@ void CAN2_RX0_IRQHandler(void)
 		CAN_ClearITPendingBit(CAN2, CAN_IT_FMP0);//清除中断挂起
 		CAN_Receive(CAN2, CAN_FIFO0, &RxMessage);
 
-		if(RxMessage.StdId == 0x205)		//前左	
+		if(RxMessage.StdId == 0x201)		//前左	
 
 		{
-		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
-		CHASSIS_UpdateMotorAngle(LEFT_FRON_201, rota_measure);
+			rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
+			CHASSIS_UpdateMotorAngle(LEFT_FRON_201, rota_measure);
 		
-		speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
-		CHASSIS_UpdateMotorSpeed(LEFT_FRON_201, speed_measure);
+			speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
+			CHASSIS_UpdateMotorSpeed(LEFT_FRON_201, speed_measure);
 		
-		current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
-		CHASSIS_UpdateMotorCur(LEFT_FRON_201, current_measure);
+			current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
+			CHASSIS_UpdateMotorCur(LEFT_FRON_201, current_measure);
 		}		
 		
-		if(RxMessage.StdId == 0x206)	 //前右		
+		if(RxMessage.StdId == 0x202)	 //前右		
 
 		{
-		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
-		CHASSIS_UpdateMotorAngle(RIGH_FRON_202, rota_measure);
+			rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
+			CHASSIS_UpdateMotorAngle(RIGH_FRON_202, rota_measure);
 		
-		speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
-		CHASSIS_UpdateMotorSpeed(RIGH_FRON_202, speed_measure);
+			speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
+			CHASSIS_UpdateMotorSpeed(RIGH_FRON_202, speed_measure);
 		
-		current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
-		CHASSIS_UpdateMotorCur(RIGH_FRON_202, current_measure);
+			current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
+			CHASSIS_UpdateMotorCur(RIGH_FRON_202, current_measure);
 		}		
 		
-		if(RxMessage.StdId == 0x207)			//后左
+		if(RxMessage.StdId == 0x203)			//后左
 
 		{
-		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
-		CHASSIS_UpdateMotorAngle(LEFT_BACK_203, rota_measure);
+			rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
+			CHASSIS_UpdateMotorAngle(LEFT_BACK_203, rota_measure);
 		
-		speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
-		CHASSIS_UpdateMotorSpeed(LEFT_BACK_203, speed_measure);
+			speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
+			CHASSIS_UpdateMotorSpeed(LEFT_BACK_203, speed_measure);
 		
-		current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
-		CHASSIS_UpdateMotorCur(LEFT_BACK_203, current_measure);
+			current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
+			CHASSIS_UpdateMotorCur(LEFT_BACK_203, current_measure);
 		}		
 		
-		if(RxMessage.StdId == 0x208)		//后右	
+		if(RxMessage.StdId == 0x204)		//后右	
 
 		{
-		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
-		CHASSIS_UpdateMotorAngle(RIGH_BACK_204, rota_measure);
+			rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
+			CHASSIS_UpdateMotorAngle(RIGH_BACK_204, rota_measure);
+
+			speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
+			CHASSIS_UpdateMotorSpeed(RIGH_BACK_204, speed_measure);
 		
-		speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
-		CHASSIS_UpdateMotorSpeed(RIGH_BACK_204, speed_measure);
-		
-		current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
-		CHASSIS_UpdateMotorCur(RIGH_BACK_204, current_measure);
-		}		
+			current_measure = ((int16_t)RxMessage.Data[4]<<8|RxMessage.Data[5]);
+			CHASSIS_UpdateMotorCur(RIGH_BACK_204, current_measure);
+		}
+
+				
 	}
 }
 

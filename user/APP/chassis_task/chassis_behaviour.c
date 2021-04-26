@@ -4,10 +4,10 @@
 
 
 extern  RC_ctrl_t rc_ctrl;
-
+extern uint32_t Chass_Key_R_Change;
 extern fp32 angle_swing_set;
 
-void chassis_follow_gimbal_yaw_control(void)
+float chassis_follow_gimbal_yaw_control(void)
 {
     //摇摆角度是利用sin函数生成，swing_time 是sin函数的输入值
     static fp32 swing_time = 0.0f;
@@ -22,7 +22,7 @@ void chassis_follow_gimbal_yaw_control(void)
 
     //计算遥控器的原始输入信号
     //判断是否要摇摆
-    if (IF_RC_SW1_DOWN)
+    if (Chass_Key_R_Change)
     {
         if (swing_flag == 0)
         {
@@ -61,6 +61,7 @@ void chassis_follow_gimbal_yaw_control(void)
         swing_time -= 2 * PI;
     }
 		angle_swing_set = swing_angle;
+    return angle_swing_set;
 }
 
 
