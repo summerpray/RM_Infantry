@@ -104,12 +104,13 @@ void chassis_task(void *pvParameters)
 			{			
 				Chassis_Power_Change();    //底盘功率换挡
 				Chassis_Key_Ctrl();		   //底盘按键功能	
+				Chassis_Set_key_Contorl(); //底盘移动计算
 			}
 			else //遥控器模式
 			{
 				Chassis_Set_Mode();		   //切换模式
 				Chassis_Rc_Control();
-
+				Chassis_Set_Contorl(); //底盘移动计算
 				/*切换键盘模式时候的变量初始化*/
 				Chassis_Action = CHASSIS_NORMAL;
 				Chass_Switch_R = 1;		//重置扭腰
@@ -118,7 +119,7 @@ void chassis_task(void *pvParameters)
 			}
 		}
 		
-		Chassis_Set_Contorl(); //底盘移动计算
+		
 		Chassis_Omni_Move_Calculate(); //底盘全向运动分析
 		if (IF_RC_SW2_UP)
 		{
@@ -266,7 +267,7 @@ void Chassis_Init(void)
 	const static fp32 chassis_y_order_filter[1] = {CHASSIS_ACCEL_Y_NUM}; //设置y方向一阶低通滤波参数
 	uint8_t i;															 //循环变量,只在后面循环用
 
-	Chassis_Mode = CHASSIS_MECH_MODE; //初始化底盘模式为机械模式
+	Chassis_Mode = CHASSIS_GYRO_MODE; //初始化底盘模式为机械模式
 
 	//初始化PID 运动
 	for (i = 0; i < 4; i++)
@@ -355,7 +356,7 @@ void Chassis_Set_Mode(void)
 	}
 	else if (IF_RC_SW2_UP)
 	{
-		Chassis_Mode = CHASSIS_MECH_MODE; //其他机械模式
+		Chassis_Mode = CHASSIS_GYRO_MODE; //其他机械模式
 		angle_swing_set = 0;
 		flow_led_on(2);
 		flow_led_off(3);
