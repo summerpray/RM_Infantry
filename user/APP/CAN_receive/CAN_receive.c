@@ -71,7 +71,7 @@ void CAN1_RX0_IRQHandler(void)
 		CAN_ClearITPendingBit(CAN1,CAN_IT_FMP0);
 	  CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);
 	}
-	if(RxMessage.StdId == 0x205)//REVOLVER
+	if(RxMessage.StdId == 0x207)//REVOLVER
 	{
 		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);
 		REVOLVER_UpdateMotorAngle(rota_measure);
@@ -193,8 +193,8 @@ void CAN2_RX0_IRQHandler(void)
 
 void CAN_CMD_SHOOT(int16_t shoot_left, int16_t shoot_right, int16_t revolver, int16_t none)
 {
-	  SHOOT_TxMessage.StdId =CAN_SHOOT_ALL_ID;
-	  SHOOT_TxMessage.IDE = CAN_ID_STD;
+	SHOOT_TxMessage.StdId =CAN_SHOOT_ALL_ID;
+	SHOOT_TxMessage.IDE = CAN_ID_STD;
     SHOOT_TxMessage.RTR = CAN_RTR_DATA;
     SHOOT_TxMessage.DLC = 0x08;
     SHOOT_TxMessage.Data[0] = shoot_left >> 8;
@@ -206,7 +206,7 @@ void CAN_CMD_SHOOT(int16_t shoot_left, int16_t shoot_right, int16_t revolver, in
     SHOOT_TxMessage.Data[6] = none >> 8;
     SHOOT_TxMessage.Data[7] = none;
 	
-	  CAN_Transmit(SHOOT_CAN, &SHOOT_TxMessage);
+	CAN_Transmit(SHOOT_CAN, &SHOOT_TxMessage);
 }
 
 #if GIMBAL_MOTOR_6020_CAN_LOSE_SLOVE
