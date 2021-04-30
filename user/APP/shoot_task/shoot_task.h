@@ -65,7 +65,7 @@ typedef enum
 
 void shoot_task(void *pvParameters); //任务函数
 void REVOLVER_Rest(void);    //拨盘重启
-void REVOLVER_InitArgument(void);  //拨盘参数初始化
+void SHOOT_InitArgument(void);  //拨盘参数初始化
 void REVOLVER_Rc_Ctrl(void);  //遥控器控制
 void REVOLVER_Key_Ctrl(void);  //键盘控制
 bool REVOLVER_Rc_Switch(void); //拨盘遥控打弹
@@ -82,7 +82,7 @@ void REVOLVER_UpdateMotorAngle(int16_t angle);//中断读角度
 void Reset_Fric(void);//复位摩擦轮
 void ReFric(void);//用于摩擦轮清空枪膛
 void Fric_Power_Change(void);//改变摩擦轮速度
-void REVOLVER_CANbusCtrlMotor(void);//can发送函数
+void SHOOT_CANbusCtrlMotor(void);//can发送函数
 
 
 void Fric_Key_Ctrl(void); //键盘模式摩擦轮的控制
@@ -97,6 +97,7 @@ void SHOOT_BUFF_Ctrl_Gimbal(void);//打符射击控制，摄像头在云台
 void REVOLVER_KeyPosiCtrl(void);//键盘模式拨盘位置环控制
 void REVOLVER_KeySpeedCtrl(void);//键盘模式拨盘速度环控制
 void Fric_RC_Ctrl(void);
+void Set_Fric_Speed(int8_t speed_mode); //设置摩擦轮档位
 
 void REVOLVER_SHAKE(void);//测试平台用
 bool FRIC_RcSwitch(void);

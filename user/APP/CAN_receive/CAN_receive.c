@@ -71,6 +71,17 @@ void CAN1_RX0_IRQHandler(void)
 		CAN_ClearITPendingBit(CAN1,CAN_IT_FMP0);
 	  CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);
 	}
+	//摩擦轮电机转速读取,机械角度暂时没用
+	if(RxMessage.StdId == 0x205)//SHOOT_LEFT
+	{
+		speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
+		Fric_UpdateMotorSpeed(Fric_Left, speed_measure);
+	}
+	if(RxMessage.StdId == 0x206)//SHOOT_RIGHT
+	{
+		speed_measure  = ((int16_t)RxMessage.Data[2]<<8|RxMessage.Data[3]);
+		Fric_UpdateMotorSpeed(Fric_Right, speed_measure);
+	}
 	if(RxMessage.StdId == 0x207)//REVOLVER
 	{
 		rota_measure   = ((int16_t)RxMessage.Data[0]<<8|RxMessage.Data[1]);

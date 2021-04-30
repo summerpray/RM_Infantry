@@ -26,11 +26,32 @@ Fric_Motor_t Fric_Motor;		 //摩擦轮电机ID
 extern VisionRecvData_t VisionRecvData;
 
 /*******************摩檫轮电机参数**********************/
-
+float Fric_Output[5] = {1000 ,2000 ,3000, 4000, 5000};
 float Friction_PWM_Output[6] = {0, 290, 300, 310, 330, 350}; //关闭  低速  中速  高速  狂暴  哨兵
 uint16_t FricMode = 1;										 //摩擦轮模式选择
 //摩擦轮不同pwm下对应的热量增加值(射速),最好比实际值高5
 uint16_t Friction_PWM_HeatInc[5] = {0, 20, 26, 34, 36}; //测试时随便定的速度,后面测试更改
+
+/*******************摩檫轮电机参数**********************/
+ //目标转速
+float Fric_Speed_Target[2];         //暂定距离远 高射速低射偏   射速6000    距离近低射速高射频  射速4000
+
+//摩擦轮测量速度
+int16_t Fric_Speed_Measure[2];
+
+//摩擦轮速度误差
+float Fric_Speed_Error[2];//ID
+float Fric_Speed_Error_Sum[2];
+//单级PID参数
+float Fric_Speed_kpid[2][3];//	motorID kp/ki/kd
+
+float pTermFric[2], iTermFric[2], dTermFric[2];//ID
+float	pidTermFric[2];//ID,计算输出量
+
+//底盘电机输出量
+float Fric_Final_Output[2];
+
+/*******************拨盘参数**********************/
 
 //速度等级选择
 uint16_t Fric_Speed_Level;
@@ -162,7 +183,7 @@ void shoot_task(void *pvParameters)
 		if (SYSTEM_GetSystemState() == SYSTEM_STARTING)
 		{
 			REVOLVER_Rest();
-			REVOLVER_InitArgument();
+			SHOOT_InitArgument();
 			measure_first = Revolver_Angle_Measure;
 		}
 		else
@@ -201,7 +222,8 @@ void shoot_task(void *pvParameters)
 		if(	Fric_Speed_Target[Fric_Left]>10&&	Fric_Speed_Target[Fric_Right]>10)
 		{
 正常程序*/
-		REVOLVER_CANbusCtrlMotor();
+		Fric_Speed_PID_Calculate();
+		SHOOT_CANbusCtrlMotor();
 		/*正常程序		
 		}
 		else
@@ -281,13 +303,61 @@ void Fric_Key_Ctrl(void)
 	}
 	if (Fric_enable)
 	{
-		Fric_Open(Friction_PWM_Output[FricMode], Friction_PWM_Output[FricMode]);
+		Set_Fric_Speed(1);
 	}
 	else
 	{
-		Fric_Open(Friction_PWM_Output[FRI_OFF], Friction_PWM_Output[FRI_OFF]);
-		Reset_Fric();
+		//Fric_Open(Friction_PWM_Output[FRI_OFF], Friction_PWM_Output[FRI_OFF]);
+		Fric_Speed_Target[Fric_Left] = 0;
+	  	Fric_Speed_Target[Fric_Right] = 0;
+		//Reset_Fric();
 	}
+}
+
+/**
+  * @brief  摩擦轮电机PID计算,单级
+  * @param  电机ID
+  * @retval void
+  * @attention  (Fric_Left,Fric_Right --> 左摩擦轮，右摩擦轮)
+  */
+
+void Fric_SpeedLoop(Fric_Motor_t Fric_Motor)
+{
+  	Fric_Speed_Error[Fric_Motor] =Fric_Speed_Target[Fric_Motor]-Fric_Speed_Measure[Fric_Motor];
+	  Fric_Speed_Error_Sum[Fric_Motor] +=Fric_Speed_Error[Fric_Motor];
+	  pTermFric[Fric_Motor]  =Fric_Speed_Error[Fric_Motor]*Fric_Speed_kpid[Fric_Motor][KP];
+	  iTermFric[Fric_Motor] +=Fric_Speed_Error[Fric_Motor]*Fric_Speed_kpid[Fric_Motor][KI];
+	
+	  //积分限幅
+	  iTermFric[Fric_Motor] =constrain_float(iTermFric[Fric_Motor],-iTermFricSpeedMax,iTermFricSpeedMax);
+
+	  pidTermFric[Fric_Motor] =pTermFric[Fric_Motor]+iTermFric[Fric_Motor];
+	
+	  pidTermFric[Fric_Motor] =constrain_float(pidTermFric[Fric_Motor],-Fric_Final_Output_Max,Fric_Final_Output_Max);
+	  
+	  Fric_Final_Output[Fric_Motor] = pidTermFric[Fric_Motor];
+}
+
+/**
+ * @brief 计算电流PID
+ * 
+ */
+void Fric_Speed_PID_Calculate(void) //最终控制电流值计算
+{
+    Fric_SpeedLoop(Fric_Left);
+	Fric_SpeedLoop(Fric_Right);
+}
+
+/**
+  * @brief  获取电机转速
+  * @param  ID,CAN数据
+  * @retval void
+  * @attention  (201/202 --> 左摩擦轮，右摩擦轮),CAN1中调用
+  */
+
+void Fric_UpdateMotorSpeed( Fric_Motor_t Fric_Motor, int16_t speed_rev )
+{
+	Fric_Speed_Measure[Fric_Motor] = speed_rev;
 }
 
 /**
@@ -309,12 +379,37 @@ void Fric_RC_Ctrl(void)
 }
 
 /**
+  * @brief  设置摩擦轮低速中速高速
+  * @param  void
+  * @retval void
+  * @attention 
+  */
+void Set_Fric_Speed(int8_t speed_mode)
+{
+	if (speed_mode == 0)
+	{
+		Fric_Speed_Target[Fric_Left]=-1750;
+	    Fric_Speed_Target[Fric_Right]=1750;
+	}
+	else if(speed_mode == 1)
+	{
+		Fric_Speed_Target[Fric_Left]=-4100;
+	    Fric_Speed_Target[Fric_Right]=4100;
+	}
+	else if(speed_mode == 2)
+	{
+		Fric_Speed_Target[Fric_Left]=-6000;
+	    Fric_Speed_Target[Fric_Right]=6000;
+	}
+}
+
+/**
   * @brief  拨盘参数初始化
   * @param  void
   * @retval void
   * @attention 
   */
-void REVOLVER_InitArgument(void)
+void SHOOT_InitArgument(void)
 {
 	/* 目标值 */
 	Revolver_Final_Output = 0;
@@ -349,6 +444,21 @@ void REVOLVER_InitArgument(void)
 	/* 位置环目标角度 */
 	Revolver_Angle_Target_Sum = Revolver_Angle_Measure; //不能置0,否则上电会反转
 	Revolver_Buff_Target_Sum = Revolver_Angle_Measure;
+
+	//摩擦轮速度环
+	//左摩擦轮
+	Fric_Speed_kpid[Fric_Left][KP] =2;
+    Fric_Speed_kpid[Fric_Left][KI] =0.5;
+	Fric_Speed_kpid[Fric_Left][KD] =0;
+	//右摩擦轮
+	Fric_Speed_kpid[Fric_Right][KP] =2;
+	Fric_Speed_kpid[Fric_Right][KI] =0.5;
+	Fric_Speed_kpid[Fric_Right][KD] =0;
+	
+	iTermFricSpeedMax = 3000;								//摩擦轮速度环积分限幅
+	  
+	Fric_Final_Output_Max =9000;						//摩擦轮最终输出限幅
+
 }
 
 /**
@@ -426,11 +536,16 @@ void REVOLVER_Rc_Ctrl(void)
 
 		if (IF_RC_SW1_UP)
 		{
+			Fric_Speed_Target[Fric_Left] = 0;
+			Fric_Speed_Target[Fric_Right] = 0;
 			Fric_mode(FRI_OFF);
+			Reset_Fric();
 		}
 		else
 		{
+			
 			Fric_mode(FRI_LOW);
+			Set_Fric_Speed(1);
 		}
 		REVOL_PositStuck(); //卡弹判断及倒转
 	}
@@ -1123,9 +1238,9 @@ void REVOLVER_UpdateMotorSpeed(int16_t speed)
   * @retval void
   * @attention 
   */
-void REVOLVER_CANbusCtrlMotor(void)
+void SHOOT_CANbusCtrlMotor(void)
 {
-	CAN_CMD_SHOOT(0, 0, Revolver_Final_Output, 0); //Revolver_Final_Output
+	CAN_CMD_SHOOT(Fric_Final_Output[Fric_Left], Fric_Final_Output[Fric_Right], Revolver_Final_Output, 0); //Revolver_Final_Output
 }
 
 /**
