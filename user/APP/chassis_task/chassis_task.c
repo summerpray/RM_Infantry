@@ -777,16 +777,16 @@ void Chassis_NORMAL_Mode_Ctrl(void)
 	/*---------------------------------------------------------------------------------------------------------------------------------*/
 		/* 	以下内容没有必要 */
 		/*-----------------------------------------------****按住Ctrl则进入机械模式****----------------------------------------------------*/
-		// if (IF_KEY_PRESSED_CTRL)
-		// {
-		// 	Chassis_Mode = CHASSIS_MECH_MODE;
-		// }
-		// else //松开CTRL进入陀螺仪模式
-		// {
-		// 	Chassis_Mode = CHASSIS_GYRO_MODE;
-		// }
-		// Chassis_Keyboard_Move_Calculate(STANDARD_MAX_NORMAL, TIME_INC_NORMAL); //设置速度最大值与斜坡时间
-		// Chassis_Mouse_Move_Calculate(REVOLVE_MAX_NORMAL);
+		if (IF_KEY_PRESSED_CTRL)
+		{
+			Chassis_Mode = CHASSIS_MECH_MODE;
+		}
+		else //松开CTRL进入陀螺仪模式
+		{
+			Chassis_Mode = CHASSIS_GYRO_MODE;
+		}
+		Chassis_Keyboard_Move_Calculate(STANDARD_MAX_NORMAL, TIME_INC_NORMAL); //设置速度最大值与斜坡时间
+		Chassis_Mouse_Move_Calculate(REVOLVE_MAX_NORMAL);
 }
 
 /*-------------------------------------------鼠标键盘控制计算Chassis_Move_X |Chassis_Move_Y |Chassis_Move_Z-------------------------------------------------*/
