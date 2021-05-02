@@ -44,9 +44,9 @@ extern void chassis_task(void *pvParameters);
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_IOUT 2000.0f
 
 //µ×ÅÌÐý×ª¸úËæPID ¼üÅÌÄ£Ê½
-#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 1.0f  //0.15
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 0.3f  //0.15
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KI 0.0f
-#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD 0.2f
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD 0.01f
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_OUT 3.0f //3.0
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_IOUT 0.1f
 
@@ -174,6 +174,7 @@ typedef enum
 	CHASSIS_GYRO_MODE = 1,//ÍÓÂÝÒÇ,µ×ÅÌ¸úËæÔÆÌ¨
 	CHASSIS_SHAKE_MODE = 2, //Ò¡°ÚÄ£Ê½
 	CHASSIS_TOP_MODE =3,
+	CHASSIS_MISS_MODE = 4,
 	
 } ChassisCtrlMode;
 

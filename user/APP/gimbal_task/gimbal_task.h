@@ -323,6 +323,7 @@ bool GIMBAL_If_Base(void);//是否在调射基地
 bool GIMBAL_If_Big_Buff(void); //是否开启打大符
 bool GIMBAL_If_Small_Buff(void);//是否开启打小符
 bool TOP_Rc_Switch(void);
+float GIMBAL_MPU_angle(float *get);//返回陀螺仪测量值
 
 
 void moni_chassis_action(void);//测试用的
