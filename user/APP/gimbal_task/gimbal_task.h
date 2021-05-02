@@ -309,7 +309,7 @@ void GIMBAL_AUTO_Mode_Ctrl(void);//自瞄模式
 void GIMBAL_AUTO_PREDICT_Mode_Ctrl(void);//自瞄预测模式
 void	GIMBAL_BUFF_Mode_Ctrl_Gimbal(void);//云台打符，摄像头在云台
 void GIMBAL_BASE_Mode_Ctrl(void);///桥头吊射模式
-	
+bool AUTOMode(void);//自瞄是否识别到目标
 
 bool GIMBAL_IfBuffHit(void); //是否开启打符模式
 bool GIMBAL_IfManulHit(void); //是否开启手动打符模式

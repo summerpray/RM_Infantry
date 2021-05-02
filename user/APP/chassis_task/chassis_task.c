@@ -504,22 +504,31 @@ void Chassis_Set_Contorl(void)
   * @attention  
   *              
   */
-void Chassis_Power_Change(void)
+void Chassis_Power_Change(void) //5 6 7 8 100 120
 {
-	if (IF_KEY_PRESSED_CTRL || IF_KEY_PRESSED_SHIFT)
+	if (JUDGE_getChassisPower() == 50)
 	{
-		if (IF_KEY_PRESSED_SHIFT)
-		{
-			Chassis_Power_Level++;
-			if (Chassis_Power_Level > 1)
-			{
-				Chassis_Power_Level = 1;
-			}
-		}
-		else if (IF_KEY_PRESSED_CTRL)
-		{
-			Chassis_Power_Level = 0;
-		}
+		Chassis_Power_Level = LOW;
+	}
+	else if (JUDGE_getChassisPower() == 60)
+	{
+		Chassis_Power_Level = MID;
+	}
+	else if (JUDGE_getChassisPower() == 70)
+	{
+		Chassis_Power_Level = HIGH;
+	}
+	else if (JUDGE_getChassisPower() == 80)
+	{
+		Chassis_Power_Level = MAD;
+	}
+	else if (JUDGE_getChassisPower() == 100)
+	{
+		Chassis_Power_Level = DRUNK;
+	}
+	else if (JUDGE_getChassisPower() == 120)
+	{
+		Chassis_Power_Level = DESTRUCTIVE;
 	}
 }
 
@@ -1351,12 +1360,44 @@ void Chassis_Motor_Speed_PID_KEY(void)
 			Chassis_Speed_Target[i] *= vector_rate / LOW_RATE;
 		}
 	}
+	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == MID)
+	{
+		vector_rate = MAX_WHEEL_SPEED / (max_vector);
+		for (i = 0; i < 4; i++)
+		{
+			Chassis_Speed_Target[i] *= vector_rate / MID_RATE;
+		}
+	}
 	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == HIGH)
 	{
 		vector_rate = MAX_WHEEL_SPEED / (max_vector);
 		for (i = 0; i < 4; i++)
 		{
 			Chassis_Speed_Target[i] *= vector_rate / HIGH_RATE;
+		}
+	}
+	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == MAD)
+	{
+		vector_rate = MAX_WHEEL_SPEED / (max_vector);
+		for (i = 0; i < 4; i++)
+		{
+			Chassis_Speed_Target[i] *= vector_rate / MAD_RATE;
+		}
+	}
+	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == DRUNK)
+	{
+		vector_rate = MAX_WHEEL_SPEED / (max_vector);
+		for (i = 0; i < 4; i++)
+		{
+			Chassis_Speed_Target[i] *= vector_rate / DRUNK_RATE;
+		}
+	}
+	else if (max_vector > MAX_WHEEL_SPEED && Chassis_Power_Level == DESTRUCTIVE)
+	{
+		vector_rate = MAX_WHEEL_SPEED / (max_vector);
+		for (i = 0; i < 4; i++)
+		{
+			Chassis_Speed_Target[i] *= vector_rate / DESTRUCTIVE_RATE;
 		}
 	}
 
@@ -1604,4 +1645,10 @@ void Angle_error(void)
 	theta = -Cloud_Angle_Measure[YAW][MECH]; //+ theta_error;
 	theta_error1 = cos(theta);
 	theta_error2 = sin(theta);
+}
+
+//获取底盘运动状态
+uint8_t GetChassisAction(void)
+{
+	return Chassis_Action;
 }

@@ -188,7 +188,7 @@ float JUDGE_fGetChassisPower(void)
   */
 float JUDGE_fGetFireRate(void)
 {
-	return (GameRobotStat.shooter_heat1_cooling_rate);
+	return (GameRobotStat.shooter_id2_17mm_speed_limit);
 }
 
 /**
@@ -287,7 +287,8 @@ void JUDGE_ShootNum_Clear(void)
   */
 uint16_t JUDGE_usGetHeatLimit(void)
 {
-	return GameRobotStat.shooter_heat0_cooling_limit;
+	return GameRobotStat.shooter_id2_17mm_cooling_limit;
+;
 }
 
 /**
@@ -298,7 +299,7 @@ uint16_t JUDGE_usGetHeatLimit(void)
   */
 uint16_t JUDGE_usGetShootCold(void)
 {
-	return GameRobotStat.shooter_heat0_cooling_rate;
+	return GameRobotStat.shooter_id1_17mm_cooling_rate;
 }
 
 /****************底盘自动闪避判断用*******************/
@@ -381,4 +382,12 @@ void determine_ID(void)
 	{
 		Judge_SelfClient_ID = 0x0100 + Judge_Self_ID;//计算客户端ID
 	}
+}
+
+/**
+ * @brief 返回底盘最大功率上限
+ * 
+ */
+float JUDGE_getChassisPower(void){
+	return GameRobotStat.chassis_power_limit;
 }

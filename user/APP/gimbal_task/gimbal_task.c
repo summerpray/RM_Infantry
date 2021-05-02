@@ -1507,3 +1507,11 @@ float GIMBAL_MPU_angle(float *get){
 	*get = Cloud_Angle_Measure[YAW][GYRO];
 	return *get;
 }
+
+/**
+ * @brief 返回自瞄是否识别到目标
+ * 
+ */
+bool AUTOMode(void){
+	return VisionRecvData.identify_target;
+}

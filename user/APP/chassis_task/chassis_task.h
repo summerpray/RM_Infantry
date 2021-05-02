@@ -65,7 +65,18 @@ extern void chassis_task(void *pvParameters);
 
 //键盘模式底盘功率切换控制
 #define LOW 0
-#define HIGH 1
+#define MID 1
+#define HIGH 2
+#define MAD 3
+#define DRUNK 4
+#define DESTRUCTIVE 5 //毁灭冲锋
+
+#define LOW_RATE 1.3f
+#define MID_RATE 1.2f
+#define HIGH_RATE 1.1f
+#define MAD_RATE 1.0f
+#define DRUNK_RATE 0.9f
+#define DESTRUCTIVE_RATE 0.8f
 
 //底盘电机最大速度
 #define MAX_WHEEL_SPEED 2.0f  
@@ -84,9 +95,6 @@ extern void chassis_task(void *pvParameters);
 #define CHASSIS_VY_RC_SEN 0.004f
 
 #define CHASSIS_RC_DEADLINE 10
-
-#define HIGH_RATE 1.3f
-#define LOW_RATE 1.3f
 
 //摇摆原地不动摇摆最大角度(rad)
 #define SWING_NO_MOVE_ANGLE 0.785f
@@ -233,5 +241,6 @@ float Chassis_Key_MoveRamp( uint8_t status, int16_t *time, int16_t inc, int16_t 
 void Chassis_Mouse_Move_Calculate( int16_t sRevolMax );
 bool CHASSIS_IfActiveMode(void);//获取底盘移动模式
 bool Chassis_IfSHAKE(void);//是否在扭屁股
+uint8_t GetChassisAction(void);
 
 #endif
