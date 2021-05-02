@@ -38,15 +38,15 @@ extern void chassis_task(void *pvParameters);
 #define M3505_MOTOR_SPEED_PID_MAX_IOUT 2000.0f
 
 #define M3505_MOTOR_SPEED_KEY_PID_KP 6000.0f//6000
-#define M3505_MOTOR_SPEED_KEY_PID_KI 5.0f
+#define M3505_MOTOR_SPEED_KEY_PID_KI 4.0f
 #define M3505_MOTOR_SPEED_KEY_PID_KD 1.0f
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_OUT 16000.0f
 #define M3505_MOTOR_SPEED_KEY_PID_MAX_IOUT 2000.0f
 
 //底盘旋转跟随PID 键盘模式
-#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 0.3f  //0.15
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KP 0.30f  //0.15
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KI 0.0f
-#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD 0.01f
+#define CHASSIS_FOLLOW_GIMBAL_PID_KEY_KD 0.05f
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_OUT 3.0f //3.0
 #define CHASSIS_FOLLOW_GIMBAL_PID_KEY_MAX_IOUT 0.1f
 
@@ -75,7 +75,7 @@ extern void chassis_task(void *pvParameters);
 //底盘运动过程最大平移速度
 #define NORMAL_MAX_CHASSIS_SPEED_Y 1.0f
 //底盘运动过程最大旋转速度
-#define NORMAL_MAX_CHASSIS_SPEED_Z 0.2f
+#define NORMAL_MAX_CHASSIS_SPEED_Z 0.3f
 
 
 //遥控器前进摇杆（max 660）转化成车体前进速度（m/s）的比例
@@ -86,7 +86,7 @@ extern void chassis_task(void *pvParameters);
 #define CHASSIS_RC_DEADLINE 10
 
 #define HIGH_RATE 1.3f
-#define LOW_RATE 1.5f
+#define LOW_RATE 1.3f
 
 //摇摆原地不动摇摆最大角度(rad)
 #define SWING_NO_MOVE_ANGLE 0.785f
@@ -96,7 +96,7 @@ extern void chassis_task(void *pvParameters);
 //跟随底盘yaw模式下，遥控器的yaw遥杆（max 660）增加到车体角度的比例
 #define CHASSIS_ANGLE_Z_RC_SEN 0.000002f
 //不跟随云台的时候 遥控器的yaw遥杆（max 660）转化成车体旋转速度的比例
-#define CHASSIS_WZ_RC_SEN 0.001f
+#define CHASSIS_WZ_RC_SEN 0.01f
 
 
 //m3508转化成底盘速度(m/s)的比例，做两个宏 是因为可能换电机需要更换比例
@@ -173,8 +173,8 @@ typedef enum
 	CHASSIS_MECH_MODE = 0,//机械
 	CHASSIS_GYRO_MODE = 1,//陀螺仪,底盘跟随云台
 	CHASSIS_SHAKE_MODE = 2, //摇摆模式
-	CHASSIS_TOP_MODE =3,
-	CHASSIS_MISS_MODE = 4,
+	CHASSIS_TOP_MODE =3,//小陀螺
+	CHASSIS_MISS_MODE = 4,//45度对敌
 	
 } ChassisCtrlMode;
 

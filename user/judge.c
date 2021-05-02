@@ -181,6 +181,17 @@ float JUDGE_fGetChassisPower(void)
 }
 
 /**
+  * @brief  读取射速上限
+  * @param  void
+  * @retval 射速上限
+  * @attention  
+  */
+float JUDGE_fGetFireRate(void)
+{
+	return (GameRobotStat.shooter_heat1_cooling_rate);
+}
+
+/**
   * @brief  读取剩余焦耳能量
   * @param  void
   * @retval 剩余缓冲焦耳能量(最大60)

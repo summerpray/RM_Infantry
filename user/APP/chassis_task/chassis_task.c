@@ -87,7 +87,6 @@ uint8_t remote_change = TRUE;
 //底盘功率更改变量
 uint16_t Chassis_Power_Level = 0;
 
-
 void chassis_task(void *pvParameters)
 {
 	//    //空闲一段时间
@@ -340,7 +339,7 @@ void chassis_feedback_update(void)
 	}
 	if (Chassis_Mode == CHASSIS_MISS_MODE)
 	{
-		Chassis_Gyro_Error = GIMBAL_GetOffsetAngle() + PI/4; //45度对敌模式
+		Chassis_Gyro_Error = GIMBAL_GetOffsetAngle() + PI / 4; //45度对敌模式
 	}
 	else
 	{
@@ -401,7 +400,6 @@ void Chassis_Rc_Control(void)
 	//死区限制，因为遥控器可能存在差异 摇杆在中间，其值不为0               当遥控器拨动值较小时输出为0，防止误触
 	rc_deadline_limit(rc_ctrl.rc.ch[3], vy_channel, CHASSIS_RC_DEADLINE);
 	rc_deadline_limit(rc_ctrl.rc.ch[2], vx_channel, CHASSIS_RC_DEADLINE);
-
 
 	vx_set_channel = vx_channel * -CHASSIS_VX_RC_SEN; //将遥控器的值转化为机器人运动的速度
 	vy_set_channel = vy_channel * CHASSIS_VY_RC_SEN;
@@ -597,11 +595,17 @@ void Chassis_Set_key_Contorl(void)
 		}
 		else
 		{
-			Chassis_Move_Z = 0.5f;
+			Chassis_Move_Z = 1.0f;
 			Angle_error();
+			fp32 sin_yaw = 0.0f, cos_yaw = 0.0f;
 
-			Chassis_Move_X1 = (cos(theta) * Chassis_Move_X) + (-sin(theta) * Chassis_Move_Y);
-			Chassis_Move_Y1 = (sin(theta) * Chassis_Move_X) + (cos(theta) * Chassis_Move_Y);
+			//旋转控制底盘速度方向，保证前进方向是云台方向，有利于运动平稳
+			sin_yaw = arm_sin_f32(Cloud_Angle_Measure[YAW][MECH]);
+			cos_yaw = arm_cos_f32(Cloud_Angle_Measure[YAW][MECH]);
+			Chassis_Move_X1 = cos_yaw * Chassis_Move_X + sin_yaw * Chassis_Move_Y;
+			Chassis_Move_Y1 = -sin_yaw * Chassis_Move_X + cos_yaw * Chassis_Move_Y;
+			//Chassis_Move_X1 = (cos(theta) * Chassis_Move_X) + (-sin(theta) * Chassis_Move_Y);
+			//Chassis_Move_Y1 = (sin(theta) * Chassis_Move_X) + (cos(theta) * Chassis_Move_Y);
 			Chassis_Move_X = fp32_constrain(Chassis_Move_X1, vx_min_speed, vx_max_speed);
 			Chassis_Move_Y = fp32_constrain(Chassis_Move_Y1, vy_min_speed, vy_max_speed);
 			Chassis_Move_Z = fp32_constrain(Chassis_Move_Z, vz_min_speed, vz_max_speed);
@@ -1023,7 +1027,6 @@ void Chassis_Keyboard_Move_Calculate(int16_t sMoveMax, int16_t sMoveRamp)
 
 	// Slope_Chassis_Move_Fron = (int16_t)(+Chassis_Standard_Move_Max *
 	// 									Chassis_Key_MoveRamp(IF_KEY_PRESSED_W, &timeXFron, timeInc, TIME_DEC_NORMAL));
-
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
