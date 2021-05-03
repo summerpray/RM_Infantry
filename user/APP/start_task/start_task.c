@@ -32,8 +32,14 @@
 #include "gimbal_task.h"
 #include "shoot_task.h"
 #include "magazine.h"
+#include "super_cap.h"
 
 #include "timer.h"
+
+#define SuperCap_TASK_PRIO 10
+#define SuperCap_STK_SIZE 512
+static TaskHandle_t SuperCapTask_Handler;
+
 #define GIMBAL_TASK_PRIO 19
 #define GIMBAL_STK_SIZE 512
 TaskHandle_t GIMBALTask_Handler;
@@ -75,7 +81,12 @@ extern RC_ctrl_t rc_ctrl;
 void start_task(void *pvParameters)
 {
     taskENTER_CRITICAL();
-
+    xTaskCreate((TaskFunction_t)Super_cap_task,
+                (const char *)"Super_cap_task",
+                (uint16_t)SuperCap_STK_SIZE,
+                (void *)NULL,
+                (UBaseType_t)SuperCap_TASK_PRIO,
+                (TaskHandle_t *)&SuperCapTask_Handler);
 
     xTaskCreate((TaskFunction_t)GIMBAL_task,
                 (const char *)"GIMBAL_task",

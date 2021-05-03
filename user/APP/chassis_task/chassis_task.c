@@ -600,11 +600,11 @@ void Chassis_Set_key_Contorl(void)
 	{
 		if ((fabs(Chassis_Move_X) < 0.001) && (fabs(Chassis_Move_Y) < 0.001))
 		{
-			Chassis_Move_Z = 1.5f;
+			Chassis_Move_Z = 0.7f;
 		}
 		else
 		{
-			Chassis_Move_Z = 1.0f;
+			Chassis_Move_Z = 0.5f;
 			Angle_error();
 			fp32 sin_yaw = 0.0f, cos_yaw = 0.0f;
 
@@ -1287,6 +1287,7 @@ void Chassis_Omni_Move_Calculate(void)
 	Chassis_Speed_Target[RIGH_FRON_202] = (-Chassis_Move_X - Chassis_Move_Y + Chassis_Move_Z * rotate_ratio_fl) * wheel_rpm_ratio;
 	Chassis_Speed_Target[LEFT_BACK_203] = (+Chassis_Move_X + Chassis_Move_Y + Chassis_Move_Z * rotate_ratio_bl) * wheel_rpm_ratio;
 	Chassis_Speed_Target[RIGH_BACK_204] = (+Chassis_Move_X - Chassis_Move_Y + Chassis_Move_Z * rotate_ratio_br) * wheel_rpm_ratio;
+	
 }
 
 /**
