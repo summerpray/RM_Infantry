@@ -219,6 +219,7 @@ void GIMBAL_task(void *pvParameters)
 				{
 					actGimbal = GIMBAL_AUTO;
 				}
+				//Vision_Ctrl();
 				KEY_Set_Mode();
 			}
 			else

@@ -67,15 +67,7 @@ uint8_t Vision_Time_Test[2] = {0}; //当前数据和上一次数据
 uint8_t Vision_Ping = 0;		   //发送时间间隔
 void Vision_Read_Data(uint8_t *ReadFormUart7)
 {
-	//判断帧头数据是否为0xA5
-	if (ReadFormUart7[0] == VISION_SOF)
-	{
-		//帧头CRC8校验
-		if (Verify_CRC8_Check_Sum(ReadFormUart7, VISION_LEN_HEADER) == TRUE)
-		{
-			//帧尾CRC16校验
-			if (Verify_CRC16_Check_Sum(ReadFormUart7, VISION_LEN_PACKED) == TRUE)
-			{
+
 				//接收数据拷贝
 				memcpy(&VisionRecvData, ReadFormUart7, VISION_LEN_PACKED);
 				Vision_Get_New_Data = TRUE; //标记视觉数据更新了
@@ -89,9 +81,7 @@ void Vision_Read_Data(uint8_t *ReadFormUart7)
 					if (VisionRecvData.identify_buff == 2) //发2说明换装甲板了
 					{
 						Vision_Armor = TRUE; //发2换装甲
-					}
-				}
-			}
+		
 		}
 	}
 }
@@ -116,48 +106,59 @@ void Vision_Send_Data(uint8_t CmdID)
 	VisionSendHeader.CmdID = CmdID; //对视觉来说最重要的数据
 
 	//写入帧头
-	memcpy(vision_send_pack, &VisionSendHeader, VISION_LEN_HEADER);
-
+	//memcpy(vision_send_pack, &VisionSendHeader, VISION_LEN_HEADER);
 	//帧头CRC8校验协议
-	Append_CRC8_Check_Sum(vision_send_pack, VISION_LEN_HEADER);
+	//Append_CRC8_Check_Sum(vision_send_pack, VISION_LEN_HEADER);
 
 	//中间数据不用管,视觉用不到,用到了也是后面自瞄自动开火,用到角度补偿数据
-	VisionSendData.pitch_angle = 0.f;
-	VisionSendData.yaw_angle = 0.f;
-	VisionSendData.distance = 999.99f;
-	if (GIMBAL_AUTO_PITCH_SB() == TRUE)
-	{
-		VisionSendData.lock_sentry = 1; //识别哨兵，发1
-	}
-	else
-	{
-		VisionSendData.lock_sentry = 0; //不在识别哨兵，发0
-	}
+	//VisionSendData.pitch_angle = 0.f;
+	//VisionSendData.yaw_angle = 0.f;
+	//VisionSendData.distance = 999.99f;
+	// if (GIMBAL_AUTO_PITCH_SB() == TRUE)
+	// {
+	// 	VisionSendData.lock_sentry = 1; //识别哨兵，发1
+	// }
+	// else
+	// {
+	// 	VisionSendData.lock_sentry = 0; //不在识别哨兵，发0
+	// }
 
-	if (GIMBAL_If_Base() == TRUE)
-	{
-		VisionSendData.base = 1; //吊射基地，发1
-	}
-	else
-	{
-		VisionSendData.base = 0; //不在吊射，发0
-	}
+	// if (GIMBAL_If_Base() == TRUE)
+	// {
+	// 	VisionSendData.base = 1; //吊射基地，发1
+	// }
+	// else
+	// {
+	// 	VisionSendData.base = 0; //不在吊射，发0
+	// }
 
-	VisionSendData.blank_a = 0;
-	VisionSendData.blank_b = 0;
-	VisionSendData.blank_c = 0;
-	memcpy(vision_send_pack + VISION_LEN_HEADER, &VisionSendData, VISION_LEN_DATA);
+	VisionSendData.speed = 14;
+	// VisionSendData.blank_b = 0;
+	// VisionSendData.blank_c = 0;
+	//memcpy(vision_send_pack + VISION_LEN_HEADER, &VisionSendData, VISION_LEN_DATA);
 
 	//帧尾CRC16校验协议
-	Append_CRC16_Check_Sum(vision_send_pack, VISION_LEN_PACKED);
-
+	//Append_CRC16_Check_Sum(vision_send_pack, VISION_LEN_PACKED);
+	vision_send_pack[0] = 0xA5;
+	if (IF_RC_SW1_UP){
+		vision_send_pack[1] = 0x01;
+	}
+	if (IF_RC_SW1_MID){
+		vision_send_pack[1] = 0x02;
+	}
+	if (IF_RC_SW1_DOWN){
+		vision_send_pack[1] = 0x03;
+	}
+	vision_send_pack[2] = VisionSendData.speed;
+	vision_send_pack[3] = 0xFF;
 	//将打包好的数据通过串口移位发送到裁判系统
-	for (i = 0; i < VISION_LEN_PACKED; i++)
+	for (i = 0; i < 4; i++)
 	{
 		Uart7_SendChar(vision_send_pack[i]);
 	}
 
 	memset(vision_send_pack, 0, 50);
+	vTaskDelay(100);
 }
 
 /**********************************视觉控制*****************************************/
@@ -179,10 +180,10 @@ void Vision_Ctrl(void)
 		{
 			VisionActData = VISION_MANU;
 		}
-		else //默认朋友开挂,常威你还敢说你不会武功
-		{
-			VisionActData = VISION_AUTO;
-		}
+		 else //默认朋友开挂,常威你还敢说你不会武功
+		 {
+		 	VisionActData = VISION_AUTO;
+		 }
 
 		switch (VisionActData)
 		{

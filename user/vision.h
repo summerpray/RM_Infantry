@@ -11,10 +11,10 @@
 #define    VISION_DATA_ERROR      0          //ÊÓ¾õÊı¾İ´íÎó
 #define    VISION_DATA_CORRECT    1          //ÊÓ¾õÊı¾İ´íÎó
 
-#define    VISION_LEN_HEADER      3          //Ö¡Í·³¤
+#define    VISION_LEN_HEADER      2          //Ö¡Í·³¤
 #define    VISION_LEN_DATA        17         //Êı¾İ¶Î³¤¶È,¿É×Ô¶¨Òå
-#define    VISIOV_LEN_TAIL        2	         //Ö¡Î²CRC16
-#define    VISION_LEN_PACKED      22         //Êı¾İ°ü³¤¶È
+#define    VISIOV_LEN_TAIL        1	         //Ö¡Î²CRC16
+#define    VISION_LEN_PACKED      20        //Êı¾İ°ü³¤¶È
 
 #define    VISION_OFF         		  (0x00)   //¹Ø±ÕÊÓ¾õ
 #define    VISION_RED           	  (0x01)   //Ê¶±ğºìÉ«
@@ -78,7 +78,6 @@ typedef __packed struct    //3 Byte
 	/* Í· */
 	uint8_t   SOF;			//Ö¡Í·ÆğÊ¼Î»,Ôİ¶¨0xA5
 	uint8_t   CmdID;		//Ö¸Áî
-	uint8_t   CRC8;			//Ö¡Í·CRCĞ£Ñé,±£Ö¤·¢ËÍµÄÖ¸ÁîÊÇÕıÈ·µÄ
 	
 }VisionSendHeader_t;
 
@@ -89,7 +88,6 @@ typedef __packed struct       //17 Byte
 	/* Í· */
 	uint8_t   SOF;			//Ö¡Í·ÆğÊ¼Î»,Ôİ¶¨0xA5
 	uint8_t   CmdID;		//Ö¸Áî
-	uint8_t   CRC8;			//Ö¡Í·CRCĞ£Ñé,±£Ö¤·¢ËÍµÄÖ¸ÁîÊÇÕıÈ·µÄ
 	
 	/* Êı¾İ */
 	float     pitch_angle;
@@ -104,7 +102,7 @@ typedef __packed struct       //17 Byte
 	
 	
 	/* Î² */
-	uint16_t  CRC16;     //Ö¡Î²     
+	uint8_t  WEI;     //Ö¡Î²     
 	
 }VisionRecvData_t;
 
@@ -114,15 +112,15 @@ typedef struct
 
 	
 	/* Êı¾İ */
-	float     pitch_angle;     //µ±Ç°½Ç¶È
-	float     yaw_angle;       //µ±Ç°½Ç¶È                                              (»úĞµ?ÍÓÂİÒÇ?)¿)???????????
-	float     distance;			   //¾àÀë
-	uint8_t   lock_sentry;	 	 //ÊÇ·ñÔÚÌ§Í·Ê¶±ğÉÚ±ø
-	uint8_t   base;				     //µõÉä
+	// float     pitch_angle;     //µ±Ç°½Ç¶È
+	// float     yaw_angle;       //µ±Ç°½Ç¶È                                              (»úĞµ?ÍÓÂİÒÇ?)?)???????????
+	// float     distance;			   //¾àÀë
+	// uint8_t   lock_sentry;	 	 //ÊÇ·ñÔÚÌ§Í·Ê¶±ğÉÚ±ø
+	// uint8_t   base;				     //µõÉä
 	
-	uint8_t   blank_a;		//Ô¤Áô
-	uint8_t	  blank_b;
-	uint8_t	  blank_c;	
+	uint8_t   speed;		//Ô¤Áô
+	//uint8_t	  blank_b;
+	//uint8_t	  blank_c;	
 	
 	/* Î² */
 	uint16_t  CRC16;

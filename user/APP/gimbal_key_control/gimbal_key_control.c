@@ -48,8 +48,8 @@ void GIMBAL_NORMAL_Mode_Ctrl(void)
 	static portTickType  Key_Ctrl_CurrentTime = 0;
 	static uint32_t PressV_Time  = 0;//调头,500ms延时响应,1秒最多按2下
 	static uint32_t PressQ_Time  = 0;//90°,250ms延时响应,1秒最多按4下
-  static uint32_t PressE_Time  = 0;//90°,250ms延时响应,1秒最多按4下
-//	static uint32_t PressCF_Time  = 0;//打大符,400ms延时响应
+    static uint32_t PressE_Time  = 0;//90°,250ms延时响应,1秒最多按4下
+	static uint32_t PressCF_Time  = 0;//打大符,400ms延时响应
 //	static uint32_t PressCV_Time  = 0;//打小符,400ms延时响应
 	
 	Key_Ctrl_CurrentTime = xTaskGetTickCount( );//获取实时时间,用来做按键延时判断	
@@ -123,11 +123,11 @@ void GIMBAL_NORMAL_Mode_Ctrl(void)
 //		actGimbal = GIMBAL_SM_BUFF;
 //	}
 //	/*----------------大符-----------------*/
-//	else if(IF_KEY_PRESSED_F && IF_KEY_PRESSED_CTRL && Key_Ctrl_CurrentTime > PressCF_Time)//Ctrl+F打符,400ms响应一次
-//	{
-//		PressCF_Time = Key_Ctrl_CurrentTime + TIME_STAMP_400MS;
-//		actGimbal = GIMBAL_BUFF;
-//	}
+	else if(IF_KEY_PRESSED_R && IF_KEY_PRESSED_CTRL && Key_Ctrl_CurrentTime > PressCF_Time)//Ctrl+F打符,400ms响应一次
+	{
+		PressCF_Time = Key_Ctrl_CurrentTime + TIME_STAMP_400MS;
+		actGimbal = GIMBAL_BUFF;
+	}
 //	/*----------------吊射-----------------*/
 //	else if(IF_KEY_PRESSED_C && !IF_MOUSE_PRESSED_RIGH && !IF_RC_SW1_MID)
 //	{
