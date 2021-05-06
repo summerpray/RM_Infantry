@@ -73,7 +73,7 @@ void CAN1_Cap_Send(u16 temPower)
 	TxMessage.Data[0]=(temPower >> 8);
 	TxMessage.Data[1]=(temPower);
 	
-	CAN_Transmit(CAN1,&TxMessage);
+	CAN_Transmit(CAN2,&TxMessage);
 }
 
 

@@ -113,21 +113,6 @@ void CAN1_RX0_IRQHandler(void)
 		current_measure = ((int16_t)RxMessage.Data[4] << 8 | RxMessage.Data[5]);
 		GIMBAL_UpdateSpeed(PITCH, current_measure);
 	}
-
-	if (RxMessage.StdId == 0x211) //超级电容控制板
-	{
-		Cap_Inputvot = (float)((int16_t)(RxMessage.Data[1] << 8 | RxMessage.Data[0])) / 100.0f; //输入电压
-		Cap_Update_Cap_Inputvot(Cap_Inputvot);
-
-		Cap_Capvot = (float)((int16_t)(RxMessage.Data[3] << 8 | RxMessage.Data[2])) / 100.0f; //电容电压
-		Cap_Update_Cap_Capvot(Cap_Capvot);
-
-		Cap_Test_current = (float)((int16_t)(RxMessage.Data[5] << 8 | RxMessage.Data[4])) / 100.0f; //输入电流
-		Cap_Update_Cap_Test_current(Cap_Test_current);
-
-		Cap_Target_Power = (float)((int16_t)(RxMessage.Data[7] << 8 | RxMessage.Data[6])) / 100.0f; //输入功率
-		Cap_Update_Cap_Target_Power(Cap_Target_Power);
-	}
 }
 
 void CAN2_RX0_IRQHandler(void)
@@ -190,6 +175,20 @@ void CAN2_RX0_IRQHandler(void)
 
 			current_measure = ((int16_t)RxMessage.Data[4] << 8 | RxMessage.Data[5]);
 			CHASSIS_UpdateMotorCur(RIGH_BACK_204, current_measure);
+		}
+		if (RxMessage.StdId == 0x211) //超级电容控制板
+		{
+			Cap_Inputvot = (float)((int16_t)(RxMessage.Data[1] << 8 | RxMessage.Data[0])) / 100.0f; //输入电压
+			Cap_Update_Cap_Inputvot(Cap_Inputvot);
+
+			Cap_Capvot = (float)((int16_t)(RxMessage.Data[3] << 8 | RxMessage.Data[2])) / 100.0f; //电容电压
+			Cap_Update_Cap_Capvot(Cap_Capvot);
+
+			Cap_Test_current = (float)((int16_t)(RxMessage.Data[5] << 8 | RxMessage.Data[4])) / 100.0f; //输入电流
+			Cap_Update_Cap_Test_current(Cap_Test_current);
+
+			Cap_Target_Power = (float)((int16_t)(RxMessage.Data[7] << 8 | RxMessage.Data[6])) / 100.0f; //输入功率
+			Cap_Update_Cap_Target_Power(Cap_Target_Power);
 		}
 	}
 }
