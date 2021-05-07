@@ -68,12 +68,12 @@ extern void chassis_task(void *pvParameters);
 #define DRUNK 4
 #define DESTRUCTIVE 5 //毁灭冲锋
 
-#define LOW_RATE 1.3f
-#define MID_RATE 1.2f
-#define HIGH_RATE 1.1f
-#define MAD_RATE 1.0f
-#define DRUNK_RATE 0.9f
-#define DESTRUCTIVE_RATE 0.8f
+#define LOW_RATE 2.0f
+#define MID_RATE 1.7f
+#define HIGH_RATE 1.4f
+#define MAD_RATE 1.3f
+#define DRUNK_RATE 1.2f
+#define DESTRUCTIVE_RATE 1.1f
 
 //底盘电机最大速度
 #define MAX_WHEEL_SPEED 2.0f

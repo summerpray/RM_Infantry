@@ -62,14 +62,14 @@
 //yaw 角度环 角度由陀螺仪解算 PID参数以及 PID最大输出，积分输出
 #define YAW_GYRO_ABSOLUTE_PID_KP 3000.0f//3500
 #define YAW_GYRO_ABSOLUTE_PID_KI 0.1f
-#define YAW_GYRO_ABSOLUTE_PID_KD 3.0f
+#define YAW_GYRO_ABSOLUTE_PID_KD 3+.0f
 
 #define YAW_GYRO_ABSOLUTE_PID_MAX_OUT 10000.0f
 #define YAW_GYRO_ABSOLUTE_PID_MAX_IOUT 100.0f
 
 //**自瞄模式**//
 
-//pitch 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出 自瞄PID
+//pitch 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出
 #define PITCH_KEY_PID_KP 1000.0f//1950
 #define PITCH_KEY_PID_KI 0.1f
 #define PITCH_KEY_PID_KD 1.0f
@@ -77,7 +77,7 @@
 #define PITCH_KEY_PID_MAX_OUT 10000.0f
 #define PITCH_KEY_PID_MAX_IOUT 100.0f
 
-//yaw 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出 自瞄PID
+//yaw 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出
 #define YAW_KEY_PID_KP 2000.0f//1950
 #define YAW_KEY_PID_KI 0.3f
 #define YAW_KEY_PID_KD 3.0f
@@ -117,7 +117,19 @@
 #define  GIMBAL_FOLLOW_CHASSIS_PID_MAX_OUT 3.0f //3.0
 #define  GIMBAL_FOLLOW_CHASSIS_PID_MAX_IOUT 0.2f
 
+//pitch 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出 自瞄PID
+#define PITCH_AUTO_PID_KP 1000.0f//1950
+#define PITCH_AUTO_PID_KI 0.1f
+#define PITCH_AUTO_PID_KD 1.0f
+#define PITCH_AUTO_PID_MAX_OUT 10000.0f
+#define PITCH_AUTO_PID_MAX_IOUT 100.0f
 
+//yaw 角度环 角度由编码器 PID参数以及 PID最大输出，积分输出  自瞄PID
+#define YAW_AUTO_PID_KP 2000.0f//1950
+#define YAW_AUTO_PID_KI 0.5f
+#define YAW_AUTO_PID_KD 3.0f
+#define YAW_AUTO_PID_MAX_OUT 10000.0f
+#define YAW_AUTO_PID_MAX_IOUT 100.0f
 
 //二阶卡尔曼滤波数组位置
 #define KF_ANGLE	0
