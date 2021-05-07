@@ -1,5 +1,10 @@
-*.*
-!*.cpp
-!*.c
-!*.h
-!.gitignore
+.idea
+.vscode
+.VSCodeCounter
+Project/DebugConfig
+Project/Listings
+Project/Objects
+*.uvguix.*
+Project/*txt
+Project/*scvd
+
