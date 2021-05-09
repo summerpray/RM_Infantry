@@ -70,12 +70,13 @@ void Vision_Read_Data(uint8_t *ReadFormUart7)
 	//判断帧头数据是否为0xA5
 	if (ReadFormUart7[0] == VISION_SOF)
 	{
-		//帧头CRC8校验
-		if (Verify_CRC8_Check_Sum(ReadFormUart7, VISION_LEN_HEADER) == TRUE)
-		{
-			//帧尾CRC16校验
-			if (Verify_CRC16_Check_Sum(ReadFormUart7, VISION_LEN_PACKED) == TRUE)
-			{
+		if(ReadFormUart7[17] == VISION_WEI){
+//		//帧头CRC8校验
+//		if (Verify_CRC8_Check_Sum(ReadFormUart7, VISION_LEN_HEADER) == TRUE)
+//		{
+//			//帧尾CRC16校验
+//			if (Verify_CRC16_Check_Sum(ReadFormUart7, VISION_LEN_PACKED) == TRUE)
+//			{
 				//接收数据拷贝
 				memcpy(&VisionRecvData, ReadFormUart7, VISION_LEN_PACKED);
 				Vision_Get_New_Data = TRUE; //标记视觉数据更新了
@@ -93,7 +94,7 @@ void Vision_Read_Data(uint8_t *ReadFormUart7)
 				}
 			}
 		}
-	}
+	
 }
 
 /**

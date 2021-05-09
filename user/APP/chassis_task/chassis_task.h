@@ -22,6 +22,7 @@
 #include "pid.h"
 #include "Remote_Control.h"
 #include "user_lib.h"
+#include "super_cap.h"
 //任务开始空闲一段时间
 #define CHASSIS_TASK_INIT_TIME 357
 
@@ -68,8 +69,8 @@ extern void chassis_task(void *pvParameters);
 #define DRUNK 4
 #define DESTRUCTIVE 5 //毁灭冲锋
 
-#define LOW_RATE 2.0f
-#define MID_RATE 1.7f
+#define LOW_RATE 1.6f
+#define MID_RATE 1.5f
 #define HIGH_RATE 1.4f
 #define MAD_RATE 1.3f
 #define DRUNK_RATE 1.2f
@@ -81,9 +82,9 @@ extern void chassis_task(void *pvParameters);
 //底盘运动过程最大前进速度
 #define NORMAL_MAX_CHASSIS_SPEED_X 2.0f
 //底盘运动过程最大平移速度
-#define NORMAL_MAX_CHASSIS_SPEED_Y 1.0f
+#define NORMAL_MAX_CHASSIS_SPEED_Y 1.5f
 //底盘运动过程最大旋转速度
-#define NORMAL_MAX_CHASSIS_SPEED_Z 0.15f
+#define NORMAL_MAX_CHASSIS_SPEED_Z 1.0f
 
 //遥控器前进摇杆（max 660）转化成车体前进速度（m/s）的比例
 #define CHASSIS_VX_RC_SEN 0.004f

@@ -33,6 +33,7 @@
 #include "shoot_task.h"
 #include "magazine.h"
 #include "super_cap.h"
+#include "UI_Task.h"
 
 #include "timer.h"
 
@@ -70,6 +71,9 @@ static TaskHandle_t Task_10msTask_Handler;
 #define System_control_STK_SIZE 512
 static TaskHandle_t System_controlTask_Handler;
 
+#define UI_TASK_PRIO 8
+#define UI_STK_SIZE 512
+static TaskHandle_t UI_Task_Handler;
 
 
 
@@ -129,6 +133,13 @@ void start_task(void *pvParameters)
                 (void *)NULL,
                 (UBaseType_t)System_control_TASK_PRIO,
                 (TaskHandle_t *)&System_controlTask_Handler);
+								
+				 xTaskCreate((TaskFunction_t)UI_Task,
+                (const char *)"System_control",
+                (uint16_t)UI_STK_SIZE,
+                (void *)NULL,
+                (UBaseType_t)UI_TASK_PRIO,
+                (TaskHandle_t *)&UI_Task_Handler);
 
 
     vTaskDelete(StartTask_Handler); //删除开始任务
@@ -191,7 +202,7 @@ void Task_10ms(void *pvParameters)
 	{	
 		vTaskDelay(TIME_STAMP_10MS);				//10ms
 //代码部分		
-		Magazine_Ctrl();		//弹仓控制
+		// Magazine_Ctrl();		//弹仓控制
 		
 //		if(IF_RC_SW1_UP)
 //		 {

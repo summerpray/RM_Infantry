@@ -11,10 +11,10 @@
 #define    VISION_DATA_ERROR      0          //视觉数据错误
 #define    VISION_DATA_CORRECT    1          //视觉数据错误
 
-#define    VISION_LEN_HEADER      3          //帧头长
-#define    VISION_LEN_DATA        17         //数据段长度,可自定义
-#define    VISIOV_LEN_TAIL        2	         //帧尾CRC16
-#define    VISION_LEN_PACKED      22         //数据包长度
+#define    VISION_LEN_HEADER      2          //帧头长
+#define    VISION_LEN_DATA        15         //数据段长度,可自定义
+#define    VISIOV_LEN_TAIL        1	         //帧尾CRC16
+#define    VISION_LEN_PACKED      18         //数据包长度
 
 #define    VISION_OFF         		  (0x00)   //关闭视觉
 #define    VISION_RED           	  (0x01)   //识别红色
@@ -78,7 +78,6 @@ typedef __packed struct    //3 Byte
 	/* 头 */
 	uint8_t   SOF;			//帧头起始位,暂定0xA5
 	uint8_t   CmdID;		//指令
-	uint8_t   CRC8;			//帧头CRC校验,保证发送的指令是正确的
 	
 }VisionSendHeader_t;
 
@@ -89,7 +88,6 @@ typedef __packed struct       //17 Byte
 	/* 头 */
 	uint8_t   SOF;			//帧头起始位,暂定0xA5
 	uint8_t   CmdID;		//指令
-	uint8_t   CRC8;			//帧头CRC校验,保证发送的指令是正确的
 	
 	/* 数据 */
 	float     pitch_angle;
@@ -104,7 +102,7 @@ typedef __packed struct       //17 Byte
 	
 	
 	/* 尾 */
-	uint16_t  CRC16;     //帧尾     
+	uint16_t  END;     //帧尾     
 	
 }VisionRecvData_t;
 

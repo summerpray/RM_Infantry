@@ -600,11 +600,11 @@ void Chassis_Set_key_Contorl(void)
 	{
 		if ((fabs(Chassis_Move_X) < 0.001) && (fabs(Chassis_Move_Y) < 0.001))
 		{
-			Chassis_Move_Z = 0.7f;
+			Chassis_Move_Z = 1.0f;
 		}
 		else
 		{
-			Chassis_Move_Z = 0.5f;
+			Chassis_Move_Z = 0.02f;
 			Angle_error();
 			fp32 sin_yaw = 0.0f, cos_yaw = 0.0f;
 

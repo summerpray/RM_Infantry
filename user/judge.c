@@ -376,7 +376,7 @@ void determine_ID(void)
 	Color = is_red_or_blue();
 	if(Color == BLUE)
 	{
-		Judge_SelfClient_ID = 0x0110 + (Judge_Self_ID-10);//计算客户端ID
+		Judge_SelfClient_ID = 0x0110 + (Judge_Self_ID-0x10);//计算客户端ID
 	}
 	else if(Color == RED)
 	{

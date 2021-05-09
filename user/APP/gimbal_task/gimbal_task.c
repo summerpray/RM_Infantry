@@ -110,6 +110,7 @@ int16_t angleMotorPit, angleMotorYaw;
 int16_t speedMotorPit, speedMotorYaw;
 int16_t currentMotorPit, currentMotorYaw;
 int16_t out;
+int find_armor = 0;
 //期望角度
 float Cloud_Angle_Target[2][3];			  //  pitch/yaw    mech/gyro
 extern float Cloud_Angle_Target_GD[2][2]; //  pitch/yaw    mech/gyro  定义在key_control.c里
@@ -670,8 +671,13 @@ void GIMBAL_AUTO_Mode_Ctrl(void) //上左+   下右-
 
 	if (VisionRecvData.identify_target == TRUE) //识别到了目标
 	{
+		find_armor = 1;
 		Cloud_Angle_Target[YAW][GYRO] = (Cloud_Angle_Measure[YAW][GYRO] - Auto_Error_Yaw[NOW]);
 		Cloud_Angle_Target[PITCH][MECH] = (Cloud_Angle_Measure[PITCH][MECH] + Auto_Error_Pitch[NOW]);
+	}
+	else
+	{
+		find_armor = 0;
 	}
 	//float temp = Auto_Error_Pitch[NOW];
 	//modeGimbal = CLOUD_GYRO_MODE;

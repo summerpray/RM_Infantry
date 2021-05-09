@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "delay.h": "c",
+        "user_task.h": "c",
+        "ui_task.h": "c",
+        "rm_cilent_ui.h": "c"
+    }
+}

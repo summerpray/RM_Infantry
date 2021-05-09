@@ -13,29 +13,29 @@ extern RC_ctrl_t rc_ctrl;
  
 bool Senty_Run_Flag = FALSE;
 
-int16_t Magazine_Target;//PWMĿ��ֵ
-int16_t Magazine_Actual;//PWM��ʵֵ
-int16_t Magazine_ServoRamp = 100;//����б��,���Ʊ仯�ٶ�,ʵ�����ûʲô��
+int16_t Magazine_Target;//PWM????
+int16_t Magazine_Actual;//PWM????
+int16_t Magazine_ServoRamp = 100;//????��??,????��???,???????????
 
-//���ֿ��ر�־λ
-#define MAGA_STEP0    0		//ʧ�ܱ�־
-#define MAGA_STEP1    1		//SW1��λ��־
-#define MAGA_STEP2    2		//���ֿ��ر�־
+//?????????��
+#define MAGA_STEP0    0		//?????
+#define MAGA_STEP1    1		//SW1??��???
+#define MAGA_STEP2    2		//?????????
 
-uint8_t	Magazine_Switch = 0;//����ң��ģʽ���ر�־λת��
+uint8_t	Magazine_Switch = 0;//???????????????��???
 
 
-#define MAGA_KEY_CLOSE    0		//���ּ���ģʽ���ر�־λ
-#define MAGA_KEY_OPEN     1		//���ּ���ģʽ���ر�־λ
+#define MAGA_KEY_CLOSE    0		//???????????????��
+#define MAGA_KEY_OPEN     1		//???????????????��
 
-uint8_t Magazine_Key_Switch = 0;//���ּ���ģʽ���ر�־λת��
+uint8_t Magazine_Key_Switch = 0;//???????????????��???
 
 u8 Maga_Switch_X = 1;
 u8 Maga_Key_R_Change = 0;
 u8 Maga_Times = 0;
 
 /**
-  * @brief  ���ֶ������
+  * @brief  ??????????
   * @param  void
   * @retval void
   * @attention 
@@ -43,9 +43,9 @@ u8 Maga_Times = 0;
 uint8_t maga_remot_change = TRUE;
 void Magazine_Ctrl(void)
 {
-	if (SYSTEM_GetSystemState() == SYSTEM_STARTING)//����Ƕ�ϵͳ��ʼ��
+	if (SYSTEM_GetSystemState() == SYSTEM_STARTING)//?????????????
 	{
-		//�Ƕȳ�ʼ��,ʹĿ��ֵ�����ֵ��Ϊ�ر�ֵ
+		//???????,??????????????????
 		Magazine_Target = Magazine_Close_Angle;
 		Magazine_Actual = Magazine_Close_Angle;
 		Maga_Switch_X = 1;
@@ -54,16 +54,16 @@ void Magazine_Ctrl(void)
 	}
 	else
 	{
-		if (Magezine_Rc_Switch() == TRUE)//�ж��Ƿ�Ҫ���ָı䵱ǰ״̬
+		if (Magezine_Rc_Switch() == TRUE)//?��??????????????
 		{
-			//�ı䵱ǰ״̬���ж�
-			if (Magazine_Target == Magazine_Open_Angle)//���ֿ����˴�ʼ�ս���
+			//?????????��?
+			if (Magazine_Target == Magazine_Open_Angle)//????????????????
 			{
-				Magazine_Target = Magazine_Close_Angle;//��֮ǰ��,�����ڹر�
+				Magazine_Target = Magazine_Close_Angle;//??????,????????
 			}
-			else			//�ڵ��ֹر�֮��˴�ʼ�ս���
+			else			//??????????????????
 			{
-				Magazine_Target = Magazine_Open_Angle;//��֮ǰ�ر�,�����ڴ�
+				Magazine_Target = Magazine_Open_Angle;//???????,???????
 			}
 		}
     	if (SYSTEM_GetRemoteMode() == KEY)
@@ -76,11 +76,11 @@ void Magazine_Ctrl(void)
 			Maga_Switch_X = 1;
 			Maga_Key_R_Change = 0;
 			Maga_Times = 0;
-		    maga_remot_change = TRUE;//����л���ң��ģʽ
+		    maga_remot_change = TRUE;//????��????????
 		  }
 	  }
 	
-	//ʹ���ʵ��ֵ�𲽱ƽ�Ŀ��ֵ,б�����
+	//????????????????,��?????
 	if (Magazine_Actual < Magazine_Target)
 	{
 		Magazine_Actual += Magazine_ServoRamp;
@@ -98,40 +98,40 @@ void Magazine_Ctrl(void)
 
 
 /**
-  * @brief  ң��ģʽ,�ж��Ƿ��´���״̬ת��ָ��,����һ��֮�����̱��FALSE
+  * @brief  ?????,?��?????????????????,????????????????FALSE
   * @param  void
-  * @retval �Ƿ��´��˸ı�״̬��ָ��
-  * @attention �߼��ϸ���,�ú�����
+  * @retval ?????????????????
+  * @attention ????????,?��?????
   */
 bool Magezine_Rc_Switch(void)
 {
-	if (IF_RC_SW2_MID)//ң��ģʽ
+	if (IF_RC_SW2_MID)//?????
 	{
-		if (IF_RC_SW1_UP)//������������1
+		if (IF_RC_SW1_UP)//????????????1
 		{
-			if (Magazine_Switch == MAGA_STEP1)//������������2
+			if (Magazine_Switch == MAGA_STEP1)//????????????2
 			{
 				Magazine_Switch = MAGA_STEP2;
 			}
-			else if (Magazine_Switch == MAGA_STEP2)//���ֹر�
+			else if (Magazine_Switch == MAGA_STEP2)//??????
 			{
-				Magazine_Switch = MAGA_STEP0;//�ж���ϵ
+				Magazine_Switch = MAGA_STEP0;//?��????
 			}
 		}
-		else		//��־SW1�Ƿ��и�λ�����,�ڸ�λ������²����ٴν���STERP2
+		else		//???SW1????��?��?????,???��????????????��???STERP2
 		{
-			Magazine_Switch = MAGA_STEP1;//����SW1���´α任֮ǰһֱ������
+			Magazine_Switch = MAGA_STEP1;//????SW1????����??????????
 		}
 	}
-	else//s2�����м�,���������ֿ���
+	else//s2?????��?,?????????????
 	{
-		Magazine_Switch = MAGA_STEP0;//������Ħ���ֿ���Ҳ�������л��ɼ���ģʽ
+		Magazine_Switch = MAGA_STEP0;//??????????????????????��????????
 	}
 	
 	
 	if (Magazine_Switch == MAGA_STEP2)
 	{
-		return TRUE;//ֻ��SW1���±任��ʱ���ΪTRUE
+		return TRUE;//???SW1???����???????TRUE
 	}
 	else
 	{
@@ -140,7 +140,7 @@ bool Magezine_Rc_Switch(void)
 }
 
 /**
-  * @brief  ����ģʽ
+  * @brief  ??????
   * @param  void
   * @retval void
   * @attention 
@@ -150,9 +150,9 @@ void Magazine_Key_Ctrl(void)
 	static uint32_t ulTimePressX   = 0;
 //	static uint32_t ulTimeOpen     = 0;
 	portTickType ulTimeCurrent  = 0;
-	static uint32_t PressR_Gap = 0;//�ص�������£�R��һ��֮��ʱ�䲻�ٰ�һ������Դ˴�
+	static uint32_t PressR_Gap = 0;//???????????R????????????????????????
 	
-	if(maga_remot_change == TRUE)//�մ�ң��ģʽ�й���
+	if(maga_remot_change == TRUE)//?????????��???
 	{
 		Magazine_Key_Switch = MAGA_KEY_CLOSE;
 		Magazine_Target = Magazine_Close_Angle;
@@ -164,31 +164,31 @@ void Magazine_Key_Ctrl(void)
 	switch (Magazine_Key_Switch)
 	{
 		case MAGA_KEY_CLOSE:	
-			if(!IF_KEY_PRESSED_X)//X�ɿ�
+			if(!IF_KEY_PRESSED_X)//X???
 			{
 				Maga_Switch_X = 1;
-				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_200MS)//500ms��û����X
+				if(ulTimeCurrent - PressR_Gap > TIME_STAMP_200MS)//500ms???????X
 				{
-					Maga_Times = 0;//���¼Ǵ�
+					Maga_Times = 0;//??????
 				}
 			} 
 			
 			if (IF_KEY_PRESSED_X && Maga_Switch_X == 1
-					&& GIMBAL_IfBuffHit() != TRUE)//X����
+					&& GIMBAL_IfBuffHit() != TRUE)//X????
 			{
-				PressR_Gap = ulTimeCurrent;//��¼����ʱ��
+				PressR_Gap = ulTimeCurrent;//??????????
 				Maga_Switch_X = 0;	
 				Maga_Times++;	
 			}	
 			
-			if(Maga_Times >= 2)//500ms������2��
+			if(Maga_Times >= 2)//500ms??????2??
 			{
-				Magazine_Key_Switch = MAGA_KEY_OPEN;//������
+				Magazine_Key_Switch = MAGA_KEY_OPEN;//??????
 				Magazine_Target = Magazine_Open_Angle;
 				if(JUDGE_usGetShootNum()>0)
 				{
-					JUDGE_ShootNum_Clear();//����������
-					//Revolver_Angle_Rest();//���̽Ƕ�����
+					JUDGE_ShootNum_Clear();//??????????
+					//Revolver_Angle_Rest();//??????????
 				}
 				ulTimePressX = ulTimeCurrent;
 			}
@@ -199,17 +199,17 @@ void Magazine_Key_Ctrl(void)
 		break;
 				
 		case MAGA_KEY_OPEN:	
-			if(!IF_KEY_PRESSED_X)//R�ɿ�
+			if(!IF_KEY_PRESSED_X)//R???
 			{
 				Maga_Switch_X = 1;
 			}
 			
 			if (!IF_KEY_PRESSED_X)
 			{
-				ulTimePressX = ulTimeCurrent;//ˢ��S���µ�ʱ��
+				ulTimePressX = ulTimeCurrent;//???S????????
 			}
 			
-			if ( ulTimeCurrent - ulTimePressX >  (TIME_STAMP_500MS + TIME_STAMP_300MS)  //����S����800ms
+			if ( ulTimeCurrent - ulTimePressX >  (TIME_STAMP_500MS + TIME_STAMP_300MS)  //????S????800ms
 						|| IF_KEY_PRESSED_Q || IF_KEY_PRESSED_E || IF_KEY_PRESSED_V )	
 			{
 				Magazine_Key_Switch = MAGA_KEY_CLOSE;
@@ -224,13 +224,13 @@ void Magazine_Key_Ctrl(void)
 	
 }
 
-/**************���ּ���ģʽ����С����****************/
+/**************?????????????��????****************/
 
 /**
-  * @brief  ���ֶ���ŷ�
-  * @param  Ŀ��PWMֵ
+  * @brief  ?????????
+  * @param  ???PWM?
   * @retval void
-  * @attention 28��С
+  * @attention 28??��
   */
 void Magazine_Servo(int16_t pwm)
 {
@@ -240,17 +240,17 @@ void Magazine_Servo(int16_t pwm)
 }
 
 
-/*******************���ָ�������*************************/
+/*******************???????????*************************/
 
 /**
-  * @brief  �����Ƿ��Ѿ������
+  * @brief  ???????????????
   * @param  void
-  * @retval TRUE��,FALSEδ��
+  * @retval TRUE??,FALSE��??
   * @attention 
   */
 bool Magazine_IfOpen(void)
 {
-	if (Magazine_Actual == Magazine_Open_Angle)//��ʵ������ж�
+	if (Magazine_Actual == Magazine_Open_Angle)//?????????��?
 	{
 		return TRUE;
 	}
@@ -261,14 +261,14 @@ bool Magazine_IfOpen(void)
 }
 
 /**
-  * @brief  �����Ƿ����ڴ�
+  * @brief  ????????????
   * @param  void
-  * @retval TRUE����,falseδ��
+  * @retval TRUE????,false��??
   * @attention 
   */
 bool Magazine_IfWait(void)
 {
-	if (Magazine_Target == Magazine_Open_Angle)//��Ŀ������ж�
+	if (Magazine_Target == Magazine_Open_Angle)//?????????��?
 	{
 		return TRUE;
 	}
@@ -278,7 +278,7 @@ bool Magazine_IfWait(void)
 	}
 }
 
-/****************�����ڱ������жϣ���ˢ���ʣ���ֹ��ⲻ������*********************/
+/****************????????????��??????????????????????*********************/
 
 bool Senty_Run(void)
 {
